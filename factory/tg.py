@@ -66,6 +66,13 @@ def media_of(m):
     return None
 
 
+def tiktok_link(m):
+    """Ссылка на TikTok в тексте/подписи -> (url, 'tiktok', '', 0)."""
+    import re
+    mt = re.search(r"https?://(?:www\.|vm\.|vt\.|m\.)?tiktok\.com/[^\s]+", (m.get("text") or "") + " " + (m.get("caption") or ""))
+    return (mt.group(0), "tiktok", "", 0) if mt else None
+
+
 def pull():
     s = load()
     ups = call("getUpdates", offset=s["offset"], timeout=0, allowed_updates='["message"]')
@@ -84,7 +91,7 @@ def pull():
         if frm.get("id") != OWNER or chat.get("id") != OWNER:
             # Гости: принимаем ТОЛЬКО звуки в личке. Тексты, отзывы, команды — игнор.
             # Готовое видео гостю не отправляется никогда — только владельцу.
-            md = media_of(m)
+            md = media_of(m) or tiktok_link(m)
             if chat.get("type") != "private" or not md or frm.get("is_bot"):
                 continue
             fid, kind, title, size = md
@@ -116,7 +123,7 @@ def pull():
                 j.setdefault("feedback", []).append(t)
             reviewed.append(f"{job}: {j['status']}")
             continue
-        md = media_of(m)
+        md = media_of(m) or tiktok_link(m)
         if md:
             fid, kind, title, size = md
             if size and size > 20 * 1024 * 1024:
@@ -151,6 +158,13 @@ def who(p):
 def send_source(jid):
     """Отправить владельцу исходный звук задания (по file_id) с подписью автора."""
     meta = json.loads((ROOT / "jobs" / jid / "meta.json").read_text())
+    if meta["kind"] == "tiktok":
+        src = next((ROOT / "jobs" / jid).glob("src.*"), None) or (ROOT / "jobs" / jid / "in.mp4")
+        with open(src, "rb") as f:
+            requests.post(f"{API}/sendAudio", data={"chat_id": OWNER, "title": meta.get("title", "")[:60],
+                          "caption": f"🎧 Исходный звук · от {who(meta) if meta.get('from') else meta.get('by', 'TikTok')}\n{meta['tiktok_url']}"},
+                          files={"audio": (f"{jid}.mp3" if src.suffix == ".mp3" else f"{jid}.m4a", f)}, timeout=120)
+        return
     method, field = {"audio": ("sendAudio", "audio"), "voice": ("sendVoice", "voice"), "video": ("sendVideo", "video"),
                      "video_note": ("sendVideoNote", "video_note")}.get(meta["kind"], ("sendDocument", "document"))
     params = {"chat_id": OWNER, field: meta["file_id"]}
@@ -163,6 +177,21 @@ def fetch():
     s = load()
     left = []
     for p in s["pending"]:
+        if p["kind"] == "tiktok":
+            try:
+                import tiktok
+                save(s)  # tiktok.get пишет state сам — сначала сохраняем уже скачанное
+                jid = tiktok.get(p["file_id"], who(p))
+                s = load()  # tiktok.get уже записал задание
+                meta_f = ROOT / "jobs" / jid / "meta.json"
+                meta = json.loads(meta_f.read_text()); meta["from"] = p.get("from"); meta_f.write_text(json.dumps(meta, ensure_ascii=False, indent=1))
+            except Exception as e:
+                print("FAILED tiktok", p["file_id"], e)
+                if p.get("tries", 0) < 2:
+                    p["tries"] = p.get("tries", 0) + 1; left.append(p)
+                else:
+                    send_text(f"⚠️ Не смог скачать звук из TikTok ({who(p)}): {p['file_id']}\n{str(e)[:200]}")
+            continue
         jid = time.strftime("%Y%m%d", time.gmtime(p["date"])) + (f"_u{p['from']['id']}" if p.get("from") else "") + f"_{p['msg_id']}"
         jd = ROOT / "jobs" / jid
         jd.mkdir(parents=True, exist_ok=True)
