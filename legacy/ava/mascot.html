@@ -1,0 +1,26 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1080px;height:1080px;background:radial-gradient(circle at 50% 40%,#1a1a22,#050507 75%);font-family:Inter,"Apple Color Emoji",sans-serif;color:#fff;overflow:hidden}
+h1{text-align:center;font-size:58px;font-weight:900;letter-spacing:-2px;margin-top:50px}
+h1 em{font-style:normal;color:#ff3b30}
+p.s{text-align:center;color:#8e8e93;font-size:26px;font-weight:600;margin-top:8px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;padding:50px 60px 0}
+.cell{background:#16161a;border-radius:36px;height:330px;position:relative;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.07);display:flex;flex-direction:column;align-items:center;justify-content:center}
+.cell b{position:absolute;bottom:22px;font-size:24px;font-weight:800;color:#d1d1d6}
+.n{position:relative;width:170px;height:170px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ff7a6e,#ff3b30 45%,#c4000c);box-shadow:0 0 0 10px #000,0 0 60px rgba(255,59,48,.7),inset 0 8px 0 rgba(255,255,255,.35)}
+.e{position:absolute;top:62px;width:30px;height:42px;border-radius:50%;background:#fff}
+.e.l{left:44px}.e.r{right:44px}
+.e i{position:absolute;left:8px;top:12px;width:14px;height:18px;border-radius:50%;background:#111}
+.num{position:absolute;right:-10px;top:-14px;background:#fff;color:#ff3b30;font-weight:900;font-size:30px;border-radius:20px;padding:2px 12px;box-shadow:0 0 0 6px #000}
+</style></head><body>
+<h1>Нотик <em>●</em> — маскот notif.lyrics</h1>
+<p class="s">живой красный бейдж, который проживает каждую строчку</p>
+<div class="grid">
+ <div class="cell"><div class="n"><div class="e l"><i></i></div><div class="e r"><i></i></div></div><b>обычный</b></div>
+ <div class="cell"><div class="n" style="transform:scale(1.05)"><div class="e l" style="height:14px;top:78px;border-radius:0 0 30px 30px"></div><div class="e r" style="height:14px;top:78px;border-radius:0 0 30px 30px"></div><div class="num">99+</div></div><b>влюблён</b></div>
+ <div class="cell"><div class="n" style="filter:saturate(.4) brightness(.8)"><div class="e l" style="height:30px;top:70px"><i style="top:4px"></i></div><div class="e r" style="height:30px;top:70px"><i style="top:4px"></i></div><div style="position:absolute;left:52px;top:112px;width:12px;height:30px;border-radius:6px;background:#64d2ff"></div></div><b>грустит</b></div>
+ <div class="cell"><div class="n" style="background:radial-gradient(circle at 35% 30%,#ff9a8e,#ff2d2d 45%,#900);box-shadow:0 0 0 10px #000,0 0 110px #ff2d2d"><div class="e l" style="transform:rotate(25deg);height:24px;top:72px"><i style="top:4px"></i></div><div class="e r" style="transform:rotate(-25deg);height:24px;top:72px"><i style="top:4px"></i></div><div class="num" style="background:#000;color:#ff3b30">!!!</div></div><b>злится</b></div>
+ <div class="cell"><div class="n" style="background:radial-gradient(circle at 35% 30%,#7aff9a,#30d158 45%,#0a7a2a);box-shadow:0 0 0 10px #000,0 0 60px rgba(48,209,88,.7)"><div class="e l"><i></i></div><div class="e r"><i></i></div><div style="position:absolute;left:30px;right:30px;top:40px;height:22px;border-radius:6px;background:#111"></div><div class="num" style="color:#30d158">$</div></div><b>при деньгах</b></div>
+ <div class="cell"><div class="n" style="opacity:.35;box-shadow:0 0 0 10px #000"><div class="e l" style="height:6px;top:84px"></div><div class="e r" style="height:6px;top:84px"></div></div><b>прочитано (исчез)</b></div>
+</div>
+</body></html>

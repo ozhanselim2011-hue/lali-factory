@@ -1,0 +1,242 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1080px;overflow:hidden;background:#000;font-family:Inter,"Apple Color Emoji",sans-serif}
+#stage{position:absolute;inset:0;overflow:hidden;background:#0a0610}
+#glow{position:absolute;inset:-20%;background:radial-gradient(circle at 50% 55%,var(--g,#7a1f5a) 0%,transparent 55%)}
+#vign{position:absolute;inset:0;background:radial-gradient(circle,transparent 45%,rgba(0,0,0,.8) 100%);z-index:50}
+.pt{position:absolute;font-size:34px}
+#sub{position:absolute;top:56px;left:0;right:0;text-align:center;font-weight:800;font-size:50px;color:#fff;z-index:40;text-shadow:0 4px 24px rgba(0,0,0,.7);padding:0 40px;line-height:1.15}
+#sub span{display:inline-block;margin:0 10px}
+.card{position:absolute;left:50%;top:57%;width:600px;height:690px;margin-left:-300px;margin-top:-345px;border-radius:52px;overflow:hidden;opacity:0;box-shadow:0 40px 120px rgba(0,0,0,.8),0 0 0 1.5px rgba(255,255,255,.08) inset;background:#111214;color:#fff}
+.hdr{font-size:22px;font-weight:600;color:rgba(255,255,255,.55);padding:34px 40px 0}
+.ttl{font-size:46px;font-weight:800;padding:6px 40px 0;letter-spacing:-1px}
+.c{position:absolute;left:0;right:0;text-align:center}
+.mono{font-family:'JetBrains Mono'}
+.row{display:flex;align-items:center;gap:18px;background:#1c1c1e;border-radius:22px;padding:16px 22px;margin-bottom:12px;font-size:26px;font-weight:700}
+.av{width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;flex:none}
+#fade{position:absolute;inset:0;background:#000;opacity:0;z-index:70}
+#flash{position:absolute;inset:0;background:#ff2d78;opacity:0;z-index:60;mix-blend-mode:screen}
+</style></head><body>
+<div id="stage">
+ <div id="glow"></div><div id="pts"></div>
+
+ <!-- 0 lock -->
+ <div class="card" id="c0" style="background:linear-gradient(180deg,#1a0b24,#000)">
+  <div class="c" style="top:110px;font-size:26px;font-weight:600;color:rgba(255,255,255,.7)">суббота, 2 ночи</div>
+  <div class="c" style="top:140px;font-size:150px;font-weight:700;letter-spacing:-4px">02:14</div>
+  <div id="n0" style="position:absolute;left:30px;right:30px;top:390px;background:rgba(60,60,64,.75);border-radius:30px;padding:22px 26px;display:flex;gap:18px;align-items:center;opacity:0">
+   <div style="width:64px;height:64px;border-radius:16px;background:linear-gradient(#30d158,#1a9e45);display:flex;align-items:center;justify-content:center;font-size:34px">📍</div>
+   <div><div style="font-size:24px;font-weight:800">Локатор <span style="font-weight:500;color:#aeaeb2;font-size:20px">· сейчас</span></div><div style="font-size:26px;font-weight:600;margin-top:2px">Объект «Ты» рядом 💗</div></div>
+  </div>
+ </div>
+
+ <!-- 1 palm markup -->
+ <div class="card" id="c1" style="background:#f2efe9;color:#111">
+  <div class="hdr" style="color:#ff9f0a">Заметки › Разметка</div>
+  <div style="position:absolute;left:0;right:0;top:80px;text-align:center;font-size:400px;line-height:1">🤚</div>
+  <div id="ink" style="position:absolute;left:140px;top:190px;width:330px;height:330px;transform:rotate(-8deg)"></div>
+  <div style="position:absolute;left:30px;right:30px;bottom:26px;height:80px;border-radius:26px;background:#fff;box-shadow:0 6px 20px rgba(0,0,0,.12);display:flex;align-items:center;justify-content:space-around;font-size:40px">
+   <span>✏️</span><span id="pen" style="transform:translateY(-14px)">🖊️</span><span>🖍️</span><span style="width:40px;height:40px;border-radius:50%;background:#ff2d78;display:inline-block"></span></div>
+ </div>
+
+ <!-- 2 search history -->
+ <div class="card" id="c2" style="background:#1c1c1e">
+  <div class="hdr" style="color:#0a84ff">Safari</div><div class="ttl">История поиска</div>
+  <div id="hc" class="mono" style="padding:4px 40px 0;font-size:24px;font-weight:700;color:#ff2d78">запросов: 0</div>
+  <div id="hl" style="position:absolute;left:30px;right:30px;top:200px;bottom:20px;overflow:hidden"></div>
+ </div>
+
+ <!-- 3 split -->
+ <div class="card" id="c3" style="background:#0d0d0f">
+  <div class="hdr">Apple Cash</div><div class="ttl">Всё, что захочешь</div>
+  <div id="amt" class="c mono" style="top:170px;font-size:90px;font-weight:800">∞ ₽</div>
+  <div style="position:absolute;left:40px;right:40px;top:310px;height:80px;border-radius:24px;background:#2c2c2e;overflow:hidden;display:flex">
+   <div id="sl" style="background:#ff2d78;display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:900;width:100%">ты</div>
+   <div id="sr" style="background:#5e5ce6;display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:900;width:0">я</div>
+  </div>
+  <div id="hrt" class="c" style="top:420px;height:170px">
+   <div id="hL" style="position:absolute;left:50%;margin-left:-150px;width:150px;height:170px;overflow:hidden"><div style="width:300px;font-size:150px;line-height:170px;text-align:center">❤️</div></div>
+   <div id="hR" style="position:absolute;left:50%;width:150px;height:170px;overflow:hidden"><div style="width:300px;margin-left:-150px;font-size:150px;line-height:170px;text-align:center">❤️</div></div>
+  </div>
+  <div id="pp" class="c" style="bottom:36px;font-size:36px;font-weight:900;color:#ff2d78;opacity:0">ПОПОЛАМ · 50 / 50</div>
+ </div>
+
+ <!-- 4 precision finding -->
+ <div class="card" id="c4" style="background:#000">
+  <div id="pf" style="position:absolute;inset:0;background:#30d158;opacity:0"></div>
+  <div class="c" style="top:60px;font-size:28px;font-weight:700">Поиск «Ты» 💗</div>
+  <div id="arr" style="position:absolute;left:50%;top:180px;width:220px;height:220px;margin-left:-110px;display:flex;align-items:center;justify-content:center;font-size:200px;font-weight:900">↑</div>
+  <div id="dots4" style="position:absolute;inset:0"></div>
+  <div class="c" style="bottom:90px"><div id="dist" class="mono" style="font-size:96px;font-weight:800">12 м</div><div id="dir" style="font-size:28px;font-weight:700;color:#aeaeb2">впереди</div></div>
+ </div>
+
+ <!-- 5 share sheet -->
+ <div class="card" id="c5" style="background:#1c1c1e">
+  <div class="hdr">Поделиться</div><div class="ttl">Отдать «Ты» кому?</div>
+  <div id="sh" style="position:absolute;left:30px;right:30px;top:180px"></div>
+  <div id="al5" style="position:absolute;left:50px;right:50px;top:230px;background:rgba(44,44,46,.97);border-radius:30px;padding:34px 30px;text-align:center;box-shadow:0 30px 80px rgba(0,0,0,.7);opacity:0">
+   <div style="font-size:60px">🔒</div><div style="font-size:32px;font-weight:900;margin-top:8px">Никому не отдам!</div><div style="font-size:22px;color:#aeaeb2;font-weight:600;margin-top:8px">Передача запрещена владельцем.</div></div>
+ </div>
+
+ <!-- 6 airtag owner -->
+ <div class="card" id="c6" style="background:linear-gradient(180deg,#f5f5f7,#e5e5ea);color:#111">
+  <div id="tag" style="position:absolute;left:50%;top:70px;width:240px;height:240px;margin-left:-120px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#fff,#d8d8dc);box-shadow:0 20px 50px rgba(0,0,0,.2),inset 0 0 0 10px #f0f0f2;display:flex;align-items:center;justify-content:center;font-size:110px">💗</div>
+  <div class="c" style="top:340px;font-size:40px;font-weight:900">Ты</div>
+  <div style="position:absolute;left:30px;right:30px;top:410px;background:#fff;border-radius:24px;padding:8px 24px">
+   <div style="display:flex;justify-content:space-between;padding:16px 0;border-bottom:1px solid #eee;font-size:24px;font-weight:700"><span>Владелец</span><span style="color:#ff2d78">я</span></div>
+   <div style="display:flex;justify-content:space-between;padding:16px 0;border-bottom:1px solid #eee;font-size:24px;font-weight:700"><span>Режим пропажи</span><span id="lm" style="color:#8e8e93">выкл.</span></div>
+   <div style="display:flex;justify-content:space-between;padding:16px 0;font-size:24px;font-weight:700"><span>Передать другому</span><span id="tr6" style="color:#8e8e93">…</span></div>
+  </div>
+ </div>
+
+ <!-- 7 favorites -->
+ <div class="card" id="c7" style="background:#000">
+  <div class="hdr" style="color:#0a84ff">Телефон</div><div class="ttl">Избранное</div>
+  <div id="fav" style="position:absolute;left:30px;right:30px;top:180px"></div>
+ </div>
+
+ <!-- 8 batteries -->
+ <div class="card" id="c8" style="background:#1c1c1e">
+  <div class="hdr">Виджет</div><div class="ttl">Элементы питания</div>
+  <div style="display:flex;justify-content:center;gap:60px;margin-top:60px">
+   <div style="text-align:center"><svg width="200" height="200"><circle cx="100" cy="100" r="82" fill="none" stroke="#3a3a3c" stroke-width="18"/><circle id="b1" cx="100" cy="100" r="82" fill="none" stroke="#ff2d78" stroke-width="18" stroke-linecap="round" stroke-dasharray="515" transform="rotate(-90 100 100)"/><text x="100" y="118" text-anchor="middle" font-size="56">📱</text></svg>
+    <div id="b1t" class="mono" style="font-size:36px;font-weight:800;margin-top:8px">100%</div><div style="font-size:22px;color:#8e8e93;font-weight:700">ты</div></div>
+   <div style="text-align:center"><svg width="200" height="200"><circle cx="100" cy="100" r="82" fill="none" stroke="#3a3a3c" stroke-width="18"/><circle id="b2" cx="100" cy="100" r="82" fill="none" stroke="#5e5ce6" stroke-width="18" stroke-linecap="round" stroke-dasharray="515" transform="rotate(-90 100 100)"/><text x="100" y="118" text-anchor="middle" font-size="56">📱</text></svg>
+    <div id="b2t" class="mono" style="font-size:36px;font-weight:800;margin-top:8px">0%</div><div style="font-size:22px;color:#8e8e93;font-weight:700">я</div></div>
+  </div>
+  <div id="cab" class="c" style="bottom:110px;font-size:28px;font-weight:800;color:#30d158;opacity:0">⚡️ делим заряд пополам</div>
+ </div>
+
+ <!-- 9 map converge -->
+ <div class="card" id="c9" style="background:#2a2f36">
+  <div style="position:absolute;left:-20px;right:-20px;top:200px;height:44px;background:#3b434c;transform:rotate(-6deg)"></div>
+  <div style="position:absolute;left:-20px;right:-20px;top:430px;height:38px;background:#3b434c;transform:rotate(4deg)"></div>
+  <div style="position:absolute;left:180px;top:-20px;width:44px;height:740px;background:#3b434c;transform:rotate(5deg)"></div>
+  <div style="position:absolute;left:400px;top:-20px;width:40px;height:740px;background:#3b434c;transform:rotate(-4deg)"></div>
+  <div id="pa" class="av" style="position:absolute;width:90px;height:90px;margin:-45px;background:#ff2d78;border:5px solid #fff;font-size:46px">👩</div>
+  <div id="pb" class="av" style="position:absolute;width:90px;height:90px;margin:-45px;background:#5e5ce6;border:5px solid #fff;font-size:46px">🧑</div>
+  <div id="hb9" style="position:absolute;left:300px;top:330px;margin:-80px;width:160px;height:160px;font-size:140px;line-height:160px;text-align:center;opacity:0">💞</div>
+  <div style="position:absolute;left:24px;right:24px;bottom:24px;background:rgba(30,30,32,.94);border-radius:28px;padding:22px 28px">
+   <div id="t9" style="font-size:30px;font-weight:800">Ты · 1,2 км</div><div id="t9b" style="font-size:21px;color:#8e8e93;font-weight:600;margin-top:4px">приближается…</div></div>
+ </div>
+
+ <!-- 10 lock -->
+ <div class="card" id="c10" style="background:#000">
+  <div id="lk" class="c" style="top:120px;font-size:220px">🔓</div>
+  <div class="c" style="top:400px"><div id="lt10" style="font-size:44px;font-weight:900">Защита…</div><div style="font-size:24px;color:#8e8e93;font-weight:600;margin-top:10px">доступ к «Ты»: только я</div></div>
+ </div>
+
+ <div id="fin" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;z-index:30;color:#fff;text-align:center">
+  <div style="font-size:150px">🔒💗</div>
+  <div style="font-size:96px;font-weight:900;letter-spacing:-3px;line-height:1;margin-top:20px;background:linear-gradient(90deg,#ff2d78,#bf5af2);-webkit-background-clip:text;color:transparent">НИКОМУ<br>НЕ ОТДАМ</div>
+ </div>
+
+ <div id="sub"></div><div id="flash"></div><div id="vign"></div><div id="fade"></div>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+const cl=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const seg=(t,a,b)=>cl((t-a)/(b-a));
+const eo=x=>1-Math.pow(1-x,3);
+const eb=x=>{const c=1.7;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)};
+const lerp=(a,b,x)=>a+(b-a)*x;
+const rnd=i=>{const x=Math.sin(i*127.1+311.7)*43758.5453;return x-Math.floor(x)};
+const pop=(t,s,k=8)=>t>=s?Math.exp(-(t-s)*k):0;
+const fmt=n=>Math.round(n).toLocaleString('ru-RU');
+
+const LINES=[
+ [["на",3.25],["твоих",3.75],["ладонях",4.25],["всё",4.75],["начёркано",5.0],["о",6.5],["нас",6.75]],
+ [["я",7.0],["тебя",7.25],["искала",7.75],["столько",8.5],["раз",8.75]],
+ [["сто-о-о-о-лько",9.5],["раз",10.5]],
+ [["всё",10.75],["что",11.0],["ты",11.25],["захочешь,",11.5],["мы",12.25],["разд-е-е-е-лим",12.5],["пополам",13.75]],
+ [["я",14.5],["тебя",14.75],["нашла",15.25],["и",15.75],["больше",16.0]],
+ [["никому",16.5],["не",17.25],["отдам!",17.75]],
+ [["и",19.5],["больше",19.75]],
+ [["никому",20.25],["не",21.0],["отдам!",21.5]],
+ [["и",23.25],["больше",23.5]],
+ [["никому",24.0],["не",24.75],["отдам!",25.25]],
+ [["всё",25.75],["что",26.0],["ты",26.25],["захочешь,",26.5],["мы",27.25],["разделим",27.5],["пополам",28.75]],
+ [["я",29.5],["тебя",29.75],["нашла",30.25],["и",30.75],["больше",31.0]],
+ [["никому",31.5],["не",32.25],["отдам!",32.75]],
+];
+const SC=[[-0.3,3.15],[3.15,6.95],[6.95,10.65],[10.65,14.35],[14.35,16.35],[16.35,19.35],[19.35,23.1],[23.1,25.6],[25.6,29.35],[29.35,31.35],[31.35,33.2]];
+const GLOW=['#3a1050','#7a4a30','#1d3a7a','#7a1f5a','#1a6a3a','#7a1030','#7a1f5a','#3a1d6a','#1a5a4a','#5a1f7a','#8a1040'];
+const PEMO=['🌙','✍️','🔍','💞','📍','🔒','💗','⭐','⚡️','📍','🔒','💗'];
+const HIT=[6.75,8.75,10.5,13.75,15.25,17.75,21.5,25.25,28.75,30.25,32.75];
+
+(function(){
+ const W=[['я + ты',30,20,46],['💗',230,10,60],['навсегда',60,110,40],['02:14',210,170,34],['наш адрес',20,230,34],['мой',150,280,56]];
+ $('ink').innerHTML=W.map(([w,x,y,s],i)=>`<div id="w${i}" style="position:absolute;left:${x}px;top:${y}px;font-size:${s}px;font-weight:800;font-style:italic;color:#c8102e;white-space:nowrap;overflow:hidden;width:0">${w}</div>`).join('');
+ const H=['где ты сейчас','как найти человека','ты онлайн?','она/он думает обо мне?','где ты живёшь','как вернуть','ты меня помнишь','почему не отвечаешь','где ты','где ты','где ты','где ты','где ты','где ты'];
+ $('hl').innerHTML=H.map((h,i)=>`<div id="h${i}" style="display:flex;gap:16px;align-items:center;padding:13px 6px;border-bottom:1px solid rgba(255,255,255,.07);font-size:26px;font-weight:600;opacity:0"><span>🔍</span><span>${h}</span><span class="mono" style="margin-left:auto;font-size:19px;color:#8e8e93">${(2+i)%12+1}:${String(i*7%60).padStart(2,'0')}</span></div>`).join('');
+ const C=[['#ff9f0a','👱‍♀️','Подруга'],['#30d158','👩','Сестра'],['#0a84ff','🧔','Его друг'],['#bf5af2','💃','Бывшая'],['#ff453a','🕺','Кто угодно']];
+ $('sh').innerHTML=C.map(([c,e,n],i)=>`<div class="row" id="s${i}"><div class="av" style="background:${c}">${e}</div><span>${n}</span><span id="sx${i}" style="margin-left:auto;color:#ff453a;font-size:30px;opacity:0">✕</span></div>`).join('');
+ const F=[['#ff2d78','💗','Ты'],['#ff9f0a','👱‍♀️','Аня'],['#30d158','👩','Катя'],['#0a84ff','🧔','Макс'],['#bf5af2','💃','Лиза'],['#8e8e93','🙂','Номер 2']];
+ $('fav').innerHTML=F.map(([c,e,n],i)=>`<div class="row" id="f${i}" style="${i==0?'background:#2a0f1c':''}"><div class="av" style="background:${c}">${e}</div><span>${n}</span><span style="margin-left:auto;color:#0a84ff;font-size:28px">📞</span></div>`).join('');
+ let d='';for(let i=0;i<40;i++)d+=`<div id="d${i}" style="position:absolute;width:10px;height:10px;border-radius:50%;background:#fff;left:${(i%8)*75+30}px;top:${Math.floor(i/8)*130+60}px"></div>`;$('dots4').innerHTML=d;
+ let p='';for(let i=0;i<22;i++)p+=`<div class="pt" id="p${i}"></div>`;$('pts').innerHTML=p;
+})();
+function sceneIdx(t){for(let i=SC.length-1;i>=0;i--)if(t>=SC[i][0])return i;return 0}
+function showCard(i,t){const [a,b]=SC[i];const el=$('c'+i);
+ const inP=eo(seg(t,a,a+.28)),outP=seg(t,b-.12,b);const s=lerp(.86,1,eb(seg(t,a,a+.32)))*(1+outP*.06);
+ el.style.opacity=inP*(1-outP);el.style.transform=`scale(${s}) translateY(${(1-inP)*40}px)`;el.style.filter=`blur(${(1-inP)*14+outP*10}px)`;}
+const shake=(id,t,s,amp=10)=>{if(t>=s)$(id).style.transform+=` translateX(${Math.sin(t*90)*amp*pop(t,s,6)}px)`};
+
+function render(t){
+ for(let i=0;i<=10;i++)$('c'+i).style.opacity=0;
+ const si=t>=33.2?11:sceneIdx(t);if(si<11)showCard(si,t);
+ $('glow').style.setProperty('--g',si<11?GLOW[si]:'#8a1040');
+ let lastW=-9;LINES.flat().forEach(([w,s])=>{if(s<=t)lastW=s});const pulse=Math.exp(-(t-lastW)*7);
+ $('glow').style.opacity=.5+.4*pulse;$('glow').style.transform=`scale(${1+.04*pulse})`;
+ let hit=0;HIT.forEach(h=>hit=Math.max(hit,pop(t,h,5)));$('flash').style.opacity=hit*.22;
+ for(let i=0;i<22;i++){const e=$('p'+i);const y=1-((t*(.05+rnd(i)*.07)+rnd(i+50))%1);e.textContent=PEMO[si];
+  e.style.left=(rnd(i+9)*1040)+'px';e.style.top=(y*1180-80)+'px';e.style.opacity=.12+rnd(i+3)*.28;
+  e.style.transform=`rotate(${Math.sin(t+i)*25}deg) scale(${.6+rnd(i+7)*.7})`;e.style.filter=`blur(${rnd(i+5)>.6?3:0}px)`;}
+ // 0
+ {const n=seg(t,1.2,1.4);$('n0').style.opacity=n;$('n0').style.transform=`translateY(${(1-eb(seg(t,1.2,1.55)))*-60}px) scale(${1+.03*Math.sin(t*6)*(t>1.6?1:0)})`;}
+ // 1
+ {const st=[4.25,4.75,5.0,5.5,6.0,6.5];st.forEach((s,i)=>{const w=$('w'+i);w.style.width=(eo(seg(t,s,s+.45))*360)+'px';});
+  $('w5').textContent=t>=6.75?'о нас 💗':'о нас';$('w5').style.transform=`scale(${1+.3*pop(t,6.75,5)})`;$('pen').style.transform=`translateY(${-14+Math.sin(t*20)*4}px) rotate(${Math.sin(t*14)*10}deg)`;}
+ // 2
+ {let n=0;for(let i=0;i<14;i++){const ti=i<6?7.1+i*.3:8.75+(i-6)*.2;const v=t>=ti;if(v)n=i;const e=$('h'+i);e.style.opacity=v?1:0;e.style.transform=`translateX(${v?(1-eo(seg(t,ti,ti+.15)))*30:0}px)`;}
+  const cnt=t<8.75?Math.floor(seg(t,7.0,8.75)*120):(t<10.5?Math.floor(lerp(120,9999,Math.pow(seg(t,9.3,10.5),2))):9999);
+  $('hc').textContent='запросов: '+(cnt>=9999?'9 999+':fmt(cnt));$('hc').style.transform=`scale(${1+.25*pop(t,10.5,5)})`;$('hc').style.transformOrigin='left';
+  const sc=t<10.0?0:eo(seg(t,10.0,10.6))*300;$('h0').style.marginTop=(-sc)+'px';if(si==2)shake('c2',t,10.5,8);}
+ // 3
+ {const s=t<12.5?0:eb(seg(t,12.5,13.75));const w=lerp(100,50,cl(s,0,1.2));$('sl').style.width=w+'%';$('sr').style.width=(100-w)+'%';
+  const g=t<13.75?0:eo(seg(t,13.75,14.0))*30;$('hL').style.transform=`translateX(${-g}px) rotate(${-g/2}deg)`;$('hR').style.transform=`translateX(${g}px) rotate(${g/2}deg)`;
+  $('pp').style.opacity=seg(t,13.75,13.9);$('amt').style.transform=`scale(${1+.2*pop(t,11.5,6)})`;}
+ // 4
+ {const d=t<15.25?Math.round(lerp(12,1,seg(t,14.5,15.2))):0;$('dist').textContent=t>=15.25?'Здесь':d+' м';$('dir').textContent=t>=15.25?'💗 нашла':'впереди';$('dir').style.color=t>=15.25?'#fff':'#aeaeb2';
+  $('pf').style.opacity=t>=15.25?eo(seg(t,15.25,15.45)):0;$('arr').style.transform=`rotate(${Math.sin(t*3)*20*(1-seg(t,14.5,15.25))}deg) scale(${t>=15.25?0:1})`;
+  for(let i=0;i<40;i++){const e=$('d'+i);const ph=(t*.8+rnd(i))%1;e.style.opacity=(t>=15.25?.8:.25+.5*Math.abs(Math.sin(t*4+i)));e.style.transform=`scale(${t>=15.25?1.4:1})`;}
+  if(t>=15.25)$('lk')&&0;}
+ // 5
+ {for(let i=0;i<5;i++){const x=t>=16.5+i*.15;$('sx'+i).style.opacity=x?1:0;$('s'+i).style.opacity=x?.45:1;}
+  const a=seg(t,17.75,17.9);$('al5').style.opacity=a;$('al5').style.transform=`scale(${lerp(1.3,1,eb(a))})`;if(si==5)shake('c5',t,17.75);}
+ // 6
+ {$('tag').style.transform=`scale(${1+.04*Math.sin(t*6)+.2*pop(t,19.75,5)}) rotate(${Math.sin(t*2)*6}deg)`;
+  const l=t>=20.25;$('lm').textContent=l?'вкл. 🔒':'выкл.';$('lm').style.color=l?'#ff2d78':'#8e8e93';
+  const r=t>=21.5;$('tr6').textContent=r?'НЕВОЗМОЖНО ✕':(t>=21.0?'проверка…':'…');$('tr6').style.color=r?'#ff453a':'#8e8e93';if(si==6)shake('c6',t,21.5);}
+ // 7
+ {for(let i=1;i<6;i++){const ti=23.6+i*.22;const p=eo(seg(t,ti,ti+.25));const e=$('f'+i);e.style.transform=`translateX(${-p*700}px)`;e.style.opacity=1-p;e.style.background=t>=ti-.1?'#3a0d12':'#1c1c1e';}
+  $('f0').style.transform=`scale(${1+.08*pop(t,25.25,5)+.03*Math.sin(t*8)*(t>25?1:0)})`;}
+ // 8
+ {const s=t<27.5?0:eo(seg(t,27.5,28.75));const a=lerp(100,50,s),b=lerp(0,50,s);$('b1').setAttribute('stroke-dashoffset',515*(1-a/100));$('b2').setAttribute('stroke-dashoffset',515*(1-b/100));
+  $('b1t').textContent=Math.round(a)+'%';$('b2t').textContent=Math.round(b)+'%';$('cab').style.opacity=seg(t,27.5,27.7);$('cab').style.transform=`scale(${1+.2*pop(t,28.75,5)})`;}
+ // 9
+ {const p=eo(seg(t,29.5,30.25));$('pa').style.left=lerp(90,270,p)+'px';$('pa').style.top=lerp(110,330,p)+'px';$('pb').style.left=lerp(510,330,p)+'px';$('pb').style.top=lerp(520,330,p)+'px';
+  const h=t>=30.25;$('hb9').style.opacity=h?1:0;$('hb9').style.transform=`scale(${h?1+.4*pop(t,30.25,5)+.06*Math.sin(t*8):0})`;$('pa').style.opacity=h?0:1;$('pb').style.opacity=h?0:1;
+  $('t9').textContent=h?'Ты · 0 м 💗':'Ты · '+(1.2*(1-p)).toFixed(1).replace('.',',')+' км';$('t9b').textContent=h?'нашла. и больше…':'приближается…';}
+ // 10
+ {const l=t>=32.75;$('lk').textContent=l?'🔒':'🔓';$('lk').style.transform=`scale(${1+.35*pop(t,32.75,5)})`;$('lt10').textContent=l?'Никому не отдам!':(t>=31.5?'Никому…':'Защита…');$('lt10').style.color=l?'#ff2d78':'#fff';if(si==10)shake('c10',t,32.75,12);}
+ // fin
+ {const f=seg(t,33.2,33.6);$('fin').style.opacity=t>=33.2?eo(f):0;$('fin').style.transform=`scale(${lerp(1.3,1,eo(f))*(1+.03*Math.sin(t*Math.PI*2*1.05))})`;}
+ $('fade').style.opacity=seg(t,36.4,37.2);
+ let li=-1;LINES.forEach((L,i)=>{if(t>=L[0][1]-.2)li=i});
+ $('sub').innerHTML=(li<0||t>33.2)?'':LINES[li].map(([w,s])=>{const on=t>=s;const pp=on?Math.exp(-(t-s)*9):0;return `<span style="opacity:${on?1:.3};transform:scale(${1+.14*pp}) translateY(${-6*pp}px)">${w}</span>`}).join('');
+}
+window.render=render;render(0);
+</script></body></html>

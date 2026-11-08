@@ -1,0 +1,251 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1080px;overflow:hidden;background:#000;font-family:Inter,"Apple Color Emoji",sans-serif}
+#stage{position:absolute;inset:0;overflow:hidden;background:#060608}
+#glow{position:absolute;inset:-20%;background:radial-gradient(circle at 50% 55%,var(--g,#333) 0%,transparent 55%)}
+#vign{position:absolute;inset:0;background:radial-gradient(circle,transparent 42%,rgba(0,0,0,.85) 100%);z-index:50}
+.pt{position:absolute;font-size:32px}
+#sub{position:absolute;top:56px;left:0;right:0;text-align:center;font-weight:900;font-size:50px;color:#fff;z-index:40;text-shadow:0 4px 24px rgba(0,0,0,.7);padding:0 40px;line-height:1.1;text-transform:uppercase;letter-spacing:1px}
+#sub span{display:inline-block;margin:0 10px}
+.card{position:absolute;left:50%;top:57%;width:600px;height:690px;margin-left:-300px;margin-top:-345px;border-radius:52px;overflow:hidden;opacity:0;box-shadow:0 40px 120px rgba(0,0,0,.8),0 0 0 1.5px rgba(255,255,255,.08) inset;background:#111214;color:#fff}
+.hdr{font-size:22px;font-weight:600;color:rgba(255,255,255,.55);padding:34px 40px 0}
+.ttl{font-size:46px;font-weight:800;padding:6px 40px 0;letter-spacing:-1px}
+.c{position:absolute;left:0;right:0;text-align:center}
+.mono{font-family:'JetBrains Mono'}
+.bub{display:inline-block;padding:14px 22px;border-radius:28px;font-size:27px;font-weight:500}
+.box{background:#2c2c2e;border-radius:24px;padding:20px 24px}
+#fade{position:absolute;inset:0;background:#000;opacity:0;z-index:70}
+#grain{position:absolute;inset:0;z-index:51;opacity:.07;background-image:repeating-radial-gradient(circle at 17% 32%,#fff 0 1px,transparent 1px 4px);mix-blend-mode:overlay}
+</style></head><body>
+<div id="stage">
+ <div id="glow"></div><div id="pts"></div>
+
+ <!-- 1 contact online / not mine -->
+ <div class="card" id="c1" style="background:#1c1c1e">
+  <div style="position:absolute;top:60px;left:50%;margin-left:-90px;width:180px;height:180px;border-radius:50%;background:linear-gradient(135deg,#636366,#2c2c2e);display:flex;align-items:center;justify-content:center;font-size:96px">👩</div>
+  <div id="on1" style="position:absolute;top:200px;left:50%;margin-left:40px;width:44px;height:44px;border-radius:50%;background:#30d158;border:6px solid #1c1c1e;opacity:0"></div>
+  <div class="c" style="top:262px;font-size:42px;font-weight:800">Она</div>
+  <div id="st1" class="c" style="top:316px;font-size:24px;font-weight:600;color:#8e8e93">была недавно</div>
+  <div class="box" style="position:absolute;left:30px;right:30px;top:390px;display:flex;justify-content:space-between;font-size:28px;font-weight:700">
+   <span style="color:#8e8e93">статус</span><span id="mine" style="position:relative">моя ❤️<span id="strike" style="position:absolute;left:-6px;top:50%;height:5px;background:#ff453a;width:0;border-radius:3px"></span></span></div>
+  <div id="nm1" class="c" style="top:500px;font-size:56px;font-weight:900;color:#ff453a;opacity:0">НЕ МОЯ</div>
+ </div>
+
+ <!-- 2 photo face tags -->
+ <div class="card" id="c2" style="background:#000">
+  <div class="hdr">Фото › Воспоминания</div>
+  <div style="position:absolute;left:40px;right:40px;top:90px;height:400px;border-radius:30px;background:linear-gradient(180deg,#1b2440,#0a0d18);overflow:hidden">
+   <div style="position:absolute;left:0;right:0;bottom:0;height:90px;background:#11151f"></div>
+   <div style="position:absolute;left:90px;bottom:60px;font-size:170px">🧍‍♀️</div>
+   <div id="ghost" style="position:absolute;left:290px;bottom:60px;font-size:170px">🧍</div>
+   <div id="tg1" style="position:absolute;left:80px;top:60px;padding:6px 14px;border-radius:12px;background:rgba(255,255,255,.9);color:#000;font-size:20px;font-weight:800;opacity:0">Ты</div>
+   <div id="tg2" style="position:absolute;left:300px;top:60px;padding:6px 14px;border-radius:12px;background:#ff453a;color:#fff;font-size:20px;font-weight:800;opacity:0">не я</div>
+  </div>
+  <div class="c" style="top:520px"><div style="font-size:30px;font-weight:800">Ты всё ещё тут</div><div id="tt2" style="font-size:22px;color:#8e8e93;font-weight:600;margin-top:6px">люди на фото: 2</div></div>
+ </div>
+
+ <!-- 3 rings -->
+ <div class="card" id="c3" style="background:#000">
+  <div class="hdr" style="color:#30d158">Фитнес</div><div class="ttl">Мы делаем</div>
+  <svg width="360" height="360" style="position:absolute;left:120px;top:170px">
+   <circle cx="180" cy="180" r="160" fill="none" stroke="#3a0d12" stroke-width="34"/><circle id="ra" cx="180" cy="180" r="160" fill="none" stroke="#ff2d55" stroke-width="34" stroke-linecap="round" stroke-dasharray="1005" transform="rotate(-90 180 180)"/>
+   <circle cx="180" cy="180" r="118" fill="none" stroke="#1d3a0d" stroke-width="34"/><circle id="rb" cx="180" cy="180" r="118" fill="none" stroke="#a6ff00" stroke-width="34" stroke-linecap="round" stroke-dasharray="741" transform="rotate(-90 180 180)"/>
+   <circle cx="180" cy="180" r="76" fill="none" stroke="#0d2a3a" stroke-width="34"/><circle id="rc" cx="180" cy="180" r="76" fill="none" stroke="#00e5ff" stroke-width="34" stroke-linecap="round" stroke-dasharray="477" transform="rotate(-90 180 180)"/></svg>
+  <div id="pct3" class="c mono" style="bottom:70px;font-size:40px;font-weight:800">0%</div>
+  <div id="kn3" class="c" style="bottom:28px;font-size:24px;font-weight:700;color:#8e8e93;opacity:0">но честно, я знаю 🤫</div>
+ </div>
+
+ <!-- 4 translate -->
+ <div class="card" id="c4" style="background:#1c1c1e">
+  <div class="hdr" style="color:#0a84ff">Перевод</div>
+  <div style="display:flex;gap:12px;padding:20px 30px 0"><div class="box" style="flex:1;text-align:center;font-size:24px;font-weight:700;padding:14px">Я</div><div style="font-size:30px;align-self:center">⇄</div><div class="box" style="flex:1;text-align:center;font-size:24px;font-weight:700;padding:14px">Все остальные</div></div>
+  <div class="box" style="margin:20px 30px 0;min-height:150px;font-size:34px;font-weight:700"><span id="tin"></span><span id="tc" style="display:inline-block;width:3px;height:36px;background:#0a84ff;vertical-align:middle"></span></div>
+  <div id="tout" style="margin:16px 30px 0;border-radius:24px;padding:24px;background:#3a0d12;font-size:30px;font-weight:800;color:#ff453a;opacity:0">⚠️ Не удалось перевести.<div style="font-size:22px;color:#ffb3ad;font-weight:600;margin-top:6px">Вы не поняты. Попробуйте позже (никогда).</div></div>
+ </div>
+
+ <!-- 5 maps MSK -->
+ <div class="card" id="c5" style="background:#1b1f26">
+  <div id="map5" style="position:absolute;inset:0">
+   <div style="position:absolute;left:300px;top:345px;width:520px;height:520px;margin:-260px;border-radius:50%;border:30px solid #2b313a"></div>
+   <div style="position:absolute;left:300px;top:345px;width:300px;height:300px;margin:-150px;border-radius:50%;border:24px solid #2b313a"></div>
+   <div style="position:absolute;left:-20px;right:-20px;top:300px;height:30px;background:#2b313a;transform:rotate(-20deg)"></div>
+   <div style="position:absolute;left:-30px;right:-30px;top:420px;height:50px;background:#1e3a5a;transform:rotate(12deg);border-radius:25px"></div>
+  </div>
+  <div id="pin5" style="position:absolute;left:300px;top:330px;margin-left:-40px;margin-top:-90px;font-size:80px;opacity:0">📍</div>
+  <div style="position:absolute;left:24px;right:24px;bottom:24px;background:rgba(30,30,32,.94);border-radius:28px;padding:22px 28px"><div id="m5" style="font-size:32px;font-weight:800">Поиск…</div><div style="font-size:21px;color:#8e8e93;font-weight:600;margin-top:4px">ночь · 23:47 · огни повсюду</div></div>
+ </div>
+
+ <!-- 6 asking cigs -->
+ <div class="card" id="c6" style="background:#000">
+  <div class="hdr" style="color:#0a84ff">‹ Все чаты</div><div class="ttl">Стрельнуть 🚬</div>
+  <div id="nt6" style="position:absolute;left:24px;right:24px;top:170px"></div>
+ </div>
+
+ <!-- 7 cowboy -->
+ <div class="card" id="c7" style="background:linear-gradient(180deg,#3a2410,#120a04)">
+  <div id="cb" class="c" style="top:110px;font-size:260px">🤠</div>
+  <div class="c" style="top:450px"><div style="font-size:24px;font-weight:700;color:#ffcc80">Ваш Memoji</div><div id="cbt" style="font-size:60px;font-weight:900;letter-spacing:4px;color:#ffd60a">КОВБОЙ</div></div>
+ </div>
+
+ <!-- 8 block -->
+ <div class="card" id="c8" style="background:#1c1c1e">
+  <div style="position:absolute;top:50px;left:50%;margin-left:-70px;width:140px;height:140px;border-radius:50%;background:#48484a;display:flex;align-items:center;justify-content:center;font-size:76px">👩</div>
+  <div class="c" style="top:205px;font-size:38px;font-weight:800">Она</div>
+  <div class="box" style="position:absolute;left:30px;right:30px;top:280px;padding:0 24px">
+   <div style="padding:20px 0;border-bottom:1px solid #3a3a3c;font-size:26px;font-weight:700;color:#0a84ff">Отправить сообщение</div>
+   <div id="blk" style="padding:20px 0;font-size:26px;font-weight:800;color:#ff453a">Заблокировать абонента</div></div>
+  <div id="al8" style="position:absolute;left:50px;right:50px;top:230px;background:rgba(44,44,46,.98);border-radius:30px;text-align:center;overflow:hidden;opacity:0;box-shadow:0 30px 80px rgba(0,0,0,.7)">
+   <div style="padding:30px"><div style="font-size:30px;font-weight:900">Кинуть «Она»?</div><div id="al8b" style="font-size:22px;color:#aeaeb2;margin-top:8px;font-weight:500">так же, как она тебя</div></div>
+   <div id="al8c" style="border-top:1px solid #48484a;padding:22px;font-size:28px;font-weight:800;color:#ff453a">Кинуть</div></div>
+  <div id="dn8" class="c" style="bottom:50px;font-size:30px;font-weight:900;color:#ff453a;opacity:0">🔁 точно так же · готово</div>
+ </div>
+
+ <!-- 9 edit slider -->
+ <div class="card" id="c9" style="background:#000">
+  <div class="hdr" style="color:#ffd60a">Править</div>
+  <div style="position:absolute;left:80px;right:80px;top:90px;height:340px;border-radius:24px;background:#1c1c1e;overflow:hidden;display:flex;align-items:center;justify-content:center"><div id="face9" style="font-size:220px">🙂</div></div>
+  <div class="c" style="top:460px"><div style="font-size:22px;font-weight:800;color:#ffd60a;letter-spacing:2px">ДРУГОЙ</div><div id="v9" class="mono" style="font-size:40px;font-weight:800">0</div></div>
+  <div style="position:absolute;left:40px;right:40px;top:580px;height:60px">
+   <div id="ticks" style="position:absolute;inset:0"></div><div style="position:absolute;left:50%;top:0;width:4px;height:60px;margin-left:-2px;background:#ffd60a;border-radius:2px"></div></div>
+ </div>
+
+ <!-- 10 camera shy -->
+ <div class="card" id="c10" style="background:#000">
+  <div style="position:absolute;left:0;right:0;top:0;height:520px;background:linear-gradient(180deg,#2b2320,#100c0a);display:flex;align-items:center;justify-content:center"><div id="shy" style="font-size:220px">😳</div></div>
+  <div id="rec" style="position:absolute;left:24px;top:24px;padding:6px 14px;border-radius:10px;background:#ff3b30;font-size:22px;font-weight:800;opacity:0" class="mono">● 00:00</div>
+  <div class="c" style="top:540px;font-size:22px;font-weight:800;color:#ffd60a;letter-spacing:2px">ВИДЕО · ФОТО · ПОРТРЕТ</div>
+  <div style="position:absolute;left:50%;top:590px;margin-left:-44px;width:88px;height:88px;border-radius:50%;border:6px solid #fff;display:flex;align-items:center;justify-content:center"><div id="shut" style="width:66px;height:66px;border-radius:50%;background:#ff3b30"></div></div>
+ </div>
+
+ <!-- 11 face covered -->
+ <div class="card" id="c11" style="background:#000">
+  <div class="c" style="top:60px;font-size:30px;font-weight:700">Face ID</div>
+  <div style="position:absolute;left:150px;top:140px;width:300px;height:300px">
+   <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:200px">😐</div>
+   <div id="hand" style="position:absolute;left:0;right:0;top:0;bottom:0;display:flex;align-items:center;justify-content:center;font-size:230px">✋</div>
+   <svg width="300" height="300" style="position:absolute;inset:0"><g id="cr11" fill="none" stroke-width="10" stroke-linecap="round" stroke="#fff"><path d="M10 70 V30 Q10 10 30 10 H70"/><path d="M230 10 H270 Q290 10 290 30 V70"/><path d="M290 230 V270 Q290 290 270 290 H230"/><path d="M70 290 H30 Q10 290 10 270 V230"/></g></svg>
+  </div>
+  <div class="c" style="bottom:100px"><div id="t11" style="font-size:36px;font-weight:800">Окей…</div><div id="t11b" style="font-size:24px;color:#8e8e93;font-weight:600;margin-top:10px">смотрите на экран</div></div>
+ </div>
+
+ <!-- 12 mirror -->
+ <div class="card" id="c12" style="background:#0d0d10">
+  <div class="hdr">Лупа › Зеркало</div>
+  <div style="position:absolute;left:110px;top:100px;width:380px;height:480px;border-radius:190px;border:10px solid #8e8e93;background:linear-gradient(160deg,#3a3f4a,#15171c);overflow:hidden;display:flex;align-items:center;justify-content:center">
+   <div id="mf" style="font-size:230px">🧍‍♂️</div><div id="mrr" style="position:absolute;inset:0;background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.25) 45%,transparent 60%)"></div></div>
+  <div id="t12" class="c" style="bottom:40px;font-size:30px;font-weight:800;opacity:0">всё так же. ничего не поменялось</div>
+ </div>
+
+ <!-- 13 restore self -->
+ <div class="card" id="c13" style="background:#1c1c1e">
+  <div class="hdr" style="color:#0a84ff">Настройки › Резервная копия</div><div class="ttl">Восстановить</div>
+  <div class="box" style="margin:24px 30px 0;display:flex;gap:18px;align-items:center"><div style="width:76px;height:76px;border-radius:50%;background:#48484a;display:flex;align-items:center;justify-content:center;font-size:44px">🙂</div><div><div style="font-size:28px;font-weight:800">«Я» (2019)</div><div style="font-size:20px;color:#8e8e93;font-weight:600">старая версия · 1 копия</div></div></div>
+  <div style="margin:40px 30px 0"><div style="height:16px;border-radius:8px;background:#3a3a3c;overflow:hidden"><div id="pb13" style="height:16px;background:#0a84ff;width:0"></div></div><div id="pt13" class="mono" style="font-size:22px;color:#8e8e93;font-weight:700;margin-top:10px">0%</div></div>
+  <div id="err13" class="c" style="bottom:60px;opacity:0"><div style="font-size:48px;font-weight:900;color:#ff3b30;letter-spacing:2px">СОБОЙ…</div><div style="font-size:24px;color:#ff9a94;font-weight:700;margin-top:8px">⚠️ Ошибка: восстановить «Я» невозможно</div></div>
+ </div>
+
+ <div id="sub"></div><div id="vign"></div><div id="grain"></div><div id="fade"></div>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+const cl=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const seg=(t,a,b)=>cl((t-a)/(b-a));
+const eo=x=>1-Math.pow(1-x,3);
+const eb=x=>{const c=1.7;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)};
+const lerp=(a,b,x)=>a+(b-a)*x;
+const rnd=i=>{const x=Math.sin(i*127.1+311.7)*43758.5453;return x-Math.floor(x)};
+const pop=(t,s,k=8)=>t>=s?Math.exp(-(t-s)*k):0;
+
+const LINES=[
+ [["ты",.5],["всё",.75],["ещё",1.0],["там",1.25]],
+ [["но",1.5],["не",1.75],["моя",1.85]],
+ [["ты",2.25],["всё",2.5],["ещё",2.75],["тут",3.0]],
+ [["но",3.5],["там",3.75],["не",3.85],["я",4.0]],
+ [["мы",4.25],["делаем",4.5],["много",5.0]],
+ [["но",5.25],["честно",5.5],["я",5.75],["знаю",6.0]],
+ [["что",6.25],["буду",6.5],["не",6.75],["понят",7.0]],
+ [["в",7.5],["давалке",7.6],["мск",8.25]],
+ [["стреляю",9.0],["сиги",9.5]],
+ [["ковбой",10.25]],
+ [["я",11.0],["кинну",11.25],["тебя",11.75]],
+ [["точно",12.25],["так",12.5],["же",12.75]],
+ [["только",13.0],["чуть-чуть",13.5],["другой",14.0]],
+ [["стеснялась",14.75],["всё",15.5],["снимать",15.75]],
+ [["окей,",16.25],["прикрой",16.75],["е*альник",17.25],["рукой",18.0]],
+ [["я",18.5],["смотрю",18.75],["в",19.25],["зеркало",19.5]],
+ [["всё",20.0],["так",20.25],["же",20.5]],
+ [["но",20.75],["не",21.0],["стану",21.25],["собой…",21.75]],
+];
+const SC=[[-0.3,2.15],[2.15,4.15],[4.15,6.15],[6.15,7.4],[7.4,8.85],[8.85,10.15],[10.15,10.95],[10.95,12.9],[12.9,14.6],[14.6,16.1],[16.1,18.4],[18.4,20.65],[20.65,99]];
+const GLOW=['#2a2a3a','#1a2440','#3a0d1a','#0d2a4a','#4a3a10','#3a2a1a','#5a3a10','#4a0d10','#4a4a10','#4a2a1a','#2a2a2a','#2a3040','#5a0a0a'];
+const PEMO=['🖤','📸','🔥','❓','🌃','🚬','🤠','🔁','🎚️','🫣','✋','🪞','🥀'];
+const HIT=[1.85,4.0,7.0,8.25,10.25,12.75,14.0,15.75,17.25,19.5,21.75];
+
+(function(){
+ const N=['Братан: нету 🙅','Вася: последняя была','Дима: сам стреляю','Незнакомец: держи 🤝','Кореш: бросил'];
+ $('nt6').innerHTML=N.map((n,i)=>`<div id="n6_${i}" style="display:flex;gap:14px;align-items:center;background:rgba(60,60,64,.8);border-radius:22px;padding:14px 18px;margin-bottom:10px;opacity:0"><div style="width:48px;height:48px;border-radius:12px;background:#30d158;display:flex;align-items:center;justify-content:center;font-size:26px">💬</div><div style="font-size:24px;font-weight:700">${n}</div></div>`).join('');
+ let tk='';for(let i=0;i<61;i++)tk+=`<div style="position:absolute;left:${i*20}px;top:${i%5?18:8}px;width:3px;height:${i%5?24:44}px;background:${i%5?'#555':'#aaa'}"></div>`;$('ticks').innerHTML=`<div id="tk" style="position:absolute;top:0;height:60px">${tk}</div>`;
+ let p='';for(let i=0;i<20;i++)p+=`<div class="pt" id="p${i}"></div>`;$('pts').innerHTML=p;
+})();
+function sceneIdx(t){for(let i=SC.length-1;i>=0;i--)if(t>=SC[i][0])return i;return 0}
+function showCard(i,t){const [a,b]=SC[i];const el=$('c'+(i+1));
+ const inP=eo(seg(t,a,a+.25)),outP=i<SC.length-1?seg(t,b-.1,b):0;const s=lerp(.86,1,eb(seg(t,a,a+.3)))*(1+outP*.06);
+ el.style.opacity=inP*(1-outP);el.style.transform=`scale(${s}) translateY(${(1-inP)*40}px)`;el.style.filter=`blur(${(1-inP)*14+outP*10}px)`;}
+const shake=(id,t,s,amp=10)=>{if(t>=s)$(id).style.transform+=` translateX(${Math.sin(t*90)*amp*pop(t,s,6)}px)`};
+
+function render(t){
+ for(let i=1;i<=13;i++)$('c'+i).style.opacity=0;
+ const si=sceneIdx(t);showCard(si,t);
+ $('glow').style.setProperty('--g',GLOW[si]);
+ let lastW=-9;LINES.flat().forEach(([w,s])=>{if(s<=t)lastW=s});const pulse=Math.exp(-(t-lastW)*7);
+ $('glow').style.opacity=.5+.4*pulse;$('glow').style.transform=`scale(${1+.04*pulse})`;
+ for(let i=0;i<20;i++){const e=$('p'+i);const y=1-((t*(.05+rnd(i)*.07)+rnd(i+50))%1);e.textContent=PEMO[si];
+  e.style.left=(rnd(i+9)*1040)+'px';e.style.top=(y*1180-80)+'px';e.style.opacity=.12+rnd(i+3)*.25;
+  e.style.transform=`rotate(${Math.sin(t+i)*25}deg) scale(${.6+rnd(i+7)*.7})`;e.style.filter=`blur(${rnd(i+5)>.6?3:0}px)`;}
+ // 1
+ {const on=t>=1.25;$('on1').style.opacity=on?1:0;$('on1').style.transform=`scale(${on?1+.5*pop(t,1.25,6):0})`;$('st1').textContent=on?'в сети · всё ещё там':'была недавно';$('st1').style.color=on?'#30d158':'#8e8e93';
+  $('strike').style.width=(eo(seg(t,1.75,1.95))*110)+'%';$('nm1').style.opacity=seg(t,1.85,2.0);$('nm1').style.transform=`scale(${1+.3*pop(t,1.85,6)})`;}
+ // 2
+ {$('tg1').style.opacity=seg(t,3.0,3.1);$('tg2').style.opacity=seg(t,4.0,4.1);$('tg2').style.transform=`scale(${1+.4*pop(t,4.0,6)})`;
+  $('ghost').style.opacity=t>=3.75?lerp(1,.25,seg(t,3.75,4.0)):1;$('ghost').style.filter=t>=3.75?'grayscale(1)':'none';$('tt2').textContent=t>=4.0?'на фото: не я':'люди на фото: 2';$('tt2').style.color=t>=4.0?'#ff453a':'#8e8e93';}
+ // 3
+ {const p=eo(seg(t,4.4,5.2))*3;$('ra').setAttribute('stroke-dashoffset',1005*(1-cl(p)));$('rb').setAttribute('stroke-dashoffset',741*(1-cl(p*.9)));$('rc').setAttribute('stroke-dashoffset',477*(1-cl(p*.8)));
+  $('pct3').textContent=Math.round(p*100)+'%';$('pct3').style.transform=`scale(${1+.2*pop(t,5.0,6)})`;$('kn3').style.opacity=seg(t,5.5,5.65);}
+ // 4
+ {const q='я, просто я…';const n=Math.floor(cl((t-6.25)/.6)*q.length);$('tin').textContent=q.slice(0,n);$('tc').style.opacity=Math.floor(t*4)%2?1:.2;
+  $('tout').style.opacity=seg(t,7.0,7.12);$('tout').style.transform=`scale(${1+.08*pop(t,7.0)})`;if(si==3)shake('c4',t,7.0,8);}
+ // 5
+ {$('map5').style.transform=`scale(${lerp(1.5,1,eo(seg(t,7.4,8.4)))}) rotate(${lerp(-8,0,eo(seg(t,7.4,8.4)))}deg)`;const p=seg(t,8.25,8.4);$('pin5').style.opacity=p;$('pin5').style.transform=`translateY(${(1-eb(p))*-80}px)`;
+  $('m5').textContent=t>=8.25?'МСК 📍 ты здесь':'Поиск…';}
+ // 6
+ for(let i=0;i<5;i++){const ti=9.0+i*.22;const p=eb(seg(t,ti,ti+.25));$('n6_'+i).style.opacity=seg(t,ti,ti+.1);$('n6_'+i).style.transform=`translateY(${(1-p)*-40}px) scale(${lerp(.9,1,p)})`;}
+ // 7
+ {$('cb').style.transform=`scale(${1+.3*pop(t,10.25,5)}) rotate(${Math.sin(t*5)*8}deg)`;$('cbt').style.transform=`scale(${1+.3*pop(t,10.25,5)})`;}
+ // 8
+ {const a=seg(t,11.25,11.4);$('al8').style.opacity=a*(1-seg(t,12.6,12.75));$('al8').style.transform=`scale(${lerp(1.2,1,eb(a))})`;$('blk').style.background='transparent';
+  const c=t>=12.25;$('al8c').style.background=c?'#ff453a':'transparent';$('al8c').style.color=c?'#fff':'#ff453a';$('dn8').style.opacity=seg(t,12.75,12.85);if(si==7)shake('c8',t,12.75);}
+ // 9
+ {const v=t<13.5?0:(t<14.0?lerp(0,3,eo(seg(t,13.5,13.95))):3);$('v9').textContent='+'+v.toFixed(0);$('tk').style.left=(260-600-v*20+0)+'px';
+  $('face9').textContent=t>=14.0?'🙃':'🙂';$('face9').style.transform=`scale(${1+.25*pop(t,14.0,6)})`;$('face9').style.filter=`hue-rotate(${v*12}deg)`;}
+ // 10
+ {const r=t>=15.75;$('rec').style.opacity=r?(Math.floor(t*3)%2?1:.5):0;$('rec').textContent='● 00:0'+Math.max(0,Math.floor(t-15.75));$('shut').style.borderRadius=r?'12px':'50%';$('shut').style.transform=`scale(${r?.6:1})`;
+  $('shy').textContent=t>=15.5?'🫣':'😳';$('shy').style.transform=`scale(${1+.15*pop(t,14.75,5)+.15*pop(t,15.5,5)})`;}
+ // 11
+ {const h=eo(seg(t,16.75,17.25));$('hand').style.transform=`translate(${lerp(300,0,h)}px,${lerp(200,0,h)}px) rotate(${lerp(40,0,h)}deg)`;$('hand').style.opacity=t>=16.7?1:0;
+  const cov=t>=17.25;$('cr11').setAttribute('stroke',cov?'#ff9f0a':'#fff');$('t11').textContent=cov?'Лицо закрыто':(t>=16.75?'Прикройте…':'Окей…');$('t11b').textContent=cov?'уберите руку от лица ✋':'смотрите на экран';$('t11').style.color=cov?'#ff9f0a':'#fff';
+  if(si==10)shake('c11',t,17.25,8);}
+ // 12
+ {$('mrr').style.transform=`translateX(${lerp(-400,400,(t*0.5)%1)}px)`;$('mf').style.transform=`scaleX(-1) scale(${1+.1*pop(t,19.5,5)})`;$('t12').style.opacity=seg(t,20.0,20.15);}
+ // 13
+ {const p=t<21.25?seg(t,20.8,21.7)*.92:(t<21.75?lerp(.92*seg(21.25,20.8,21.7)+.0,.97,seg(t,21.25,21.7)):.97);$('pb13').style.width=(p*100)+'%';$('pt13').textContent=Math.round(p*100)+'%'+(t>=21.75?' · сбой':'');
+  const e=t>=21.75;$('pb13').style.background=e?'#ff3b30':'#0a84ff';$('err13').style.opacity=seg(t,21.75,21.85);
+  if(e){const g=Math.floor(t*20)%3;$('err13').style.transform=`translateX(${(g-1)*6}px)`;$('c13').style.filter=`hue-rotate(${g*8}deg)`}
+  if(si==12)shake('c13',t,21.75,10);}
+ $('fade').style.opacity=seg(t,22.05,22.4);
+ let li=-1;LINES.forEach((L,i)=>{if(t>=L[0][1]-.15)li=i});
+ $('sub').innerHTML=li<0?'':LINES[li].map(([w,s])=>{const on=t>=s;const pp=on?Math.exp(-(t-s)*9):0;const red=w.startsWith('собой');return `<span style="opacity:${on?1:.3};color:${red&&on?'#ff2d2d':'#fff'};transform:scale(${1+.14*pp}) translateY(${-6*pp}px)">${w}</span>`}).join('');
+}
+window.render=render;render(0);
+</script></body></html>

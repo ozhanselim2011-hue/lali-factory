@@ -1,0 +1,114 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1080px;overflow:hidden;background:#000;font-family:Inter,"Apple Color Emoji",sans-serif}
+#stage{position:absolute;inset:0;overflow:hidden;background:#060606}
+#glow{position:absolute;inset:-20%;background:radial-gradient(circle at 50% 58%,var(--g,#333) 0%,transparent 55%)}
+#vign{position:absolute;inset:0;background:radial-gradient(circle,transparent 45%,rgba(0,0,0,.8) 100%);z-index:50}
+#grain{position:absolute;inset:0;z-index:51;opacity:.07;background-image:repeating-radial-gradient(circle at 17% 32%,#fff 0 1px,transparent 1px 4px);mix-blend-mode:overlay}
+.pt{position:absolute;font-size:32px}
+#sub{position:absolute;top:56px;left:0;right:0;text-align:center;font-weight:800;font-size:50px;color:#fff;z-index:40;text-shadow:0 4px 24px rgba(0,0,0,.7);padding:0 50px;line-height:1.12;}
+#sub span{display:inline-block;margin:0 10px}
+.card{position:absolute;left:50%;top:57%;width:600px;height:690px;margin-left:-300px;margin-top:-345px;border-radius:52px;overflow:hidden;opacity:0;box-shadow:0 40px 120px rgba(0,0,0,.8),0 0 0 1.5px rgba(255,255,255,.08) inset;background:#111214;color:#fff}
+.hdr{font-size:22px;font-weight:600;color:rgba(255,255,255,.55);padding:34px 40px 0}
+.ttl{font-size:46px;font-weight:800;padding:6px 40px 0;letter-spacing:-1px}
+.c{position:absolute;left:0;right:0;text-align:center}
+.mono{font-family:'JetBrains Mono'}
+.box{background:#2c2c2e;border-radius:24px;padding:20px 24px}
+.bub{display:inline-block;padding:14px 22px;border-radius:28px;font-size:27px;font-weight:500}
+.row{display:flex;align-items:center;gap:18px;background:#1c1c1e;border-radius:22px;padding:16px 22px;margin-bottom:12px;font-size:26px;font-weight:700}
+.tg{width:84px;height:50px;border-radius:25px;background:#3a3a3c;position:relative;flex:none;margin-left:auto}.tg b{position:absolute;top:4px;left:4px;width:42px;height:42px;border-radius:50%;background:#fff}
+#fade{position:absolute;inset:0;background:#000;opacity:0;z-index:70}
+
+</style></head><body><div id="stage"><div id="glow"></div><div id="pts"></div>
+
+<div class="card" id="c1" style="background:#1c1c1e">
+ <div class="hdr" style="color:#ff453a">Календарь</div><div class="ttl">Май</div>
+ <div id="cal" style="position:absolute;left:30px;right:30px;top:160px;display:grid;grid-template-columns:repeat(7,1fr);gap:8px"></div>
+ <div id="bt1" style="position:absolute;left:30px;right:30px;bottom:30px;background:#2c2c2e;border-radius:22px;padding:18px 22px;display:flex;justify-content:space-between;align-items:center;font-size:26px;font-weight:800"><span>🔋 Я</span><span id="bp" class="mono">100%</span></div>
+</div>
+<div class="card" id="c2" style="background:#1c1c1e">
+ <div class="hdr" style="color:#30d158">Локатор</div><div class="ttl">Мама</div>
+ <div style="position:absolute;top:170px;left:50%;margin-left:-80px;width:160px;height:160px;border-radius:50%;background:linear-gradient(135deg,#ffd6a5,#ff9f0a);display:flex;align-items:center;justify-content:center;font-size:90px">👩‍🦳</div>
+ <div style="position:absolute;left:30px;right:30px;top:370px"><div class="row" style="background:#2c2c2e">📍 <span>Делиться с мамой</span><div class="tg" id="tg2"><b></b></div></div></div>
+ <div id="mn" class="c" style="bottom:60px;font-size:34px;font-weight:900;opacity:0">мама не узнает 🤫</div>
+</div>
+<div class="card" id="c3" style="background:#1c1c1e">
+ <div class="hdr" style="color:#ff9f0a">Напоминания</div><div class="ttl">Её обещания</div>
+ <div id="pl" style="position:absolute;left:30px;right:30px;top:170px"></div>
+ <div id="st3" style="position:absolute;left:30px;right:30px;bottom:30px;height:80px;border-radius:24px;background:#3a0d12;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:900;color:#ff453a;opacity:0">✋ не давай мне обещаний</div>
+</div>
+<div class="card" id="c4" style="background:#000">
+ <div class="hdr">Заметки</div><div class="ttl">Я запоминаю</div>
+ <div class="c" style="top:190px"><div style="font-size:22px;color:#8e8e93;font-weight:700">выполнено обещаний</div><div id="ex" class="mono" style="font-size:110px;font-weight:800;color:#ff453a">0/0</div></div>
+ <div id="br" style="position:absolute;left:30px;right:30px;top:400px;display:flex;flex-wrap:wrap;gap:8px"></div>
+ <div id="sv4" class="c" style="bottom:36px;font-size:24px;font-weight:800;color:#30d158;opacity:0">☁️ сохранено в iCloud навсегда</div>
+</div>
+<div class="card" id="c5" style="background:#1c1c1e">
+ <div class="hdr">Конвертер</div><div class="ttl">Отдавай лирами</div>
+ <div class="box" style="position:absolute;left:30px;right:30px;top:200px;padding:28px">
+  <div style="display:flex;justify-content:space-between;font-size:32px;font-weight:800"><span>🇷🇺 RUB</span><span class="mono">10 000</span></div>
+  <div id="sw" style="text-align:center;font-size:40px;margin:14px 0">⇅</div>
+  <div style="display:flex;justify-content:space-between;font-size:32px;font-weight:800"><span>🇹🇷 TRY</span><span id="try" style="color:#ff453a">₺0</span></div></div>
+ <div id="ok5" class="c" style="bottom:60px;font-size:30px;font-weight:900;opacity:0">можно лирами ✓</div>
+</div>
+<div class="card" id="c6" style="background:linear-gradient(180deg,#2a0a1a,#0a0408)">
+ <div id="art" style="position:absolute;left:150px;top:50px;width:300px;height:300px;border-radius:24px;background:linear-gradient(135deg,#ff2d55,#5e2cff);display:flex;align-items:center;justify-content:center;font-size:140px;box-shadow:0 20px 50px rgba(255,45,85,.4)">🎧</div>
+ <div style="position:absolute;left:50px;right:50px;top:380px;display:flex;justify-content:space-between;align-items:center"><div><div style="font-size:32px;font-weight:900">Моё музло</div><div style="font-size:22px;color:#aeaeb2;font-weight:600">я</div></div><div id="lk6" style="font-size:52px">🤍</div></div>
+ <div id="toasts" style="position:absolute;left:0;right:0;top:470px;height:200px"></div>
+</div>
+<div class="card" id="c7" style="background:#000">
+ <div style="padding:30px 40px 20px;display:flex;align-items:center;gap:16px;border-bottom:1px solid #222"><div style="width:62px;height:62px;border-radius:50%;background:#48484a;display:flex;align-items:center;justify-content:center;font-size:34px">🤡</div><div style="font-size:28px;font-weight:800">Он</div></div>
+ <div style="padding:26px 34px 0"><div class="bub" style="background:#262628">докажи что я не прав</div></div>
+ <div id="ok7" style="position:absolute;right:34px;top:250px;opacity:0"><div class="bub" style="background:#0a84ff;font-weight:700">ок.</div></div>
+ <div id="ar7" class="c" style="top:360px;font-size:24px;font-weight:800;color:#8e8e93;opacity:0">аргументов отправлено: 0</div>
+ <div style="position:absolute;left:24px;right:24px;bottom:24px;min-height:76px;border-radius:30px;border:2px solid #3a3a3c;padding:18px 24px;font-size:22px;font-weight:500;line-height:1.3"><span id="in7"></span></div>
+</div>
+<div id="sub"></div><div id="vign"></div><div id="grain"></div><div id="fade"></div></div>
+<script>
+const $=id=>document.getElementById(id);
+const cl=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const seg=(t,a,b)=>cl((t-a)/(b-a));
+const eo=x=>1-Math.pow(1-x,3);
+const eb=x=>{const c=1.7;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)};
+const lerp=(a,b,x)=>a+(b-a)*x;
+const rnd=i=>{const x=Math.sin(i*127.1+311.7)*43758.5453;return x-Math.floor(x)};
+const pop=(t,s,k=8)=>t>=s?Math.exp(-(t-s)*k):0;
+const fmt=n=>Math.round(n).toLocaleString('ru-RU');
+const tog=(id,on)=>{const e=$(id);e.style.background=on?'#30d158':'#3a3a3c';e.firstElementChild.style.left=on?'38px':'4px'};
+const LINES=[[["boy,", 0.45], ["убиваю", 0.8], ["себя", 1.2], ["в", 1.4], ["мае", 1.6]], [["ты", 1.8], ["куришь", 2.2], ["дерьмо,", 2.5], ["но", 2.8], ["пока", 2.9], ["мама", 3.1], ["не", 3.4], ["узнает", 3.6]], [["не", 4.2], ["давай", 4.4], ["мне…", 4.6], ["f*ck,", 4.85], ["не", 5.0], ["давай", 5.2], ["мне", 5.4], ["обещаний", 5.6]], [["ведь", 6.3], ["ты", 6.35], ["их", 6.45], ["не", 6.6], ["выполняешь,", 6.7], ["это", 7.4], ["я", 7.5], ["запоминаю", 7.7]], [["можешь", 9.4], ["отдавать", 9.8], ["мне", 10.2], ["лирами", 10.3]], [["я", 10.8], ["люблю", 11.0], ["это", 11.3], ["музло,", 11.5], ["любишь", 11.9], ["его", 12.2], ["копировать", 12.3]], [["просто", 13.0], ["ты", 13.3], ["е*лан,", 13.5], ["и", 13.9], ["я", 14.0], ["не", 14.1], ["стал", 14.2], ["аргументировать", 14.3]]];const SC=[[-0.3, 1.75], [1.75, 4.1], [4.1, 6.2], [6.2, 9.3], [9.3, 10.75], [10.75, 12.9], [12.9, 99]];const GLOW=["#5a0a0a", "#2a2a4a", "#5a3a0a", "#3a2a5a", "#5a1a1a", "#7a1f4a", "#3a3a3a"];const PEMO=["🥀", "🤫", "🤞", "🧠", "💷", "📋", "💬"];const END=[14.75, 15.07];const SUBFROM=-9;
+(function(){let c='';for(let i=1;i<=31;i++)c+=`<div id="dy${i}" style="aspect-ratio:1;border-radius:10px;background:#2c2c2e;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700">${i}</div>`;$('cal').innerHTML=c;
+ const P=['позвоню вечером','больше не буду','приду в 8','это последний раз'];$('pl').innerHTML=P.map((p,i)=>`<div class="row" id="p3_${i}" style="background:#2c2c2e;opacity:0"><div style="width:36px;height:36px;border-radius:50%;border:3px solid #ff9f0a;flex:none"></div><span>🤞 ${p}</span></div>`).join('');
+ let b='';for(let i=0;i<37;i++)b+=`<div id="b4_${i}" style="width:30px;height:30px;border-radius:8px;background:#2c2c2e;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:900;color:#fff;opacity:0">✕</div>`;$('br').innerHTML=b;
+ let to='';for(let i=0;i<6;i++)to+=`<div id="to${i}" style="position:absolute;left:50%;top:${i*30}px;transform:translateX(-50%);background:rgba(60,60,64,.95);border-radius:20px;padding:10px 20px;font-size:22px;font-weight:800;white-space:nowrap;opacity:0">📋 Скопировано</div>`;$('toasts').innerHTML=to;})();
+(function(){let p='';for(let i=0;i<20;i++)p+=`<div class="pt" id="p${i}"></div>`;$('pts').innerHTML=p;})();
+function sceneIdx(t){for(let i=SC.length-1;i>=0;i--)if(t>=SC[i][0])return i;return 0}
+function showCard(i,t){const [a,b]=SC[i];const el=$('c'+(i+1));
+ const inP=eo(seg(t,a,a+.25)),outP=i<SC.length-1?seg(t,b-.1,b):0;const s=lerp(.86,1,eb(seg(t,a,a+.3)))*(1+outP*.06);
+ el.style.opacity=inP*(1-outP);el.style.transform=`scale(${s}) translateY(${(1-inP)*40}px)`;el.style.filter=`blur(${(1-inP)*14+outP*10}px)`;}
+const shake=(id,t,s,amp=10)=>{if(t>=s)$(id).style.transform+=` translateX(${Math.sin(t*90)*amp*pop(t,s,6)}px)`};
+function render(t){
+ for(let i=1;i<=SC.length;i++)$('c'+i).style.opacity=0;
+ const si=sceneIdx(t);showCard(si,t);
+ $('glow').style.setProperty('--g',GLOW[si]);
+ let lastW=-9;LINES.flat().forEach(([w,s])=>{if(s<=t)lastW=s});const pulse=Math.exp(-(t-lastW)*7);
+ $('glow').style.opacity=.5+.4*pulse;$('glow').style.transform=`scale(${1+.04*pulse})`;
+ for(let i=0;i<20;i++){const e=$('p'+i);const y=1-((t*(.05+rnd(i)*.07)+rnd(i+50))%1);e.textContent=PEMO[si];
+  e.style.left=(rnd(i+9)*1040)+'px';e.style.top=(y*1180-80)+'px';e.style.opacity=.12+rnd(i+3)*.25;
+  e.style.transform=`rotate(${Math.sin(t+i)*25}deg) scale(${.6+rnd(i+7)*.7})`;e.style.filter=`blur(${rnd(i+5)>.6?3:0}px)`;}
+
+ {for(let i=1;i<=31;i++){const on=t>=0.8+i*.025;const e=$('dy'+i);e.style.background=on?'#5a0a0a':'#2c2c2e';e.style.color=on?'#ff8a80':'#fff';}const b=Math.round(lerp(100,1,eo(seg(t,0.8,1.7))));$('bp').textContent=b+'%';$('bp').style.color=b<20?'#ff453a':'#30d158';}
+ {tog('tg2',t<3.1);$('mn').style.opacity=seg(t,3.6,3.75);$('mn').style.transform=`scale(${1+.2*pop(t,3.6,6)})`;}
+ {for(let i=0;i<4;i++){const ti=4.2+i*.25;$('p3_'+i).style.opacity=seg(t,ti,ti+.1);$('p3_'+i).style.transform=`translateY(${(1-eb(seg(t,ti,ti+.25)))*-30}px)`;}$('st3').style.opacity=seg(t,5.6,5.7);if(si==2)shake('c3',t,4.85,8);}
+ {let n=0;for(let i=0;i<37;i++){const ti=6.4+i*.035;const on=t>=ti;if(on)n++;const e=$('b4_'+i);e.style.opacity=on?1:0;e.style.background=on?'#5a0a0a':'#2c2c2e';}$('ex').textContent='0/'+n;$('sv4').style.opacity=seg(t,7.7,7.85);$('ex').style.transform=`scale(${1+.15*pop(t,7.7,5)})`;}
+ {const v=t<10.3?0:lerp(0,3700,eo(seg(t,10.3,10.6)));$('try').textContent='₺'+fmt(v);$('sw').style.transform=`rotate(${seg(t,9.8,10.2)*180}deg)`;$('ok5').style.opacity=seg(t,10.35,10.5);}
+ {const l=t>=11.0;$('lk6').textContent=l?'❤️':'🤍';$('lk6').style.transform=`scale(${1+.5*pop(t,11.0,5)})`;$('art').style.transform=`scale(${1+.03*Math.sin(t*8)})`;
+  for(let i=0;i<6;i++){const ti=12.3+i*.08;const ph=seg(t,ti,ti+.5);$('to'+i).style.opacity=ph>0&&ph<1?1:0;$('to'+i).textContent=i<5?'📋 Скопировано':'📋 Скопировано ×99';}}
+ {const a='во-первых, ты сам начал, во-вторых, это моё музло, в-третьих…';const n=t<13.0?0:(t<14.0?Math.floor((t-13.0)*60):Math.max(0,Math.floor(a.length-(t-14.0)*200)));$('in7').textContent=a.slice(0,Math.min(a.length,n));
+  $('ok7').style.opacity=seg(t,14.3,14.4);$('ar7').style.opacity=seg(t,14.35,14.5);}
+
+ $('fade').style.opacity=seg(t,END[0],END[1]);
+ let li=-1;LINES.forEach((L,i)=>{if(t>=L[0][1]-.15)li=i});
+ $('sub').innerHTML=(li<0||t<SUBFROM)?'':LINES[li].map(([w,s])=>{const on=t>=s;const pp=on?Math.exp(-(t-s)*9):0;return `<span style="opacity:${on?1:.3};color:${on&&w.includes('@@@')?'#ff453a':'#fff'};transform:scale(${1+.14*pp}) translateY(${-6*pp}px)">${w}</span>`}).join('');
+}
+window.render=render;render(0);
+</script></body></html>

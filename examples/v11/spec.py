@@ -1,0 +1,67 @@
+BG='linear-gradient(180deg,#0a1222,#05070d)'
+SUBW='900'
+SUBX='text-transform:uppercase'
+RED='суперфреш'
+REDC='#64d2ff'
+LINES=[
+ [["деньги",1.75],["падают",2.25],["с",2.8],["небес,",3.0],["и",3.5],["я",3.75]],
+ [["забираю",5.0],["снова",5.5],["этот",6.0],["кэш",6.25]],
+ [["мы",8.0],["бросаемся",8.25],["по",8.75],["кругу,",9.0]],
+ [["не",9.5],["смотря",9.75],["на",10.0],["амбразуру",10.25]],
+ [["я",10.5],["сегодня",10.75],["лали",11.25],["суперфреш",12.0]],
+]
+SC=[[-0.3,4.4],[4.4,7.8],[7.8,9.45],[9.45,10.45],[10.45,99]]
+GLOW=['#1d3a7a','#1a5c2e','#3a1d6a','#7a3a0a','#1d5a7a']
+PEMO=['💸','💵','🔁','⚠️','✨']
+END=[12.55,12.9]
+HTML='''
+<div class="card" id="c1" style="background:linear-gradient(180deg,#3d7fc4,#1a3a6a)">
+ <div style="text-align:center;padding-top:36px"><div style="font-size:32px;font-weight:600">Небеса</div><div style="font-size:140px;font-weight:200;line-height:1;letter-spacing:-6px">$∞</div><div id="w1" style="font-size:28px;font-weight:600">Облачно</div></div>
+ <div style="position:absolute;left:50%;top:300px;margin-left:-90px;font-size:150px;line-height:1">☁️</div>
+ <div id="rain" style="position:absolute;left:0;right:0;top:380px;height:180px;overflow:hidden"></div>
+ <div style="position:absolute;bottom:30px;left:30px;right:30px;background:rgba(0,0,0,.18);border-radius:28px;padding:20px 26px;display:flex;justify-content:space-between;font-size:28px;font-weight:700"><span>💸 Осадки: деньги</span><span id="pr1" class="mono">0%</span></div>
+</div>
+<div class="card" id="c2" style="background:#000">
+ <div class="hdr">Apple Cash</div><div class="ttl">Забрать</div>
+ <div id="ntf2" style="position:absolute;left:24px;right:24px;top:150px"></div>
+ <div id="sum2" class="c mono" style="bottom:118px;font-size:48px;font-weight:800;color:#30d158">$0</div>
+ <div id="btn2" style="position:absolute;left:30px;right:30px;bottom:30px;height:76px;border-radius:24px;background:#0a84ff;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:800">Забрать кэш</div>
+</div>
+<div class="card" id="c3" style="background:#000">
+ <div class="hdr" style="color:#a6ff00">Фитнес · Тренировка</div><div class="ttl">Бег по кругу</div>
+ <svg width="600" height="380" style="position:absolute;top:150px;left:0"><rect x="70" y="40" width="460" height="290" rx="145" fill="none" stroke="#2c2c2e" stroke-width="44"/><rect x="70" y="40" width="460" height="290" rx="145" fill="none" stroke="#a6ff00" stroke-width="6" stroke-dasharray="20 16"/></svg>
+ <div id="rn" style="position:absolute;font-size:64px;margin:-32px">🏃</div><div id="rn2" style="position:absolute;font-size:64px;margin:-32px">🏃‍♀️</div>
+ <div class="c" style="bottom:40px"><div id="lp3" class="mono" style="font-size:46px;font-weight:800;color:#a6ff00">круг 1</div></div>
+</div>
+<div class="card" id="c4" style="background:#1c1c1e">
+ <div style="position:absolute;left:50px;right:50px;top:170px;background:rgba(44,44,46,.98);border-radius:34px;text-align:center;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.6)">
+  <div style="padding:34px 30px 26px"><div style="font-size:70px">⚠️</div><div style="font-size:32px;font-weight:900;margin-top:10px">Впереди амбразура</div><div style="font-size:22px;color:#aeaeb2;font-weight:500;margin-top:8px">Продолжить маршрут?</div></div>
+  <div style="display:flex;border-top:1px solid #48484a"><div id="no4" style="flex:1;padding:24px;font-size:28px;font-weight:600;color:#0a84ff;border-right:1px solid #48484a">Посмотреть</div><div id="go4" style="flex:1;padding:24px;font-size:28px;font-weight:800;color:#0a84ff">Вперёд</div></div>
+ </div>
+ <div id="nl4" class="c" style="bottom:60px;font-size:28px;font-weight:900;color:#ff9f0a;opacity:0">не смотря ✓ погнали</div>
+</div>
+<div class="card" id="c5" style="background:linear-gradient(160deg,#0a2a4a,#1a0a3a 60%,#3a0a3a)">
+ <div id="sp5" style="position:absolute;inset:0"></div>
+ <div class="hdr" style="color:#64d2ff">Постер контакта · сегодня</div>
+ <div class="c" style="top:90px;font-size:200px;line-height:1" id="em5">😎</div>
+ <div class="c" style="top:330px"><div id="n5a" style="font-size:96px;font-weight:900;letter-spacing:-3px;line-height:.95">ЛАЛИ</div>
+  <div id="n5b" style="font-size:78px;font-weight:900;letter-spacing:-2px;line-height:1;background:linear-gradient(90deg,#64d2ff,#bf5af2,#ff2d78);-webkit-background-clip:text;color:transparent;opacity:0">СУПЕРФРЕШ</div></div>
+ <div id="st5" class="c" style="bottom:40px;font-size:24px;font-weight:700;color:#aeaeb2">статус: обычный</div>
+</div>
+'''
+BUILD='''(function(){let r='';for(let i=0;i<18;i++)r+=`<div id="rb${i}" style="position:absolute;left:${30+rnd(i)*500}px;font-size:${34+rnd(i+3)*20}px">💵</div>`;$('rain').innerHTML=r;
+ $('ntf2').innerHTML=[0,1,2,3].map(i=>`<div id="n2_${i}" style="display:flex;gap:16px;align-items:center;background:rgba(60,60,64,.85);border-radius:24px;padding:11px 20px;margin-bottom:8px;opacity:0"><div style="width:54px;height:54px;border-radius:14px;background:#30d158;display:flex;align-items:center;justify-content:center;font-size:30px">💵</div><div><div style="font-size:24px;font-weight:800">Apple Cash</div><div style="font-size:22px;font-weight:600;color:#d1d1d6">${i?'Снова':'Получено'} +$${[500,1000,2500,5000][i]} · с небес</div></div></div>`).join('');
+ let s='';for(let i=0;i<40;i++)s+=`<div id="s5_${i}" style="position:absolute;left:${rnd(i)*580}px;top:${rnd(i+77)*670}px;font-size:${14+rnd(i+4)*26}px">✦</div>`;$('sp5').innerHTML=s;})();'''
+RENDER='''
+ {const r=seg(t,1.75,3.0);$('pr1').textContent=Math.round(r*100)+'%';$('w1').textContent=t>=3.0?'Денежный дождь':'Облачно';
+  for(let i=0;i<18;i++){const e=$('rb'+i);const ph=((t-1.75)*.9+rnd(i+9))%1;e.style.top=(-50+ph*230)+'px';e.style.opacity=t>=1.75?1:0;e.style.transform=`rotate(${(rnd(i)-.5)*60+t*40}deg)`;}}
+ {let s=0;[0,1,2,3].forEach(i=>{const ti=[5.0,5.5,6.0,6.25][i];const v=[500,1000,2500,5000][i];const p=eb(seg(t,ti,ti+.25));$('n2_'+i).style.opacity=seg(t,ti,ti+.1);$('n2_'+i).style.transform=`translateY(${(1-p)*-40}px)`;if(t>=ti)s+=v*eo(seg(t,ti,ti+.3));});
+  $('sum2').textContent='$'+fmt(s);$('sum2').style.transform=`scale(${1+.15*pop(t,6.25,5)})`;const d=t>=6.25;$('btn2').textContent=d?'Забрано снова ✓':'Забрать кэш';$('btn2').style.background=d?'#30d158':'#0a84ff';}
+ {const ph=(t-8.0)*1.3;const P=(u,o)=>{const a=((u+o)%1+1)%1*2*Math.PI;return [300+230*Math.cos(a),335+145*Math.sin(a)]};const [x,y]=P(ph,0),[x2,y2]=P(ph,.5);
+  $('rn').style.left=x+'px';$('rn').style.top=y+'px';$('rn2').style.left=x2+'px';$('rn2').style.top=y2+'px';$('rn').style.transform=`scaleX(${Math.sin(ph*2*Math.PI)>0?-1:1})`;$('rn2').style.transform=`scaleX(${Math.sin(ph*2*Math.PI)>0?1:-1})`;
+  $('lp3').textContent='круг '+Math.max(1,Math.floor(Math.max(0,ph)*2)+1);}
+ {const g=t>=10.25;$('no4').style.opacity=t>=9.75?.3:1;$('go4').style.background=g?'#ff9f0a':'transparent';$('go4').style.color=g?'#000':'#0a84ff';$('nl4').style.opacity=seg(t,10.25,10.35);if(si==3)shake('c4',t,10.25,8);}
+ {const f=t>=12.0;$('n5b').style.opacity=seg(t,12.0,12.1);$('n5b').style.transform=`scale(${1+.3*pop(t,12.0,5)})`;$('n5a').style.opacity=t>=11.25?1:.25;
+  $('em5').textContent=f?'🤩':(t>=11.25?'😏':'😎');$('em5').style.transform=`scale(${1+.25*pop(t,11.25,5)+.3*pop(t,12.0,5)})`;$('st5').textContent=f?'статус: суперфреш ✨':'статус: обычный';$('st5').style.color=f?'#64d2ff':'#aeaeb2';
+  for(let i=0;i<40;i++){$('s5_'+i).style.opacity=f?(.3+.7*Math.abs(Math.sin(t*4+i))):.08;$('s5_'+i).style.color=['#64d2ff','#bf5af2','#ff2d78','#fff'][i%4];}}
+'''

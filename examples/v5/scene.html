@@ -1,0 +1,188 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1080px;overflow:hidden;background:#000;font-family:Inter,"Apple Color Emoji",sans-serif}
+#stage{position:absolute;inset:0;overflow:hidden;background:#08080a}
+#glow{position:absolute;inset:-20%;background:radial-gradient(circle at 50% 55%,var(--g,#333) 0%,transparent 55%)}
+#vign{position:absolute;inset:0;background:radial-gradient(circle,transparent 45%,rgba(0,0,0,.8) 100%);z-index:50}
+.pt{position:absolute;font-size:34px}
+#sub{position:absolute;top:50px;left:0;right:0;text-align:center;font-weight:800;font-size:48px;color:#fff;z-index:40;text-shadow:0 4px 24px rgba(0,0,0,.7);padding:0 40px;line-height:1.15}
+#sub span{display:inline-block;margin:0 10px}
+.card{position:absolute;left:50%;top:57%;width:600px;height:690px;margin-left:-300px;margin-top:-345px;border-radius:52px;overflow:hidden;opacity:0;box-shadow:0 40px 120px rgba(0,0,0,.8),0 0 0 1.5px rgba(255,255,255,.08) inset;background:#111214;color:#fff}
+.hdr{font-size:22px;font-weight:600;color:rgba(255,255,255,.55);padding:34px 40px 0}
+.ttl{font-size:46px;font-weight:800;padding:6px 40px 0;letter-spacing:-1px}
+.c{position:absolute;left:0;right:0;text-align:center}
+.bub{display:inline-block;padding:14px 22px;border-radius:28px;font-size:27px;font-weight:500}
+.mono{font-family:'JetBrains Mono'}
+#fade{position:absolute;inset:0;background:#000;opacity:0;z-index:70}
+</style></head><body>
+<div id="stage">
+ <div id="glow"></div><div id="pts"></div>
+
+ <!-- 1 Spotlight -->
+ <div class="card" id="c1" style="background:linear-gradient(180deg,#1d2230,#0b0d12)">
+  <div style="margin:60px 30px 0;height:84px;border-radius:24px;background:rgba(255,255,255,.12);display:flex;align-items:center;padding:0 26px;font-size:30px;font-weight:600;gap:16px"><span>🔍</span><span id="q1"></span><span id="cur1" style="width:3px;height:36px;background:#0a84ff"></span></div>
+  <div id="nr1" class="c" style="top:260px;opacity:0"><div style="font-size:120px">🤷‍♂️</div><div style="font-size:40px;font-weight:800;margin-top:14px">Нет результатов</div><div style="font-size:24px;color:#8e8e93;font-weight:600;margin-top:10px">«я в отношениях» не найдено</div></div>
+ </div>
+
+ <!-- 2 Chats -->
+ <div class="card" id="c2" style="background:#000">
+  <div class="hdr" style="color:#0a84ff">Изменить</div><div class="ttl">Сообщения</div>
+  <div style="display:flex;gap:30px;justify-content:center;margin-top:30px">
+   <div id="pm" style="text-align:center"><div style="width:130px;height:130px;border-radius:50%;background:linear-gradient(135deg,#ffd60a,#ff9f0a);display:flex;align-items:center;justify-content:center;font-size:70px">👑</div><div style="font-size:24px;font-weight:700;margin-top:8px">Main</div></div>
+   <div id="ps" style="text-align:center"><div style="width:130px;height:130px;border-radius:50%;background:linear-gradient(135deg,#bf5af2,#ff2d78);display:flex;align-items:center;justify-content:center;font-size:70px">🤫</div><div style="font-size:24px;font-weight:700;margin-top:8px">Side ×3</div></div>
+  </div>
+  <div style="position:absolute;left:30px;right:30px;top:330px">
+   <div style="font-size:21px;color:#8e8e93;font-weight:700;margin-bottom:10px">→ Main 👑</div>
+   <div id="lie" style="text-align:right;opacity:0"><div class="bub" style="background:#0a84ff">я на студии, малыш 🙏</div></div>
+   <div id="lie2" style="text-align:right;opacity:0;margin-top:10px"><div class="bub" style="background:#0a84ff">ты у меня одна 🥺</div></div>
+   <div id="lieTag" style="text-align:right;margin-top:10px;font-size:22px;font-weight:800;color:#ff453a;opacity:0">🤥 Доставлено · ложь 100%</div>
+  </div>
+ </div>
+
+ <!-- 3 Home screen zero-g -->
+ <div class="card" id="c3" style="background:linear-gradient(160deg,#3a1d5c,#0d1a3a)">
+  <div id="icons" style="position:absolute;inset:0"></div>
+  <div id="g3" class="c" style="bottom:40px;font-size:28px;font-weight:800;opacity:0">🌌 гравитация: <span class="mono" id="g3v">9.8</span> м/с²</div>
+ </div>
+
+ <!-- 4 CarPlay -->
+ <div class="card" id="c4" style="background:#0a0a0c">
+  <div style="position:absolute;left:0;right:0;top:0;height:110px;background:#1a5c2e;padding:20px 30px;display:flex;gap:20px;align-items:center">
+   <div id="arrow4" style="font-size:56px;font-weight:900">↑</div><div><div class="mono" style="font-size:34px;font-weight:800">300 м</div><div id="lt4" style="font-size:22px;font-weight:600;opacity:.8">Держитесь полосы</div></div></div>
+  <div id="road" style="position:absolute;left:60px;right:60px;top:110px;bottom:90px;background:#26282d;overflow:hidden">
+   <div id="lanes" style="position:absolute;inset:0"></div>
+   <div id="car" style="position:absolute;width:110px;height:180px;bottom:40px;font-size:140px;line-height:180px;text-align:center;">🚘</div>
+  </div>
+  <div style="position:absolute;left:0;right:0;bottom:0;height:90px;background:#141416;display:flex;align-items:center;justify-content:space-between;padding:0 30px;font-size:24px;font-weight:700"><span>CarPlay · Мерседес</span><span id="kmh" class="mono" style="color:#30d158">120 км/ч</span></div>
+ </div>
+
+ <!-- 5 Bank -->
+ <div class="card" id="c5" style="background:#0d0d0f">
+  <div class="hdr">Счёт · Основной</div>
+  <div id="bal" style="padding:6px 40px 0;font-size:74px;font-weight:800;letter-spacing:-2px">0 ₽</div>
+  <div id="bal2" style="padding:0 40px;font-size:24px;font-weight:700;color:#30d158">▲ за сегодня</div>
+  <div id="tx" style="position:absolute;left:30px;right:30px;top:220px"></div>
+ </div>
+
+ <!-- 6 Siri -->
+ <div class="card" id="c6" style="background:#000">
+  <div id="orb" style="position:absolute;left:50%;top:380px;width:220px;height:220px;margin-left:-110px;border-radius:50%;background:conic-gradient(from 0deg,#ff2d78,#5e5ce6,#30d158,#ffd60a,#ff2d78);filter:blur(18px)"></div>
+  <div class="c" style="top:90px;padding:0 40px"><div id="siriq" style="font-size:40px;font-weight:700;line-height:1.25"></div></div>
+ </div>
+
+ <!-- 7 Contact -->
+ <div class="card" id="c7" style="background:#1c1c1e">
+  <div style="position:absolute;top:50px;left:50%;margin-left:-80px;width:160px;height:160px;border-radius:50%;background:#636366;display:flex;align-items:center;justify-content:center;font-size:84px;font-weight:700">?</div>
+  <div class="c" style="top:230px;font-size:40px;font-weight:800">Кореш</div>
+  <div class="c" style="top:282px;font-size:22px;color:#8e8e93;font-weight:600">номер не сохранён</div>
+  <div style="position:absolute;left:30px;right:30px;top:350px;background:#2c2c2e;border-radius:24px;padding:24px 26px">
+   <div style="display:flex;justify-content:space-between;font-size:24px;font-weight:700"><span>Знаю его</span><span id="kn" class="mono" style="color:#ff9f0a">0%</span></div>
+   <div style="height:16px;border-radius:8px;background:#3a3a3c;margin-top:14px;overflow:hidden"><div id="knb" style="height:16px;background:#ff9f0a;width:0"></div></div>
+   <div style="font-size:21px;color:#8e8e93;font-weight:600;margin-top:16px">Последнее общение: никогда</div>
+  </div>
+  <div id="edva" class="c" style="bottom:50px;font-size:44px;font-weight:900;color:#ff9f0a;opacity:0">едва знаю 🤨</div>
+ </div>
+
+ <!-- 8 Find My: zone -->
+ <div class="card" id="c8" style="background:#1c1c1e">
+  <div style="position:absolute;left:0;right:0;top:0;height:380px;background:#2a2f36;overflow:hidden">
+   <div style="position:absolute;left:150px;top:80px;width:300px;height:220px;border:6px dashed #8e8e93;border-radius:10px;background:repeating-linear-gradient(45deg,rgba(255,255,255,.05) 0 10px,transparent 10px 22px)"></div>
+   <div style="position:absolute;left:160px;top:90px;font-size:20px;font-weight:800;color:#aeaeb2">ЗОНА</div>
+   <div id="pin8" style="position:absolute;left:300px;top:190px;width:90px;height:90px;margin:-45px;border-radius:50%;background:#ff9f0a;border:5px solid #fff;display:flex;align-items:center;justify-content:center;font-size:48px">🧔</div>
+  </div>
+  <div style="position:absolute;left:0;right:0;top:400px;padding:0 34px">
+   <div style="font-size:34px;font-weight:800">Братан</div>
+   <div id="z8" style="font-size:24px;color:#aeaeb2;font-weight:600;margin-top:6px">определение геопозиции…</div>
+   <div id="st8" style="margin-top:20px;background:#2c2c2e;border-radius:20px;padding:18px 22px;font-size:26px;font-weight:800;opacity:0">😴 Статус: откисает</div>
+   <div id="d8" class="mono" style="margin-top:14px;font-size:24px;font-weight:700;color:#ff9f0a;opacity:0">вернётся через 730 дн.</div>
+  </div>
+ </div>
+
+ <div id="sub"></div><div id="vign"></div><div id="fade"></div>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+const cl=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const seg=(t,a,b)=>cl((t-a)/(b-a));
+const eo=x=>1-Math.pow(1-x,3);
+const eb=x=>{const c=1.7;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)};
+const lerp=(a,b,x)=>a+(b-a)*x;
+const rnd=i=>{const x=Math.sin(i*127.1+311.7)*43758.5453;return x-Math.floor(x)};
+const pop=(t,s,k=8)=>t>=s?Math.exp(-(t-s)*k):0;
+const fmt=n=>Math.round(n).toLocaleString('ru-RU').replace(/,/g,' ');
+
+const LINES=[
+ [["я",.5],["не",.6],["вижу",.9],["себя",1.0],["в",1.15],["отношениях",1.4]],
+ [["i'm",1.75],["a",1.85],["f*cking",2.0],["side",2.25],["hoes,",2.5],["lying",2.85],["to",3.0],["main",3.25],["b*tch",3.5]],
+ [["теряю",3.75],["гравитацию",4.25],["от",4.75],["бланта",5.0]],
+ [["ляна",5.4],["в",5.9],["мерседесе",6.2],["сделал",6.45],["этот",6.7],["lane",7.0],["switch",7.2]],
+ [["я",7.5],["поднял",7.7],["на",8.0],["трапе,",8.2],["я",8.45],["поднял",8.65],["на",8.85],["коле",9.05]],
+ [["я",9.25],["поднял",9.4],["на",9.7],["занах,",10.1],["я",10.3],["поднял",10.5],["на",10.7],["шмали",11.05]],
+ [["что",11.25],["ты",11.4],["скажешь,",11.55],["кореш?",11.95]],
+ [["я",12.25],["тя",12.4],["едва",12.75],["знаю",12.85]],
+ [["мой",13.0],["братан",13.2],["на",13.5],["зоне",13.7],["там",13.95],["щас",14.25],["откисает",14.55]],
+];
+const SC=[[-0.3,1.65],[1.65,3.65],[3.65,5.3],[5.3,7.4],[7.4,11.15],[11.15,12.15],[12.15,12.95],[12.95,99]];
+const GLOW=['#1d2a5c','#5c1d4a','#3a1d6a','#1a5c2e','#1a5c2e','#3a1d6a','#6a4a10','#6a3a0a'];
+const PEMO=['🔍','🤫','🪐','🛞','💸','🎙️','🤨','⛓️'];
+
+(function(){
+ const IC=[['#30d158','💬'],['#0a84ff','🧭'],['#ff9f0a','📷'],['#ff375f','🎵'],['#5e5ce6','🎧'],['#ffd60a','📒'],['#64d2ff','☁️'],['#8e8e93','⚙️'],['#30d158','📞'],['#ff2d55','❤️'],['#bf5af2','🎙️'],['#ff9f0a','🗺️'],['#0a84ff','✉️'],['#ffd60a','⭐'],['#ff453a','📅'],['#30d158','💵']];
+ $('icons').innerHTML=IC.map(([c,e],i)=>`<div id="ic${i}" style="position:absolute;left:${48+(i%4)*130}px;top:${50+Math.floor(i/4)*130}px;width:104px;height:104px;border-radius:24px;background:${c};display:flex;align-items:center;justify-content:center;font-size:56px;box-shadow:0 6px 16px rgba(0,0,0,.3)">${e}</div>`).join('');
+ let l='';for(let k=1;k<3;k++)l+=`<div class="ln" style="position:absolute;left:${k*160-4}px;top:0;bottom:0;width:8px;background:repeating-linear-gradient(#fff 0 50px,transparent 50px 100px);background-size:8px 100px"></div>`;$('lanes').innerHTML=l;
+ const T=[['🎤','Трап',250000],['🥤','Кола',250000],['💊','—',500000],['🌿','—',1000000]];
+ $('tx').innerHTML=T.map(([e,n,v],i)=>`<div id="tx${i}" style="display:flex;align-items:center;gap:18px;background:#1c1c1e;border-radius:22px;padding:18px 22px;margin-bottom:12px;opacity:0"><div style="width:58px;height:58px;border-radius:50%;background:#2c2c2e;display:flex;align-items:center;justify-content:center;font-size:30px">${i<2?e:'💸'}</div><div style="flex:1"><div style="font-size:26px;font-weight:800">${i<2?'Поднял на '+(i?'коле':'трапе'):'Поднял ещё'}</div><div style="font-size:19px;color:#8e8e93;font-weight:600">поступление</div></div><div class="mono" style="font-size:26px;font-weight:800;color:#30d158">+${fmt(v)} ₽</div></div>`).join('');
+ let p='';for(let i=0;i<22;i++)p+=`<div class="pt" id="p${i}"></div>`;$('pts').innerHTML=p;
+})();
+function sceneIdx(t){for(let i=SC.length-1;i>=0;i--)if(t>=SC[i][0])return i;return 0}
+function showCard(i,t){const [a,b]=SC[i];const el=$('c'+(i+1));
+ const inP=eo(seg(t,a,a+.25)),outP=i<SC.length-1?seg(t,b-.1,b):0;const s=lerp(.86,1,eb(seg(t,a,a+.3)))*(1+outP*.06);
+ el.style.opacity=inP*(1-outP);el.style.transform=`scale(${s}) translateY(${(1-inP)*40}px)`;el.style.filter=`blur(${(1-inP)*14+outP*10}px)`;}
+const shake=(id,t,s,amp=10)=>{if(t>=s)$(id).style.transform+=` translateX(${Math.sin(t*90)*amp*pop(t,s,6)}px)`};
+
+function render(t){
+ for(let i=1;i<=8;i++)$('c'+i).style.opacity=0;
+ const si=sceneIdx(t);showCard(si,t);
+ $('glow').style.setProperty('--g',GLOW[si]);
+ let lastW=-9;LINES.flat().forEach(([w,s])=>{if(s<=t)lastW=s});const pulse=Math.exp(-(t-lastW)*7);
+ $('glow').style.opacity=.5+.4*pulse;$('glow').style.transform=`scale(${1+.04*pulse})`;
+ for(let i=0;i<22;i++){const e=$('p'+i);const y=1-((t*(.06+rnd(i)*.08)+rnd(i+50))%1);e.textContent=PEMO[si];
+  e.style.left=(rnd(i+9)*1040)+'px';e.style.top=(y*1180-80)+'px';e.style.opacity=.12+rnd(i+3)*.25;
+  e.style.transform=`rotate(${Math.sin(t+i)*25}deg) scale(${.6+rnd(i+7)*.7})`;e.style.filter=`blur(${rnd(i+5)>.6?3:0}px)`;}
+ // 1
+ {const q='я в отношениях';const n=Math.floor(cl((t-0.5)/0.75)*q.length);$('q1').textContent=q.slice(0,n);$('cur1').style.opacity=Math.floor(t*4)%2?1:.2;
+  const r=seg(t,1.4,1.55);$('nr1').style.opacity=r;$('nr1').style.transform=`scale(${lerp(.8,1,eb(r))})`;}
+ // 2
+ {$('ps').style.transform=`scale(${1+.25*pop(t,2.25,5)})`;$('pm').style.transform=`scale(${1+.25*pop(t,3.25,5)})`;
+  $('lie').style.opacity=seg(t,2.85,3.0);$('lie2').style.opacity=seg(t,3.25,3.4);$('lieTag').style.opacity=seg(t,3.5,3.6);$('lieTag').style.transform=`scale(${1+.2*pop(t,3.5)})`;}
+ // 3
+ {const g=seg(t,4.25,5.3);for(let i=0;i<16;i++){const e=$('ic'+i);const d=eo(cl((t-4.25-rnd(i)*.3)/1.0));e.style.transform=`translate(${(rnd(i+3)-.5)*120*d}px,${-d*(120+rnd(i+11)*260)}px) rotate(${(rnd(i+7)-.5)*160*d}deg) scale(${1-d*.15})`;
+   e.style.transform+=` translateY(${t<4.25?Math.sin(t*20+i)*2*(t>3.75?1:0):0}px)`;}
+  $('g3').style.opacity=seg(t,3.8,3.95);$('g3v').textContent=(9.8*(1-eo(g))).toFixed(1);}
+ // 4
+ {const ln=eo(seg(t,7.0,7.3));$('car').style.left=lerp(212,52,ln)+'px';$("car").style.transform=`rotate(${-Math.sin(ln*Math.PI)*18}deg)`;
+  [...$('lanes').children].forEach(e=>e.style.backgroundPosition=`0 ${(t*900)%100}px`);
+  $('arrow4').textContent=t>=6.9?'↖':'↑';$('lt4').textContent=t>=6.9?'Перестроение влево':'Держитесь полосы';$('kmh').textContent=Math.round(lerp(120,180,seg(t,5.4,7.2)))+' км/ч';
+  if(si==3)shake('c4',t,7.2,6);}
+ // 5
+ {const ts=[8.2,9.05,10.1,11.05],vs=[250000,250000,500000,1000000];let b=0;
+  ts.forEach((s,i)=>{const p=eo(seg(t,s,s+.4));b+=vs[i]*p;const e=$('tx'+i);e.style.opacity=seg(t,s,s+.12);e.style.transform=`translateY(${(1-eb(seg(t,s,s+.3)))*-40}px)`;});
+  $('bal').textContent=fmt(b)+' ₽';$('bal').style.transform=`scale(${1+.08*Math.max(...ts.map(s=>pop(t,s,6)))})`;$('bal').style.transformOrigin='left';
+  $('bal2').textContent='▲ +'+fmt(b)+' ₽ за сегодня';}
+ // 6
+ {const q='что ты скажешь, кореш?';const n=Math.floor(cl((t-11.25)/0.75)*q.length);$('siriq').textContent=q.slice(0,n);
+  $('orb').style.transform=`scale(${.85+.25*Math.abs(Math.sin(t*9))+.2*pulse}) rotate(${t*120}deg)`;}
+ // 7
+ {const k=t<12.75?lerp(0,30,seg(t,12.2,12.7)):lerp(30,3,eo(seg(t,12.75,12.9)));$('kn').textContent=Math.round(k)+'%';$('knb').style.width=k+'%';$('edva').style.opacity=seg(t,12.75,12.85);}
+ // 8
+ {const z=t>=13.7;$('z8').textContent=z?'📍 на зоне · 2 400 км от вас':'определение геопозиции…';$('pin8').style.transform=`scale(${1+.35*pop(t,13.7,5)})`;
+  $('st8').style.opacity=seg(t,14.55,14.7);$('st8').style.transform=`scale(${1+.1*pop(t,14.55)})`;$('d8').style.opacity=seg(t,14.25,14.4);
+  $('d8').textContent='вернётся через '+Math.round(lerp(730,729,seg(t,14.3,15)))+' дн.';}
+ $('fade').style.opacity=seg(t,14.85,15.1);
+ let li=0;LINES.forEach((L,i)=>{if(t>=L[0][1]-.2)li=i});const L=LINES[li];
+ $('sub').innerHTML=t<0.35?'':L.map(([w,s])=>{const on=t>=s;const pp=on?Math.exp(-(t-s)*9):0;return `<span style="opacity:${on?1:.3};transform:scale(${1+.14*pp}) translateY(${-6*pp}px)">${w}</span>`}).join('');
+}
+window.render=render;render(0);
+</script></body></html>

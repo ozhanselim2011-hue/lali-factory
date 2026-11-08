@@ -1,0 +1,344 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1080px;overflow:hidden;background:#000;font-family:Inter,"Apple Color Emoji",sans-serif;-webkit-font-smoothing:antialiased}
+#stage{position:absolute;inset:0;overflow:hidden;background:#05100b}
+#glow{position:absolute;inset:-20%;background:radial-gradient(circle at 50% 55%,var(--g,#1b5e3a) 0%,transparent 55%);opacity:.75}
+#vign{position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,transparent 45%,rgba(0,0,0,.75) 100%);pointer-events:none;z-index:50}
+.pt{position:absolute;font-size:38px;will-change:transform}
+#sub{position:absolute;top:58px;left:0;right:0;text-align:center;font-weight:800;font-size:50px;color:#fff;letter-spacing:-.5px;z-index:40;text-shadow:0 4px 24px rgba(0,0,0,.6);padding:0 60px;line-height:1.15}
+#sub span{display:inline-block;margin:0 11px;transition:none}
+.card{position:absolute;left:50%;top:56%;width:600px;height:690px;margin-left:-300px;margin-top:-345px;border-radius:52px;overflow:hidden;opacity:0;box-shadow:0 40px 120px rgba(0,0,0,.65),0 0 0 1.5px rgba(255,255,255,.08) inset}
+.dark{background:#111214;color:#fff}
+.hdr{font-size:22px;font-weight:600;color:rgba(255,255,255,.55);padding:34px 40px 0}
+.ttl{font-size:46px;font-weight:800;padding:6px 40px 0;letter-spacing:-1px}
+.row{display:flex;justify-content:space-between;align-items:center;padding:0 40px;font-size:28px;font-weight:600}
+#flash{position:absolute;inset:0;background:#fff;opacity:0;z-index:60}
+#fade{position:absolute;inset:0;background:#000;opacity:0;z-index:70}
+</style></head><body>
+<div id="stage">
+ <div id="glow"></div>
+ <div id="pts"></div>
+
+ <!-- S1 Здоровье / Вода -->
+ <div class="card dark" id="c1">
+  <div class="hdr" style="color:#ff375f">❤ Здоровье</div>
+  <div class="ttl">Бокалы</div>
+  <div id="glasses" style="position:absolute;left:0;right:0;top:170px;height:330px;display:flex;justify-content:center;gap:70px"></div>
+  <div style="position:absolute;bottom:100px;left:0;right:0;text-align:center">
+   <div id="c1pct" style="font-size:96px;font-weight:800;letter-spacing:-3px">0%</div>
+   <div id="c1st" style="font-size:30px;font-weight:700;color:#8e8e93">наполняются…</div>
+  </div>
+ </div>
+
+ <!-- S2 Погода -->
+ <div class="card" id="c2" style="background:linear-gradient(180deg,#2f8de4 0%,#62b6f7 100%);color:#fff">
+  <div style="text-align:center;padding-top:40px">
+   <div style="font-size:34px;font-weight:600">Мой район</div>
+   <div style="font-size:150px;font-weight:200;line-height:1;letter-spacing:-6px">27°</div>
+   <div style="font-size:30px;font-weight:600">Ясно · ни облачка</div>
+  </div>
+  <div id="sun" style="position:absolute;left:50%;top:330px;width:120px;height:120px;margin-left:-60px">
+   <div style="position:absolute;inset:22px;border-radius:50%;background:#ffd60a;box-shadow:0 0 60px #ffd60a"></div>
+   <div id="rays" style="position:absolute;inset:0"></div>
+  </div>
+  <div id="drop" style="position:absolute;left:50%;top:0;width:34px;height:46px;margin-left:-17px;background:#bfe3ff;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;clip-path:polygon(50% 0,100% 62%,92% 85%,70% 100%,30% 100%,8% 85%,0 62%);opacity:0"></div>
+  <div style="position:absolute;bottom:34px;left:30px;right:30px;background:rgba(0,0,0,.14);border-radius:30px;padding:22px 0">
+   <div class="row" style="padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.18)"><span>💧 Осадки</span><span>0 мм</span></div>
+   <div class="row" id="c2un" style="padding-top:16px"><span>😮‍💨 Уныние</span><span id="c2unv">0%</span></div>
+  </div>
+ </div>
+
+ <!-- S3 Заметки -->
+ <div class="card" id="c3" style="background:#1c1c1e;color:#fff">
+  <div class="hdr" style="color:#ffd60a">‹ Пацаны</div>
+  <div class="ttl">Коны 📍</div>
+  <div id="laws" style="padding:22px 40px 0"></div>
+  <div style="position:absolute;bottom:40px;left:40px;right:40px;display:flex;align-items:center;gap:0">
+   <div id="avs" style="display:flex"></div>
+   <div id="c3read" style="margin-left:18px;font-size:24px;font-weight:600;color:#8e8e93">прочитали <span style="color:#0a84ff">✓✓</span></div>
+  </div>
+ </div>
+
+ <!-- S4 Карты -->
+ <div class="card" id="c4" style="background:#242a30;color:#fff">
+  <div id="map" style="position:absolute;inset:0"></div>
+  <div style="position:absolute;left:24px;right:24px;bottom:24px;background:rgba(30,30,32,.92);border-radius:30px;padding:24px 30px">
+   <div style="font-size:30px;font-weight:800">Улицы знают</div>
+   <div style="font-size:22px;color:#8e8e93;font-weight:600;margin-top:4px">5 своих рядом · все на районе</div>
+  </div>
+ </div>
+
+ <!-- S5 Приоритеты -->
+ <div class="card dark" id="c5">
+  <div class="hdr" style="color:#ff9f0a">Напоминания</div>
+  <div class="ttl">Приоритеты</div>
+  <div id="prio" style="position:absolute;left:30px;right:30px;top:190px;height:420px"></div>
+ </div>
+
+ <!-- S6 Перегрев -->
+ <div class="card" id="c6" style="background:#000;color:#fff">
+  <div id="heat" style="position:absolute;inset:0;background:radial-gradient(circle at 50% 120%,#ff3b30 0%,#ff9500 25%,transparent 65%);opacity:0"></div>
+  <div style="position:absolute;top:90px;left:0;right:0;text-align:center">
+   <div style="position:relative;width:70px;height:220px;margin:0 auto">
+    <div style="position:absolute;left:20px;top:0;width:30px;height:170px;border-radius:15px;border:4px solid #fff"></div>
+    <div style="position:absolute;left:5px;bottom:0;width:60px;height:60px;border-radius:50%;border:4px solid #fff;background:#ff3b30"></div>
+    <div id="merc" style="position:absolute;left:29px;bottom:40px;width:12px;height:20px;border-radius:6px;background:#ff3b30"></div>
+   </div>
+   <div style="font-size:52px;font-weight:800;margin-top:34px">Температура</div>
+   <div style="font-size:28px;font-weight:500;color:#d1d1d6;margin:18px 50px 0;line-height:1.35">iPhone нужно охладить<br>перед использованием.</div>
+   <div id="c6why" style="font-size:30px;font-weight:800;color:#ff9f0a;margin-top:26px">Причина: огонь внутри 🔥</div>
+   <div id="c6deg" style="font-size:24px;font-weight:700;color:#ff453a;margin-top:12px;font-family:'JetBrains Mono'">37°C</div>
+  </div>
+ </div>
+
+ <!-- S7 Face ID -->
+ <div class="card dark" id="c7">
+  <div style="position:absolute;top:70px;left:0;right:0;text-align:center;font-size:30px;font-weight:700">Face ID</div>
+  <div id="fid" style="position:absolute;left:50%;top:150px;width:300px;height:300px;margin-left:-150px">
+   <div id="mummy" style="position:absolute;inset:40px 55px;border-radius:48% 48% 44% 44%;background:repeating-linear-gradient(-12deg,#e8dfc8 0 18px,#cfc3a6 18px 21px,#ded3b8 21px 36px,#bfb397 36px 39px)">
+    <div style="position:absolute;top:38%;left:22%;width:30px;height:16px;background:#111;border-radius:50%;box-shadow:inset 0 0 0 5px #3a2a14"></div>
+    <div style="position:absolute;top:38%;right:22%;width:30px;height:16px;background:#111;border-radius:50%;box-shadow:inset 0 0 0 5px #3a2a14"></div>
+   </div>
+   <svg id="fidsvg" width="300" height="300" style="position:absolute;inset:0"><g id="corners" fill="none" stroke-width="10" stroke-linecap="round" stroke="#fff">
+    <path d="M10 70 V30 Q10 10 30 10 H70"/><path d="M230 10 H270 Q290 10 290 30 V70"/>
+    <path d="M290 230 V270 Q290 290 270 290 H230"/><path d="M70 290 H30 Q10 290 10 270 V230"/></g>
+    <rect id="scan" x="20" y="20" width="260" height="6" rx="3" fill="#30d158" opacity=".8"/></svg>
+  </div>
+  <div style="position:absolute;bottom:90px;left:0;right:0;text-align:center">
+   <div id="c7a" style="font-size:36px;font-weight:800">Сканирование…</div>
+   <div id="c7b" style="font-size:26px;font-weight:600;color:#8e8e93;margin-top:12px">держите iPhone ровно</div>
+  </div>
+ </div>
+
+ <!-- S8 Акции -->
+ <div class="card dark" id="c8">
+  <div class="hdr">Акции</div>
+  <div class="ttl">МЫ</div>
+  <div style="padding:0 40px;font-size:22px;color:#8e8e93;font-weight:600">Мы Inc. · растём как либидо 🔥</div>
+  <div style="padding:20px 40px 0;display:flex;align-items:baseline;gap:18px">
+   <div id="c8p" style="font-size:72px;font-weight:800;letter-spacing:-2px">$1.00</div>
+   <div id="c8c" style="font-size:30px;font-weight:800;color:#30d158">▲ 0%</div>
+  </div>
+  <svg width="600" height="330" style="position:absolute;bottom:40px;left:0">
+   <defs><linearGradient id="gg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#30d158" stop-opacity=".45"/><stop offset="1" stop-color="#30d158" stop-opacity="0"/></linearGradient></defs>
+   <path id="c8area" fill="url(#gg)"/><path id="c8line" fill="none" stroke="#30d158" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+   <circle id="c8dot" r="11" fill="#30d158"/>
+  </svg>
+ </div>
+
+ <!-- S9 Алерт -->
+ <div class="card" id="c9" style="background:linear-gradient(160deg,#2b3a55,#141a26);color:#fff">
+  <div style="position:absolute;inset:0;backdrop-filter:blur(8px);background:rgba(0,0,0,.35)"></div>
+  <div id="alert" style="position:absolute;left:60px;right:60px;top:200px;background:rgba(44,44,46,.96);border-radius:34px;overflow:hidden;text-align:center">
+   <div style="padding:40px 34px 30px">
+    <div style="font-size:34px;font-weight:800">Вступить за команду?</div>
+    <div style="font-size:24px;color:#aeaeb2;margin-top:12px;font-weight:500">Отказ не предусмотрен.</div>
+   </div>
+   <div style="display:flex;border-top:1px solid rgba(255,255,255,.15);height:96px">
+    <div id="cancel" style="flex:1;display:flex;align-items:center;justify-content:center;font-size:30px;color:#0a84ff;border-right:1px solid rgba(255,255,255,.15);overflow:hidden;white-space:nowrap">Отмена</div>
+    <div id="okb" style="flex:1;display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:800;color:#0a84ff">Принять</div>
+   </div>
+  </div>
+  <div id="finger" style="position:absolute;width:70px;height:70px;border-radius:50%;background:rgba(255,255,255,.35);border:3px solid rgba(255,255,255,.8);left:300px;top:600px"></div>
+ </div>
+
+ <!-- S10 La Familia -->
+ <div class="card dark" id="c10">
+  <div class="hdr" style="color:#bf5af2">Apple ID</div>
+  <div class="ttl">Семейный доступ</div>
+  <div id="sub10" style="margin:22px 30px 0;background:#1c1c1e;border-radius:26px;padding:22px 26px;opacity:0">
+   <div style="display:flex;align-items:center;gap:16px"><div style="width:58px;height:58px;border-radius:14px;background:linear-gradient(135deg,#ff2d55,#bf5af2);display:flex;align-items:center;justify-content:center;font-size:30px">✦</div>
+   <div><div style="font-size:28px;font-weight:800">Глэм</div><div style="font-size:21px;color:#8e8e93;font-weight:600">Действует до: <span style="color:#fff">⚰️ до гроба</span></div></div></div>
+  </div>
+  <div style="margin:26px 40px 0;display:flex;justify-content:space-between;align-items:baseline">
+   <div id="lafam" style="font-size:34px;font-weight:800;opacity:0">La Familia</div>
+   <div id="cnt" style="font-size:24px;font-weight:700;color:#8e8e93;font-family:'JetBrains Mono'">2</div>
+  </div>
+  <div id="grid10" style="position:absolute;left:30px;right:30px;top:330px;bottom:30px;display:flex;flex-wrap:wrap;gap:10px;align-content:flex-start;overflow:hidden"></div>
+ </div>
+
+ <div id="final" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;z-index:30;color:#fff;text-align:center">
+  <div style="font-size:40px;font-weight:700;color:rgba(255,255,255,.7);letter-spacing:8px">ГЛЭМ ДО ГРОБА</div>
+  <div id="fbig" style="font-size:150px;font-weight:900;letter-spacing:-5px;line-height:1;margin-top:10px;background:linear-gradient(90deg,#ff2d55,#bf5af2,#ff9f0a);-webkit-background-clip:text;color:transparent">LA FAMILIA</div>
+  <div style="font-size:120px;font-weight:300;margin-top:6px">∞</div>
+ </div>
+
+ <div id="sub"></div>
+ <div id="vign"></div>
+ <div id="flash"></div>
+ <div id="fade"></div>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+const cl=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const seg=(t,a,b)=>cl((t-a)/(b-a));
+const eo=x=>1-Math.pow(1-x,3);
+const eb=x=>{const c=1.7;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)};
+const lerp=(a,b,x)=>a+(b-a)*x;
+const rnd=i=>{const x=Math.sin(i*127.1+311.7)*43758.5453;return x-Math.floor(x)};
+
+const LINES=[
+ [["Пока",.8],["бокалы",1.3],["полны",1.9]],
+ [["у",2.5],["меня",2.6],["нет",2.8],["ни",3.0],["капли",3.2],["уныния",3.6]],
+ [["Пацаны",4.2],["знают",4.6],["коны",5.0]],
+ [["улицы",5.7],["знают",6.1],["их",6.6],["имена",6.8]],
+ [["Пачки",7.7],["ниже",8.0],["дружбы,",8.3],["именно",8.7]],
+ [["Кто",9.6],["зажёг",9.8],["огонь",10.2],["внутри",10.6],["меня",10.8]],
+ [["когда",11.2],["с",11.4],["виду",11.6],["был",11.9],["как",12.0],["мумия",12.3]],
+ [["Мы",12.8],["растём,",12.9],["будто",13.4],["либидо",13.7]],
+ [["За",14.2],["команду",14.4],["стой —",14.9],["так",15.2],["принято",15.4]],
+ [["Глэм",15.8],["до",15.9],["гроба —",16.1],["La",16.4],["Familia",16.6]],
+];
+// scene windows [in, out]
+const SC=[[0.35,2.42],[2.42,4.12],[4.12,5.62],[5.62,7.58],[7.58,9.48],[9.48,11.08],[11.08,12.68],[12.68,14.12],[14.12,15.72],[15.72,17.35]];
+const GLOW=['#1d5f8c','#1f6fb8','#6b5a12','#1b5e3a','#7a4a0e','#8c1d0e','#4a4a4a','#14703a','#22346b','#5a1f7a'];
+const PEMO=['🫧','💧','📜','📍','🤝','🔥','🩹','🔥','🤝','👑'];
+
+// build static bits
+(function build(){
+ // glasses
+ let g='';for(let i=0;i<2;i++)g+=`<div style="position:relative;width:150px;height:330px;transform:rotate(${i?8:-8}deg)">
+  <div style="position:absolute;left:0;top:0;width:150px;height:170px;clip-path:polygon(0 0,100% 0,62% 100%,38% 100%);background:rgba(255,255,255,.12)"></div>
+  <div id="liq${i}" style="position:absolute;left:0;top:0;width:150px;height:170px;clip-path:polygon(0 0,100% 0,62% 100%,38% 100%);background:linear-gradient(180deg,#ffd76a,#e6a92a)"></div>
+  <div style="position:absolute;left:0;top:0;width:150px;height:170px;clip-path:polygon(0 0,100% 0,62% 100%,38% 100%);box-shadow:inset 0 0 0 4px rgba(255,255,255,.7)"></div>
+  <div style="position:absolute;left:71px;top:166px;width:8px;height:130px;background:rgba(255,255,255,.75);border-radius:4px"></div>
+  <div style="position:absolute;left:35px;top:292px;width:80px;height:10px;background:rgba(255,255,255,.75);border-radius:5px"></div>
+  <div id="bub${i}" style="position:absolute;left:0;top:0;width:150px;height:170px"></div></div>`;
+ $('glasses').innerHTML=g;
+ for(let i=0;i<2;i++){let b='';for(let k=0;k<7;k++)b+=`<div style="position:absolute;width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.85)"></div>`;$('bub'+i).innerHTML=b;}
+ let r='';for(let k=0;k<8;k++)r+=`<div style="position:absolute;left:56px;top:-8px;width:8px;height:22px;border-radius:4px;background:#ffd60a;transform-origin:4px 68px;transform:rotate(${k*45}deg)"></div>`;$('rays').innerHTML=r;
+ const laws=['Двор на Ленина','Гаражи за школой','Студия · 3 этаж','Крыша на Мира','Наш кон · La Familia'];
+ $('laws').innerHTML=laws.map((l,i)=>`<div style="display:flex;align-items:center;gap:20px;padding:15px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:31px;font-weight:600">
+  <div id="cb${i}" style="width:40px;height:40px;border-radius:50%;border:3px solid #636366;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:900;color:#000;flex:none"></div><span id="lw${i}">${l}</span></div>`).join('');
+ const AV=['#ff375f','#0a84ff','#30d158','#ff9f0a','#bf5af2','#64d2ff'];const IN=['Т','Д','М','С','К','А'];
+ $('avs').innerHTML=AV.slice(0,5).map((c,i)=>`<div id="av${i}" style="width:54px;height:54px;border-radius:50%;background:${c};border:3px solid #1c1c1e;margin-left:${i?-14:0}px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:24px">${IN[i]}</div>`).join('');
+ // map
+ let m='';
+ const roads=[[0,120,600,60,-6],[0,300,600,52,4],[0,470,600,46,-3],[150,0,50,690,3],[400,0,56,690,-5]];
+ roads.forEach(([x,y,w,h,r])=>{m+=`<div style="position:absolute;left:${x}px;top:${y}px;width:${w==600?640:w}px;height:${h==690?720:h}px;background:#3a424b;transform:rotate(${r}deg);transform-origin:center;margin-left:${w==600?-20:0}px;margin-top:${h==690?-15:0}px"></div>`});
+ m+=`<div style="position:absolute;left:230px;top:180px;width:150px;height:100px;border-radius:20px;background:#1f3b2a"></div>`;
+ const st=[['ул. Ленина','ул. Тёмы',40,96,-6],['пр. Мира','пр. Димы',300,276,4],['ул. Садовая','ул. Макса',60,448,-3],['пер. Лесной','пер. Саши',118,40,93],['ул. Победы','ул. Кира',372,330,85]];
+ st.forEach(([a,b,x,y,r],i)=>{m+=`<div style="position:absolute;left:${x}px;top:${y}px;transform:rotate(${r}deg);transform-origin:left center;font-size:21px;font-weight:700;white-space:nowrap"><span id="sa${i}" style="position:absolute;color:#c7c7cc">${a}</span><span id="sb${i}" style="position:absolute;color:#ffd60a;opacity:0">${b}</span></div>`});
+ const pins=[[180,170],[440,250],[110,380],[330,420],[470,90]];
+ pins.forEach(([x,y],i)=>{m+=`<div id="pin${i}" style="position:absolute;left:${x-32}px;top:${y-76}px;width:64px;height:84px;opacity:0">
+  <div style="width:64px;height:64px;border-radius:50%;background:${AV[i]};border:4px solid #fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:28px;color:#fff;box-shadow:0 8px 20px rgba(0,0,0,.5)">${IN[i]}</div>
+  <div style="width:0;height:0;margin:-4px auto 0;border-left:10px solid transparent;border-right:10px solid transparent;border-top:18px solid #fff"></div></div>`});
+ $('map').innerHTML=m;
+ // priorities
+ const P=[['💵','Пачки','#ff9f0a'],['🤝','Дружба','#30d158'],['🎤','Музыка','#0a84ff'],['😴','Сон','#8e8e93']];
+ $('prio').innerHTML=P.map(([e,n,c],i)=>`<div id="pr${i}" style="position:absolute;left:0;right:0;height:92px;border-radius:24px;background:#1c1c1e;display:flex;align-items:center;gap:22px;padding:0 26px;font-size:34px;font-weight:700">
+  <div style="width:30px;height:30px;border-radius:50%;border:3px solid ${c}"></div><span>${e}</span><span>${n}</span>
+  <span id="prn${i}" style="margin-left:auto;font-size:24px;color:#8e8e93;font-family:'JetBrains Mono'"></span><span style="color:#48484a;font-size:30px">≡</span></div>`).join('');
+ // grid avatars
+ let gg='';const EM=['😎','🧢','🔥','💜','🖤','🎤','👑','🦢','💸','🥂'];
+ for(let i=0;i<60;i++)gg+=`<div id="ga${i}" style="width:60px;height:60px;border-radius:50%;background:${AV[i%6]};display:flex;align-items:center;justify-content:center;font-size:30px;opacity:0">${EM[i%10]}</div>`;
+ $('grid10').innerHTML=gg;
+ // particles
+ let p='';for(let i=0;i<22;i++)p+=`<div class="pt" id="p${i}"></div>`;$('pts').innerHTML=p;
+})();
+
+function sceneIdx(t){for(let i=SC.length-1;i>=0;i--)if(t>=SC[i][0])return i;return -1}
+function showCard(i,t){
+ const [a,b]=SC[i];const el=$('c'+(i+1));
+ const inP=eo(seg(t,a,a+.28)), outP=i<9?seg(t,b-.1,b):0;
+ const s=lerp(.86,1,eb(seg(t,a,a+.32)))*(1+outP*.06);
+ el.style.opacity=(t>=a&&t<b+.001)?(inP*(1-outP)):0;
+ el.style.transform=`scale(${s}) translateY(${(1-inP)*40}px)`;
+ el.style.filter=`blur(${(1-inP)*14+outP*10}px)`;
+}
+
+function render(t){
+ for(let i=1;i<=10;i++)$('c'+i).style.opacity=0;
+ const si=sceneIdx(t);
+ // background
+ const gi=Math.max(0,si);$('glow').style.setProperty('--g',GLOW[gi]);
+ // word pulse on glow
+ let lastW=-9;LINES.flat().forEach(([w,s])=>{if(s<=t)lastW=s});
+ const pulse=Math.exp(-(t-lastW)*7);
+ $('glow').style.opacity=.55+.35*pulse;
+ $('glow').style.transform=`scale(${1+.04*pulse})`;
+ // particles
+ for(let i=0;i<22;i++){const e=$('p'+i);const sp=.06+rnd(i)*.08;const y=1-((t*sp+rnd(i+50))%1);
+  e.textContent=PEMO[gi];e.style.left=(rnd(i+9)*1040)+'px';e.style.top=(y*1180-80)+'px';
+  e.style.opacity=(si<0?0:.18+rnd(i+3)*.3)*(t>17.35?0:1);e.style.transform=`rotate(${(t*40+i*30)%360}deg) scale(${.6+rnd(i+7)*.7})`;e.style.filter=`blur(${rnd(i+5)>.6?3:0}px)`;}
+
+ if(si>=0&&t<17.4)showCard(si,t);
+ // ---- scene logic
+ // S1
+ {const f=eo(seg(t,.8,1.95));for(let i=0;i<2;i++){$('liq'+i).style.clipPath=`polygon(${lerp(38,0,f)}% ${100-f*92}%,${lerp(62,100,f)}% ${100-f*92}%,62% 100%,38% 100%)`;
+   [...$('bub'+i).children].forEach((b,k)=>{const ph=(t*1.2+rnd(k+i*9))%1;b.style.left=(50+rnd(k*3+i)*50)+'px';b.style.top=(160-ph*f*150)+'px';b.style.opacity=f>.3?(1-ph)*.9:0});}
+  $('c1pct').textContent=Math.round(f*100)+'%';
+  const full=t>=1.9;$('c1st').textContent=full?'полны ✓':'наполняются…';$('c1st').style.color=full?'#30d158':'#8e8e93';
+  $('c1pct').style.transform=`scale(${1+.15*Math.exp(-(t-1.9)*8)*(full?1:0)})`;$('c1pct').style.color=full?'#30d158':'#fff';}
+ // S2
+ {$('rays').style.transform=`rotate(${t*30}deg)`;const d=seg(t,3.0,3.55);$('drop').style.opacity=d>0&&d<1?1:0;
+  $('drop').style.top=(lerp(-50,300,eo(d)))+'px';$('drop').style.transform=`scale(${1-d*.6})`;
+  const u=t>=3.6;$('c2un').style.color=u?'#ffd60a':'#fff';$('c2unv').style.transform=`scale(${1+(u?.35*Math.exp(-(t-3.6)*6):0)})`;$('c2unv').style.display='inline-block';}
+ // S3
+ {const ct=[4.3,4.55,4.8,5.0,5.25];ct.forEach((c,i)=>{const on=t>=c;const p=eb(seg(t,c,c+.15));
+   $('cb'+i).style.background=on?'#ffd60a':'transparent';$('cb'+i).style.borderColor=on?'#ffd60a':'#636366';$('cb'+i).textContent=on?'✓':'';$('cb'+i).style.transform=`scale(${on?lerp(.5,1,p):1})`;
+   $('lw'+i).style.color=i==4&&on?'#ffd60a':'#fff';});
+  for(let i=0;i<5;i++){const p=eb(seg(t,4.3+i*.1,4.5+i*.1));$('av'+i).style.transform=`scale(${p})`}
+  $('c3read').style.opacity=seg(t,4.9,5.1);}
+ // S4
+ {$('map').style.transform=`scale(${lerp(1.25,1,eo(seg(t,5.62,7.4)))})`;
+  for(let i=0;i<5;i++){const p=eb(seg(t,5.8+i*.18,6.05+i*.18));$('pin'+i).style.opacity=cl(p*2);$('pin'+i).style.transform=`translateY(${(1-p)*-60}px) scale(${lerp(.4,1,p)})`;
+   const s=seg(t,6.6+i*.08,6.85+i*.08);$('sa'+i).style.opacity=1-s;$('sb'+i).style.opacity=s;$('sb'+i).style.transform=`scale(${1+.2*Math.sin(s*Math.PI)})`;}}
+ // S5
+ {const sw=eo(seg(t,8.0,8.42));const H=104;const y=[sw*H,(1-sw)*H,2*H,3*H];
+  for(let i=0;i<4;i++){const e=$('pr'+i);e.style.top=y[i]+'px';const lift=i==1?Math.sin(seg(t,7.95,8.5)*Math.PI):0;
+   e.style.transform=`scale(${1+lift*.06})`;e.style.boxShadow=lift>0?`0 20px 50px rgba(0,0,0,${.6*lift})`:'none';e.style.zIndex=i==1?2:1;
+   e.style.background=i==1&&t>8.42?'#13301d':(i==0&&t>8.42?'#2a1d0a':'#1c1c1e');}
+  $('prn0').textContent=t>8.42?'ниже':'';$('prn1').textContent=t>8.42?'№1':'';
+  const sh=t>=8.7?Math.sin((t-8.7)*90)*14*Math.exp(-(t-8.7)*7):0;$('prio').style.transform=`translateX(${sh}px)`;}
+ // S6
+ {const h=seg(t,9.6,10.9);$('heat').style.opacity=eo(h)*.95;$('merc').style.height=(20+eo(h)*130)+'px';
+  $('c6deg').textContent=Math.round(lerp(37,99,eo(h)))+'°C';$('c6why').style.opacity=seg(t,10.15,10.35);
+  $('c6why').style.transform=`scale(${1+.25*Math.exp(-Math.max(0,t-10.2)*6)*(t>=10.2?1:0)})`;
+  if(si==5)$('c6').style.transform+=` translateX(${t>10.2&&t<11.08?Math.sin(t*70)*3:0}px)`;}
+ // S7
+ {const sc=(t*1.6)%1;$('scan').setAttribute('y',20+Math.abs(Math.sin(sc*Math.PI))*254);const fail=t>=12.3;
+  $('scan').style.opacity=fail?0:.8;$('corners').setAttribute('stroke',fail?'#ff453a':'#fff');
+  $('fid').style.transform=`translateX(${fail?Math.sin((t-12.3)*80)*18*Math.exp(-(t-12.3)*5):0}px)`;
+  $('c7a').textContent=fail?'Лицо не распознано':'Сканирование…';$('c7a').style.color=fail?'#ff453a':'#fff';
+  $('c7b').textContent=fail?'Похоже на мумию 🩹':'держите iPhone ровно';$('mummy').style.opacity=seg(t,11.6,11.9);}
+ // S8
+ {const g=seg(t,12.8,14.05);const N=40;let pts=[];for(let k=0;k<=N;k++){const x=k/N;if(x>g)break;
+   let v=.08+x*.25+.05*Math.sin(x*25)+(x>.68?Math.pow((x-.68)/.32,2)*.75:0);pts.push([10+x*560,320-v*290]);}
+  if(pts.length<1)pts=[[10,297]];const d='M'+pts.map(p=>p.join(' ')).join(' L');$('c8line').setAttribute('d',d);
+  const l=pts[pts.length-1];$('c8area').setAttribute('d',d+` L${l[0]} 330 L10 330 Z`);$('c8dot').setAttribute('cx',l[0]);$('c8dot').setAttribute('cy',l[1]);
+  const pct=t<13.7?Math.round(lerp(0,120,seg(t,12.8,13.7))):Math.round(lerp(120,999,eo(seg(t,13.7,14.0))));
+  $('c8c').textContent='▲ '+pct+'%';$('c8p').textContent='$'+(1+pct/100).toFixed(2);
+  $('c8c').style.transform=`scale(${t>=13.7?1+.3*Math.exp(-(t-13.7)*6):1})`;$('c8c').style.display='inline-block';}
+ // S9
+ {const fx=[[300,620],[160,440],[160,440],[430,440]];let x=300,y=620;
+  if(t<14.9){const p=eo(seg(t,14.3,14.85));x=lerp(300,170,p);y=lerp(620,445,p)}
+  else if(t<15.3){x=170;y=445}else{const p=eo(seg(t,15.2,15.42));x=lerp(170,430,p);y=445}
+  $('finger').style.left=(x-35)+'px';$('finger').style.top=(y-35)+'px';
+  const tap=t>=15.42?Math.exp(-(t-15.42)*8):0;$('finger').style.transform=`scale(${1-.25*tap})`;
+  const gone=eo(seg(t,14.9,15.15));$('cancel').style.flex=String(1-gone);$('cancel').style.opacity=1-gone;$('cancel').style.borderRightWidth=gone>.98?'0':'1px';
+  const ok=t>=15.42;$('okb').textContent=ok?'Принято ✓':'Принять';$('okb').style.background=ok?'#30d158':'transparent';$('okb').style.color=ok?'#fff':'#0a84ff';
+  $('alert').style.transform=`scale(${1+.04*tap})`;}
+ // S10
+ {$('sub10').style.opacity=seg(t,15.95,16.15);$('sub10').style.transform=`translateY(${(1-eo(seg(t,15.95,16.2)))*20}px)`;
+  $('lafam').style.opacity=seg(t,16.4,16.6);
+  let n=0;if(t>=16.4){const p=seg(t,16.4,17.2);n=Math.floor(2+Math.pow(p,2.2)*58)}
+  for(let i=0;i<60;i++){const s=$('ga'+i);const v=i<n;s.style.opacity=v?1:0;s.style.transform=`scale(${v?1:.3})`;}
+  const c=t<16.4?2:(t<17.15?Math.floor(2+Math.pow(seg(t,16.4,17.1),3)*9997):-1);
+  $('cnt').textContent=c<0?'∞':'участники: '+c;$('cnt').style.color=c<0?'#bf5af2':'#8e8e93';$('cnt').style.fontSize=c<0?'44px':'24px';}
+ // final
+ $('flash').style.opacity=t>=17.3?Math.max(0,1-(t-17.3)/.45):0;
+ const fp=seg(t,17.35,17.75);$('final').style.opacity=t>=17.35?eo(fp):0;
+ $('final').style.transform=`scale(${lerp(1.3,1,eo(fp))*(1+.03*pulse+.02*Math.sin(t*Math.PI*2*1.15))})`;
+ $('fbig').style.filter=`drop-shadow(0 0 ${30+20*Math.sin(t*7)}px rgba(191,90,242,.7))`;
+ $('fade').style.opacity=seg(t,19.1,19.8);
+ // subtitles
+ let li=-1;LINES.forEach((L,i)=>{if(t>=L[0][1]-.25)li=i});
+ const sub=$('sub');if(li<0||t>17.35){sub.innerHTML='';}else{const L=LINES[li];
+  sub.innerHTML=L.map(([w,s])=>{const on=t>=s;const pp=on?Math.exp(-(t-s)*9):0;return `<span style="opacity:${on?1:.32};transform:scale(${1+.14*pp}) translateY(${-6*pp}px);color:${on?'#fff':'#fff'}">${w}</span>`}).join('');}
+}
+window.render=render;render(0);
+</script></body></html>

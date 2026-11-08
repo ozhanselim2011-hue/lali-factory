@@ -1,0 +1,8 @@
+jobs/**/in.mp4
+jobs/**/out.mp4
+jobs/**/src.*
+jobs/**/frames/
+jobs/**/pv/
+jobs/**/scene*.html
+jobs/test_v30/
+__pycache__/

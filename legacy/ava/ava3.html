@@ -1,0 +1,51 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+*{margin:0;padding:0;box-sizing:border-box}html,body{width:1080px;height:1080px;overflow:hidden;font-family:Inter,"Apple Color Emoji",sans-serif}
+.v{position:absolute;inset:0;display:none;overflow:hidden}body[data-v="1"] #v1,body[data-v="2"] #v2,body[data-v="3"] #v3{display:block}
+.ch{position:absolute;width:200px;height:300px;transform-origin:100px 290px}
+.grain{position:absolute;inset:0;opacity:.1;mix-blend-mode:overlay;background-image:repeating-radial-gradient(circle at 13% 27%,#fff 0 1px,transparent 1px 3px)}
+.badge{position:absolute;min-width:220px;height:220px;padding:0 34px;border-radius:110px;background:radial-gradient(circle at 35% 30%,#ff7a6e,#ff1f1f 45%,#b0000a);color:#fff;font-weight:900;font-size:120px;letter-spacing:-5px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 14px #000,0 0 80px rgba(255,40,40,.9),inset 0 6px 0 rgba(255,255,255,.4)}
+.nm{position:absolute;left:0;right:0;text-align:center;color:#fff;font-weight:900;letter-spacing:-3px}
+.nm em{font-style:normal;color:#ff4d8d}
+</style></head><body data-v="1">
+<div class="v" id="v1" style="background:radial-gradient(circle at 50% 42%,#ff4d8d 0%,#7a0a3a 40%,#14020a 75%)">
+ <div class="ch" data-p="a"></div><div class="badge" style="right:120px;top:120px;transform:rotate(10deg)">99+</div><div class="grain"></div></div>
+<div class="v" id="v2" style="background:radial-gradient(circle at 50% 45%,#1d2a6a,#05060f 72%)">
+ <div style="position:absolute;left:270px;top:150px;width:540px;height:1000px;border-radius:90px;background:#000;box-shadow:0 0 0 14px #2c2c30,0 0 0 18px #555,0 40px 100px rgba(0,0,0,.8)"><div style="position:absolute;inset:22px;border-radius:70px;background:linear-gradient(180deg,#3a1d6a,#ff2d78);overflow:hidden"><div style="position:absolute;left:50%;top:22px;margin-left:-70px;width:140px;height:40px;border-radius:20px;background:#000"></div></div></div>
+ <div class="ch" data-p="b"></div>
+ <div style="position:absolute;left:200px;top:250px;background:rgba(40,40,46,.92);border-radius:30px;padding:16px 26px;display:flex;gap:14px;align-items:center;box-shadow:0 10px 30px rgba(0,0,0,.5);transform:rotate(-6deg)"><div style="width:62px;height:62px;border-radius:16px;background:#ff2d78;display:flex;align-items:center;justify-content:center;font-size:36px">🎵</div><div style="color:#fff"><div style="font-size:30px;font-weight:900">новая строчка</div><div style="font-size:24px;opacity:.7;font-weight:600">сейчас</div></div></div>
+ <div class="grain"></div></div>
+<div class="v" id="v3" style="background:radial-gradient(circle at 50% 45%,#2a1460,#06030f 72%)">
+ <div id="sp" style="position:absolute;inset:0"></div><div class="ch" data-p="c"></div>
+ <div class="nm" style="bottom:60px;font-size:120px">lali<em>.</em>lyrics</div><div class="grain"></div></div>
+<script>const $=id=>document.getElementById(id);const rnd=i=>{const x=Math.sin(i*127.1+311.7)*43758.5453;return x-Math.floor(x)};
+const CH=(p,hat,j1,j2)=>`<svg viewBox="0 0 200 300" width="200" height="300" style="overflow:visible">
+<defs><linearGradient id="${p}_jg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${j1}" id="${p}_s1"/><stop offset=".5" stop-color="${j2}" id="${p}_s2"/><stop offset="1" stop-color="${j2}" id="${p}_s3"/></linearGradient></defs>
+<g id="${p}_all">
+<g id="${p}_legL"><rect x="77" y="205" width="21" height="70" rx="10" fill="#26262e"/><ellipse cx="84" cy="280" rx="19" ry="10" fill="#fff"/></g>
+<g id="${p}_legR"><rect x="102" y="205" width="21" height="70" rx="10" fill="#26262e"/><ellipse cx="116" cy="280" rx="19" ry="10" fill="#fff"/></g>
+<g id="${p}_armL"><rect x="40" y="128" width="21" height="72" rx="10" fill="url(#${p}_jg)"/><circle cx="50" cy="202" r="10" fill="#f2c6a0"/></g>
+<rect x="54" y="116" width="92" height="104" rx="32" fill="url(#${p}_jg)"/>
+<path d="M58 150 H142 M58 182 H142" stroke="rgba(0,0,0,.16)" stroke-width="4"/>
+<path d="M78 120 Q100 152 122 120" fill="none" stroke="#ffd60a" stroke-width="5"/><circle cx="100" cy="146" r="7" fill="#ffd60a"/>
+<g id="${p}_armR"><rect x="139" y="128" width="21" height="72" rx="10" fill="url(#${p}_jg)"/><circle cx="150" cy="202" r="10" fill="#f2c6a0"/></g>
+<g id="${p}_head"><circle cx="100" cy="80" r="42" fill="#f2c6a0"/>
+<path d="M56 66 Q58 26 100 26 Q142 26 144 66 L162 72 Q100 54 38 72 Z" fill="${hat}"/>
+<rect x="64" y="74" width="32" height="19" rx="9" fill="#111"/><rect x="104" y="74" width="32" height="19" rx="9" fill="#111"/><rect x="94" y="78" width="12" height="4" fill="#111"/>
+<rect x="70" y="77" width="8" height="4" rx="2" fill="rgba(255,255,255,.5)"/><rect x="110" y="77" width="8" height="4" rx="2" fill="rgba(255,255,255,.5)"/>
+<path id="${p}_mouth" d="M88 104 Q100 112 112 104" fill="none" stroke="#7a3a2a" stroke-width="4" stroke-linecap="round"/></g>
+</g></svg>`;
+function pose(p,o){const R=(id,a,x,y)=>$(p+'_'+id).setAttribute('transform',`rotate(${a||0} ${x} ${y})`);
+ R('armL',o.aL,50,135);R('armR',o.aR,150,135);R('legL',o.lL,88,210);R('legR',o.lR,112,210);R('head',o.hd,100,110);
+ $(p+'_all').setAttribute('transform',`translate(0 ${o.bob||0})`);
+ $(p+'_mouth').setAttribute('d',o.open?'M86 102 Q100 122 114 102 Z':'M88 104 Q100 112 112 104');$(p+'_mouth').setAttribute('fill',o.open?'#7a2a2a':'none');}
+function place(p,x,y,s,flip,rot){const e=$('ch_'+p);e.style.left=(x-100)+'px';e.style.top=(y-290)+'px';e.style.transform=`scale(${s*(flip?-1:1)},${s}) rotate(${rot||0}deg)`;}
+const run=(t,f)=>{const q=Math.sin(t*f);return {lL:q*38,lR:-q*38,aL:-q*45,aR:-q*45,bob:-Math.abs(Math.cos(t*f))*8}};
+const walk=(t,f)=>{const q=Math.sin(t*f);return {lL:q*22,lR:-q*22,aL:-q*20,aR:-q*20,bob:-Math.abs(Math.cos(t*f))*4}};
+
+document.querySelectorAll('.ch').forEach(e=>{const p=e.dataset.p;e.id='ch_'+p;e.innerHTML=CH(p,'#64d2ff','#ff8ac4','#ff2d78');});
+place('a',540,1300,4.4,false);pose('a',{aL:8,aR:-8,hd:-4});
+place('b',540,1250,3.0,false);pose('b',{aL:8,aR:-150,hd:-6,open:1});
+place('c',540,1150,3.2,false);pose('c',{aL:150,aR:-150,open:1,hd:-6});
+[1,2,3].forEach((n,i)=>$('c_s'+n).setAttribute('stop-color',['#64d2ff','#bf5af2','#ff2d78'][i]));$('ch_c').style.filter='drop-shadow(0 0 50px #bf5af2)';
+let s='';for(let i=0;i<50;i++)s+=`<div style="position:absolute;left:${rnd(i)*1060}px;top:${rnd(i+7)*1060}px;font-size:${20+rnd(i+3)*40}px;color:${['#64d2ff','#bf5af2','#ff2d78','#fff'][i%4]}">✦</div>`;$('sp').innerHTML=s;
+</script></body></html>

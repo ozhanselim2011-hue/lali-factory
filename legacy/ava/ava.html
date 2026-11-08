@@ -1,0 +1,33 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1080px;overflow:hidden;font-family:Inter,"Apple Color Emoji",sans-serif}
+.v{position:absolute;inset:0;display:none;align-items:center;justify-content:center;overflow:hidden}
+body[data-v="1"] #v1,body[data-v="2"] #v2,body[data-v="3"] #v3{display:flex}
+.v.col{flex-direction:column}
+.nm{color:#fff;font-weight:900;letter-spacing:-2px;line-height:1}
+.nm em{font-style:normal;color:#ff6fb0}
+/* 1: app icon with lyric bubble */
+#v1{background:radial-gradient(circle at 50% 45%,#7a1f5a 0%,#1a0716 55%,#07030a 100%)}
+.icon{width:600px;height:600px;border-radius:140px;background:linear-gradient(160deg,#ff2d78 0%,#a020f0 60%,#5e2cff 100%);box-shadow:0 50px 120px rgba(255,45,120,.45),inset 0 4px 0 rgba(255,255,255,.35);position:relative;display:flex;align-items:center;justify-content:center}
+.bub{position:absolute;left:90px;right:90px;top:120px;height:240px;background:#fff;border-radius:70px;display:flex;align-items:center;justify-content:center;gap:34px}
+.bub:after{content:"";position:absolute;left:70px;bottom:-46px;border-left:30px solid transparent;border-right:40px solid transparent;border-top:60px solid #fff;transform:rotate(18deg)}
+.dot{width:46px;height:46px;border-radius:50%;background:#a020f0}
+.note{position:absolute;bottom:70px;font-size:170px;line-height:1;color:#fff;font-weight:900;text-shadow:0 10px 30px rgba(0,0,0,.3)}
+/* 2: lock screen notification */
+#v2{background:radial-gradient(circle at 50% 40%,#1d2a5c 0%,#0a0d1c 60%,#000 100%);flex-direction:column}
+.clock{color:#fff;font-size:250px;font-weight:700;letter-spacing:-10px;line-height:1;margin-top:-60px}
+.ntf{margin-top:50px;width:720px;background:rgba(80,80,90,.65);border-radius:56px;padding:34px 40px;display:flex;align-items:center;gap:30px;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.ni{width:120px;height:120px;border-radius:30px;background:linear-gradient(160deg,#ff2d78,#a020f0);display:flex;align-items:center;justify-content:center;font-size:72px;flex:none}
+.nt{color:#fff}.nt b{display:block;font-size:44px;font-weight:800}.nt span{display:flex;gap:16px;margin-top:14px}
+.nt i{display:block;height:24px;border-radius:12px;background:rgba(255,255,255,.7)}
+/* 3: siri orb + equalizer */
+#v3{background:#000}
+.orb{position:absolute;width:720px;height:720px;border-radius:50%;background:conic-gradient(from 30deg,#ff2d78,#5e5ce6,#00e5ff,#a6ff00,#ffd60a,#ff2d78);filter:blur(60px);opacity:.9}
+.core{position:relative;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#1c1c22,#000 70%);display:flex;align-items:center;justify-content:center;gap:26px;box-shadow:inset 0 0 0 4px rgba(255,255,255,.12)}
+.bar{width:44px;border-radius:22px;background:#fff}
+</style></head><body data-v="1">
+<div class="v col" id="v1"><div class="icon" style="transform:scale(.78);margin-top:-20px;margin-bottom:-40px"><div class="bub"><div class="dot"></div><div class="dot" style="opacity:.7"></div><div class="dot" style="opacity:.4"></div></div><div class="note">♪</div></div><div class="nm" style="font-size:110px">notif<em>.</em>lyrics</div></div>
+<div class="v" id="v2"><div class="clock">03:00</div><div class="ntf"><div class="ni">🎵</div><div class="nt"><b>notif.lyrics <small style="font-size:30px;font-weight:500;opacity:.7">· сейчас</small></b><span><i style="width:200px"></i><i style="width:130px"></i><i style="width:90px"></i></span></div></div></div>
+<div class="v" id="v3"><div class="orb" style="margin-top:-120px"></div><div class="core" style="margin-top:-120px;transform:scale(.85)">
+<div class="bar" style="height:110px"></div><div class="bar" style="height:220px"></div><div class="bar" style="height:330px"></div><div class="bar" style="height:200px"></div><div class="bar" style="height:280px"></div><div class="bar" style="height:140px"></div></div><div class="nm" style="position:absolute;bottom:150px;font-size:84px;text-shadow:0 6px 30px #000">notif<em>.</em>lyrics</div></div>
+</body></html>

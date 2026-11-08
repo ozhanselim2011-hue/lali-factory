@@ -1,0 +1,49 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1080px;overflow:hidden;font-family:Inter,"Apple Color Emoji",sans-serif;background:#000}
+.v{position:absolute;inset:0;display:none;align-items:center;justify-content:center;overflow:hidden}
+body[data-v="1"] #v1,body[data-v="2"] #v2,body[data-v="3"] #v3{display:flex}
+.grain{position:absolute;inset:0;opacity:.13;mix-blend-mode:overlay;background-image:repeating-radial-gradient(circle at 13% 27%,#fff 0 1px,transparent 1px 3px),repeating-radial-gradient(circle at 71% 63%,#fff 0 1px,transparent 1px 4px);z-index:9}
+.vg{position:absolute;inset:0;background:radial-gradient(circle,transparent 38%,rgba(0,0,0,.9) 75%);z-index:8}
+
+/* 1 badge icon */
+#v1{background:radial-gradient(circle at 50% 50%,#ff1f4f 0%,#7a0018 28%,#1a0005 55%,#000 75%)}
+.ic{position:relative;width:620px;height:620px;border-radius:150px;background:linear-gradient(155deg,#2a2a30 0%,#0b0b0e 45%,#000 100%);
+ box-shadow:0 0 0 3px rgba(255,255,255,.18) inset,0 4px 0 rgba(255,255,255,.35) inset,0 60px 140px rgba(0,0,0,.9),0 0 160px rgba(255,31,79,.55);display:flex;align-items:center;justify-content:center;transform:translate(-30px,50px) scale(.9) rotate(-8deg)}
+.ic:before{content:"";position:absolute;inset:0;border-radius:150px;background:linear-gradient(160deg,rgba(255,255,255,.22) 0%,transparent 38%)}
+.lines{display:flex;flex-direction:column;gap:42px;width:400px}
+.lines i{display:block;height:58px;border-radius:29px;background:#fff;box-shadow:0 0 40px rgba(255,255,255,.6)}
+.badge{position:absolute;right:-90px;top:-90px;min-width:270px;height:270px;padding:0 40px;border-radius:135px;background:radial-gradient(circle at 35% 30%,#ff6b6b,#ff1f1f 45%,#b0000a);color:#fff;font-weight:900;font-size:140px;letter-spacing:-6px;display:flex;align-items:center;justify-content:center;
+ box-shadow:0 0 0 14px #000,0 0 90px rgba(255,40,40,.95),inset 0 6px 0 rgba(255,255,255,.4);transform:rotate(8deg)}
+
+/* 2 chrome n. */
+#v2{background:radial-gradient(circle at 50% 60%,#2b0a3a 0%,#0a0210 50%,#000 75%)}
+.chrome{font-size:780px;font-weight:900;letter-spacing:-40px;line-height:1;
+ background:linear-gradient(180deg,#ffffff 0%,#c9c9d6 22%,#5b5b6e 40%,#f4f4ff 52%,#8a8aa0 62%,#2a2a3a 78%,#d8d8ea 100%);-webkit-background-clip:text;color:transparent;
+ filter:drop-shadow(0 0 2px #fff) drop-shadow(0 30px 60px rgba(0,0,0,.9)) drop-shadow(0 0 70px rgba(255,45,120,.55));margin-top:-80px;position:relative}
+.ab{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:780px;font-weight:900;letter-spacing:-40px;line-height:1;margin-top:-80px;mix-blend-mode:screen;opacity:.55}
+.dot2{position:absolute;left:700px;top:640px;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ff7aa8,#ff1f6a 50%,#a00040);box-shadow:0 0 0 10px #000,0 0 90px #ff1f6a}
+.tag2{position:absolute;bottom:150px;font-size:48px;font-weight:800;letter-spacing:14px;color:rgba(255,255,255,.75)}
+
+/* 3 notification stack */
+#v3{background:radial-gradient(circle at 50% 55%,#5a0a6a 0%,#1a0420 45%,#000 75%);perspective:1400px}
+.stk{position:relative;width:860px;height:600px;transform:rotateX(18deg) rotateZ(-10deg)}
+.nt{position:absolute;left:0;right:0;height:210px;border-radius:60px;background:rgba(40,40,48,.78);backdrop-filter:blur(10px);box-shadow:0 0 0 2px rgba(255,255,255,.14) inset,0 30px 80px rgba(0,0,0,.8);display:flex;align-items:center;gap:36px;padding:0 44px}
+.nt .ap{width:130px;height:130px;border-radius:32px;background:linear-gradient(160deg,#ff2d78,#a020f0);display:flex;align-items:center;justify-content:center;font-size:84px;font-weight:900;color:#fff;flex:none;box-shadow:0 0 50px rgba(255,45,120,.7)}
+.nt .tx b{display:block;color:#fff;font-size:58px;font-weight:900;letter-spacing:-1px}
+.nt .tx span{display:flex;gap:16px;margin-top:16px}.nt .tx i{display:block;height:26px;border-radius:13px;background:rgba(255,255,255,.75)}
+.glowline{position:absolute;inset:-6px;border-radius:66px;border:4px solid #ff2d78;box-shadow:0 0 60px #ff2d78,inset 0 0 40px rgba(255,45,120,.5)}
+</style></head><body data-v="1">
+
+<div class="v" id="v1"><div class="ic"><div class="lines"><i style="width:100%"></i><i style="width:72%"></i><i style="width:46%"></i></div><div class="badge">99+</div></div><div class="vg"></div><div class="grain"></div></div>
+
+<div class="v" id="v2">
+ <div class="ab" style="color:#ff1f6a;transform:translate(-14px,4px)">n</div><div class="ab" style="color:#00e5ff;transform:translate(14px,-4px)">n</div>
+ <div class="chrome">n</div><div class="dot2"></div><div class="tag2">NOTIF.LYRICS</div><div class="vg"></div><div class="grain"></div></div>
+
+<div class="v" id="v3"><div class="stk">
+ <div class="nt" style="top:0;transform:scale(.86) translateY(-30px);opacity:.45"><div class="ap">♪</div><div class="tx"><span><i style="width:300px"></i><i style="width:160px"></i></span></div></div>
+ <div class="nt" style="top:120px;transform:scale(.93);opacity:.7"><div class="ap">♪</div><div class="tx"><span><i style="width:260px"></i><i style="width:200px"></i></span></div></div>
+ <div class="nt" style="top:270px"><div class="glowline"></div><div class="ap">♪</div><div class="tx"><b>notif.lyrics</b><span><i style="width:240px"></i><i style="width:150px"></i><i style="width:90px"></i></span></div></div>
+</div><div class="vg"></div><div class="grain"></div></div>
+</body></html>

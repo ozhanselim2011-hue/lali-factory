@@ -1,0 +1,141 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1080px;overflow:hidden;background:#000;font-family:Inter,"Apple Color Emoji",sans-serif}
+#stage{position:absolute;inset:0;overflow:hidden;background:linear-gradient(180deg,#0c1222,#04060c)}
+#glow{position:absolute;inset:-20%;background:radial-gradient(circle at 50% 58%,var(--g,#333) 0%,transparent 55%)}
+#vign{position:absolute;inset:0;background:radial-gradient(circle,transparent 45%,rgba(0,0,0,.8) 100%);z-index:50}
+#grain{position:absolute;inset:0;z-index:51;opacity:.07;background-image:repeating-radial-gradient(circle at 17% 32%,#fff 0 1px,transparent 1px 4px);mix-blend-mode:overlay}
+.pt{position:absolute;font-size:32px}
+#sub{position:absolute;top:56px;left:0;right:0;text-align:center;font-weight:900;font-size:50px;color:#fff;z-index:40;text-shadow:0 4px 24px rgba(0,0,0,.7);padding:0 50px;line-height:1.12;text-transform:uppercase}
+#sub span{display:inline-block;margin:0 10px}
+.card{position:absolute;left:50%;top:57%;width:600px;height:690px;margin-left:-300px;margin-top:-345px;border-radius:52px;overflow:hidden;opacity:0;box-shadow:0 40px 120px rgba(0,0,0,.8),0 0 0 1.5px rgba(255,255,255,.08) inset;background:#111214;color:#fff}
+.hdr{font-size:22px;font-weight:600;color:rgba(255,255,255,.55);padding:34px 40px 0}
+.ttl{font-size:46px;font-weight:800;padding:6px 40px 0;letter-spacing:-1px}
+.c{position:absolute;left:0;right:0;text-align:center}
+.mono{font-family:'JetBrains Mono'}
+.box{background:#2c2c2e;border-radius:24px;padding:20px 24px}
+.bub{display:inline-block;padding:14px 22px;border-radius:28px;font-size:27px;font-weight:500}
+.row{display:flex;align-items:center;gap:18px;background:#1c1c1e;border-radius:22px;padding:16px 22px;margin-bottom:12px;font-size:26px;font-weight:700}
+.tg{width:84px;height:50px;border-radius:25px;background:#3a3a3c;position:relative;flex:none;margin-left:auto}.tg b{position:absolute;top:4px;left:4px;width:42px;height:42px;border-radius:50%;background:#fff}
+#fade{position:absolute;inset:0;background:#000;opacity:0;z-index:70}
+.ch{position:absolute;width:200px;height:300px;transform-origin:100px 290px;z-index:5}.sn{position:absolute;color:#fff;font-size:22px}
+</style></head><body><div id="stage"><div id="glow"></div><div id="pts"></div>
+
+<div class="card" id="c1" style="background:linear-gradient(180deg,#3a4a6a,#141a2a)">
+ <div style="padding:30px 36px 0"><div style="font-size:28px;font-weight:600">Мой город</div><div style="font-size:96px;font-weight:200;line-height:1">−7°</div><div id="w1" style="font-size:24px;font-weight:600">Облачно</div></div>
+ <div class="ch" data-p="a"></div>
+ <div id="drift1" style="position:absolute;left:0;right:0;bottom:0;height:0;background:#e8eef8;border-radius:50% 50% 0 0/30px 30px 0 0"></div>
+</div>
+<div class="card" id="c2" style="background:linear-gradient(180deg,#24344e,#0c121e)">
+ <div class="hdr">Погода · Ветер</div>
+ <div class="c" style="top:80px"><div id="wd2" class="mono" style="font-size:80px;font-weight:800">0 м/с</div><div style="font-size:24px;font-weight:700;color:#9ad8ff">порывы · прямо в щёки</div></div>
+ <div class="ch" data-p="b"></div>
+</div>
+<div class="card" id="c3" style="background:#1c1c1e">
+ <div class="hdr" style="color:#ff375f">❤ Здоровье</div><div class="ttl">Температура</div>
+ <div id="tp3" class="mono" style="position:absolute;right:40px;top:80px;font-size:64px;font-weight:800">36.6°</div>
+ <div class="ch" data-p="c"></div>
+ <div id="sk3" style="position:absolute;left:30px;right:30px;bottom:30px;background:#3a0d12;border-radius:22px;padding:16px 22px;font-size:24px;font-weight:900;color:#ff453a;opacity:0">🤒 болею очень</div>
+</div>
+<div class="card" id="c4" style="background:linear-gradient(180deg,#1a2238,#080a12)">
+ <div style="position:absolute;left:24px;right:24px;top:24px;background:rgba(30,30,32,.94);border-radius:24px;padding:16px 22px;display:flex;gap:16px;align-items:center">
+  <div style="width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#ff8ac4,#ff2d78);display:flex;align-items:center;justify-content:center;font-size:30px">😎</div>
+  <div><div style="font-size:26px;font-weight:900">Он</div><div style="font-size:20px;color:#8e8e93;font-weight:600">не в пути · 2,3 км</div></div><div id="wt4" class="mono" style="margin-left:auto;font-size:30px;font-weight:800;color:#ff9f0a">0:00</div></div>
+ <div class="ch" data-p="d"></div>
+ <div id="cap4" style="position:absolute;width:0;height:0;border-radius:50% 50% 30% 30%;background:#f2f6ff;z-index:7;box-shadow:0 4px 10px rgba(0,0,0,.3)"></div>
+ <div id="dr4" class="c" style="top:140px;font-size:26px;font-weight:900;color:#ff9ac1;opacity:0">стою как дура 🙃</div>
+</div>
+<div class="card" id="c5" style="background:radial-gradient(circle at 50% 30%,#2a3a5a,#0a0e18)">
+ <div class="hdr">Счётчик</div>
+ <div id="ct5" class="c mono" style="top:70px;font-size:60px;font-weight:800">❄️ 0</div>
+ <div class="ch" data-p="e"></div>
+ <div id="mi5" class="c" style="bottom:28px;font-size:32px;font-weight:900;color:#ff9ac1;opacity:0">очень мило 🥹</div>
+</div>
+<div class="card" id="c6" style="background:#1c1c1e">
+ <div class="hdr" style="color:#ff9f0a">Напоминания</div><div class="ttl">Планы на вечер</div>
+ <div class="c" style="top:170px;font-size:28px;font-weight:700;color:#636366">нет напоминаний</div>
+ <div class="ch" data-p="f"></div>
+</div>
+<div class="card" id="c7" style="background:#dfe4ea;color:#111">
+ <div style="position:absolute;inset:0;background:radial-gradient(circle at 50% 45%,#eef2f6,#c8d0da)"></div>
+ <div class="ch" data-p="g"></div>
+ <div id="gh7" style="position:absolute;left:390px;top:300px;width:110px;height:110px;border-radius:50%;border:5px dashed #8e8e93;display:flex;align-items:center;justify-content:center;font-size:30px;color:#8e8e93;font-weight:900">?</div>
+ <div style="position:absolute;left:24px;right:24px;bottom:24px;background:#fff;border-radius:26px;padding:18px 24px"><div style="font-size:28px;font-weight:900">Он</div><div id="nl7" style="font-size:22px;color:#8e8e93;font-weight:700">поиск…</div></div>
+</div>
+<div id="sub"></div><div id="vign"></div><div id="grain"></div><div id="fade"></div></div>
+<script>
+const $=id=>document.getElementById(id);
+const cl=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const seg=(t,a,b)=>cl((t-a)/(b-a));
+const eo=x=>1-Math.pow(1-x,3);
+const eb=x=>{const c=1.7;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)};
+const lerp=(a,b,x)=>a+(b-a)*x;
+const rnd=i=>{const x=Math.sin(i*127.1+311.7)*43758.5453;return x-Math.floor(x)};
+const pop=(t,s,k=8)=>t>=s?Math.exp(-(t-s)*k):0;
+const fmt=n=>Math.round(n).toLocaleString('ru-RU');
+const tog=(id,on)=>{const e=$(id);e.style.background=on?'#30d158':'#3a3a3c';e.firstElementChild.style.left=on?'38px':'4px'};
+const LINES=[[["а", 0.0], ["снег", 0.1], ["идёт,", 0.9], ["а", 1.4], ["снег", 1.6], ["идёт", 2.5]], [["по", 3.3], ["щекам", 4.4], ["мне", 5.2], ["бьёт-", 5.6], ["бьёт", 7.0]], [["болею", 7.7], ["очень,", 8.6], ["температура", 9.3]], [["стою", 11.3], ["и", 12.7], ["жду", 12.8], ["тебя,", 13.0], ["как", 13.6], ["дура", 14.0]], [["снежинки", 14.8], ["ртом", 17.3], ["ловила", 17.8]], [["очень", 19.0], ["мило", 20.7]], [["клёвый", 21.6], ["вечер,", 22.6], ["делать", 23.4], ["нечего", 24.1]], [["там,", 25.0], ["где", 25.6], ["нет", 26.0], ["тебя", 26.3]]];const SC=[[-0.3, 3.2], [3.2, 7.6], [7.6, 11.2], [11.2, 14.7], [14.7, 21.4], [21.4, 24.9], [24.9, 99]];const GLOW=["#1d3a6a", "#2a4a6a", "#6a1a1a", "#2a2a4a", "#1d4a6a", "#3a2a4a", "#1a1a2a"];const PEMO=["❄️", "🌬️", "🤒", "⏳", "❄️", "🌙", "📍"];const END=[26.9, 27.4];const SUBFROM=-9;
+const CH=(p,hat,j1,j2)=>`<svg viewBox="0 0 200 300" width="200" height="300" style="overflow:visible">
+<defs><linearGradient id="${p}_jg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${j1}" id="${p}_s1"/><stop offset=".5" stop-color="${j2}" id="${p}_s2"/><stop offset="1" stop-color="${j2}" id="${p}_s3"/></linearGradient></defs>
+<g id="${p}_all">
+<g id="${p}_legL"><rect x="77" y="205" width="21" height="70" rx="10" fill="#26262e"/><ellipse cx="84" cy="280" rx="19" ry="10" fill="#fff"/></g>
+<g id="${p}_legR"><rect x="102" y="205" width="21" height="70" rx="10" fill="#26262e"/><ellipse cx="116" cy="280" rx="19" ry="10" fill="#fff"/></g>
+<g id="${p}_armL"><rect x="40" y="128" width="21" height="72" rx="10" fill="url(#${p}_jg)"/><circle cx="50" cy="202" r="10" fill="#f2c6a0"/></g>
+<rect x="54" y="116" width="92" height="104" rx="32" fill="url(#${p}_jg)"/>
+<path d="M58 150 H142 M58 182 H142" stroke="rgba(0,0,0,.16)" stroke-width="4"/>
+<path d="M78 120 Q100 152 122 120" fill="none" stroke="#ffd60a" stroke-width="5"/><circle cx="100" cy="146" r="7" fill="#ffd60a"/>
+<g id="${p}_armR"><rect x="139" y="128" width="21" height="72" rx="10" fill="url(#${p}_jg)"/><circle cx="150" cy="202" r="10" fill="#f2c6a0"/></g>
+<g id="${p}_head"><circle cx="100" cy="80" r="42" fill="#f2c6a0"/>
+<path d="M56 66 Q58 26 100 26 Q142 26 144 66 L162 72 Q100 54 38 72 Z" fill="${hat}"/>
+<rect x="64" y="74" width="32" height="19" rx="9" fill="#111"/><rect x="104" y="74" width="32" height="19" rx="9" fill="#111"/><rect x="94" y="78" width="12" height="4" fill="#111"/>
+<rect x="70" y="77" width="8" height="4" rx="2" fill="rgba(255,255,255,.5)"/><rect x="110" y="77" width="8" height="4" rx="2" fill="rgba(255,255,255,.5)"/>
+<path id="${p}_mouth" d="M88 104 Q100 112 112 104" fill="none" stroke="#7a3a2a" stroke-width="4" stroke-linecap="round"/></g>
+</g></svg>`;
+function pose(p,o){const R=(id,a,x,y)=>$(p+'_'+id).setAttribute('transform',`rotate(${a||0} ${x} ${y})`);
+ R('armL',o.aL,50,135);R('armR',o.aR,150,135);R('legL',o.lL,88,210);R('legR',o.lR,112,210);R('head',o.hd,100,110);
+ $(p+'_all').setAttribute('transform',`translate(0 ${o.bob||0})`);
+ $(p+'_mouth').setAttribute('d',o.open?'M86 102 Q100 122 114 102 Z':'M88 104 Q100 112 112 104');$(p+'_mouth').setAttribute('fill',o.open?'#7a2a2a':'none');}
+function place(p,x,y,s,flip,rot){const e=$('ch_'+p);e.style.left=(x-100)+'px';e.style.top=(y-290)+'px';e.style.transform=`scale(${s*(flip?-1:1)},${s}) rotate(${rot||0}deg)`;}
+const run=(t,f)=>{const q=Math.sin(t*f);return {lL:q*38,lR:-q*38,aL:-q*45,aR:-q*45,bob:-Math.abs(Math.cos(t*f))*8}};
+const walk=(t,f)=>{const q=Math.sin(t*f);return {lL:q*22,lR:-q*22,aL:-q*20,aR:-q*20,bob:-Math.abs(Math.cos(t*f))*4}};
+
+const GIRL=['#ff9ac1','#f3e8ff','#b38cff'];
+(function(){document.querySelectorAll('.ch').forEach(e=>{const p=e.dataset.p;e.id='ch_'+p;e.innerHTML=CH(p,...GIRL);});
+ document.querySelectorAll('.card').forEach((c,ci)=>{let s='';for(let i=0;i<26;i++)s+=`<div class="sn" data-i="${i}">❄</div>`;const d=document.createElement('div');d.className='snw';d.style.cssText='position:absolute;inset:0;pointer-events:none;z-index:6';d.innerHTML=s;c.appendChild(d);});})();
+function snow(t,wind,speed){document.querySelectorAll('.snw .sn').forEach(e=>{const i=+e.dataset.i;const ph=(t*speed*(.2+rnd(i)*.2)+rnd(i+30))%1;e.style.top=(-20+ph*720)+'px';e.style.left=(((rnd(i+3)*640+ph*wind*400)%640)-20)+'px';e.style.opacity=.5+rnd(i)*.5;e.style.fontSize=(14+rnd(i+8)*20)+'px';});}
+
+(function(){let p='';for(let i=0;i<20;i++)p+=`<div class="pt" id="p${i}"></div>`;$('pts').innerHTML=p;})();
+function sceneIdx(t){for(let i=SC.length-1;i>=0;i--)if(t>=SC[i][0])return i;return 0}
+function showCard(i,t){const [a,b]=SC[i];const el=$('c'+(i+1));
+ const inP=eo(seg(t,a,a+.25)),outP=i<SC.length-1?seg(t,b-.1,b):0;const s=lerp(.86,1,eb(seg(t,a,a+.3)))*(1+outP*.06);
+ el.style.opacity=inP*(1-outP);el.style.transform=`scale(${s}) translateY(${(1-inP)*40}px)`;el.style.filter=`blur(${(1-inP)*14+outP*10}px)`;}
+const shake=(id,t,s,amp=10)=>{if(t>=s)$(id).style.transform+=` translateX(${Math.sin(t*90)*amp*pop(t,s,6)}px)`};
+function render(t){
+ for(let i=1;i<=SC.length;i++)$('c'+i).style.opacity=0;
+ const si=sceneIdx(t);showCard(si,t);
+ $('glow').style.setProperty('--g',GLOW[si]);
+ let lastW=-9;LINES.flat().forEach(([w,s])=>{if(s<=t)lastW=s});const pulse=Math.exp(-(t-lastW)*7);
+ $('glow').style.opacity=.5+.4*pulse;$('glow').style.transform=`scale(${1+.04*pulse})`;
+ for(let i=0;i<20;i++){const e=$('p'+i);const y=1-((t*(.05+rnd(i)*.07)+rnd(i+50))%1);e.textContent=PEMO[si];
+  e.style.left=(rnd(i+9)*1040)+'px';e.style.top=(y*1180-80)+'px';e.style.opacity=.12+rnd(i+3)*.25;
+  e.style.transform=`rotate(${Math.sin(t+i)*25}deg) scale(${.6+rnd(i+7)*.7})`;e.style.filter=`blur(${rnd(i+5)>.6?3:0}px)`;}
+
+ snow(t,si==1?1.4:.15,si==1?2.4:1);
+ {$('w1').textContent=t>=0.9?'Снег идёт ❄️':'Облачно';$('drift1').style.height=(seg(t,0,3.2)*60)+'px';place('a',300,650,1.2,false);pose('a',t>=0.9?{aL:80,aR:-80,hd:-14,open:1}:{aL:8,aR:-8,hd:-6});}
+ {const w=Math.round(lerp(0,25,seg(t,3.3,5.6)));$('wd2').textContent=w+' м/с';const h=Math.max(pop(t,5.6,8),pop(t,7.0,8));place('b',300+Math.sin(t*30)*4*(t>=4.4?1:0),660,1.2,false,-6*(t>=4.4?1:0));
+  pose('b',t>=4.4?{aL:-150,aR:150,hd:12+h*10}:{aL:8,aR:-8});}
+ {const tp=t<9.3?lerp(36.6,38.2,seg(t,7.7,9.3)):lerp(38.2,39.4,eo(seg(t,9.3,10.2)));$('tp3').textContent=tp.toFixed(1)+'°';$('tp3').style.color=tp>37.5?'#ff453a':'#fff';
+  place('c',300,660,1.2,false);pose('c',{aL:-40,aR:40,hd:16,bob:4+Math.sin(t*30)*2});$('sk3').style.opacity=seg(t,8.6,8.75);}
+ {const m=Math.floor(seg(t,11.3,14.6)*107);$('wt4').textContent=Math.floor(m/60)+':'+String(m%60).padStart(2,'0');place('d',300,660,1.2,false);pose('d',t>=14.0?{aL:55,aR:-55,hd:14,open:1}:{aL:8,aR:-8,hd:6});
+  const c=seg(t,11.3,14.6);const cw=lerp(0,96,c),ch=lerp(0,40,c);$('cap4').style.width=cw+'px';$('cap4').style.height=ch+'px';$('cap4').style.left=(300-cw/2)+'px';$('cap4').style.top=(352-ch)+'px';$('dr4').style.opacity=seg(t,14.0,14.15);}
+ {const n=t<17.3?0:Math.floor(seg(t,17.3,20.7)*27);$('ct5').textContent='❄️ поймано: '+n;place('e',300,660,1.25,false);
+  pose('e',t>=20.7?{aL:-58,aR:58,hd:6}:{aL:20,aR:-20,hd:-22+Math.sin(t*4)*6,open:t>=17.3&&Math.sin(t*8)>-0.3,bob:-Math.abs(Math.sin(t*3))*8*(t>=17.3?1:0)});$('mi5').style.opacity=seg(t,20.7,20.85);}
+ {const q=Math.sin(t*3);place('f',300,660,1.2,false);pose('f',t>=24.1?{aL:55,aR:-55,hd:12,open:1}:{aL:q*20,aR:q*20,lL:q*8,lR:-q*8,hd:q*6,bob:-Math.abs(q)*4});}
+ {place('g',220,560,1.0,false);pose('g',t>=26.0?{aL:2,aR:-2,hd:20,bob:6}:{aL:8,aR:-95});$('nl7').textContent=t>=26.0?'нет геопозиции · там, где нет тебя':'поиск…';$('gh7').style.opacity=t>=26.0?.4:1;}
+
+ $('fade').style.opacity=seg(t,END[0],END[1]);
+ let li=-1;LINES.forEach((L,i)=>{if(t>=L[0][1]-.15)li=i});
+ $('sub').innerHTML=(li<0||t<SUBFROM)?'':LINES[li].map(([w,s])=>{const on=t>=s;const pp=on?Math.exp(-(t-s)*9):0;return `<span style="opacity:${on?1:.3};color:${on&&w.includes('@@@')?'#ff453a':'#fff'};transform:scale(${1+.14*pp}) translateY(${-6*pp}px)">${w}</span>`}).join('');
+}
+window.render=render;render(0);
+</script></body></html>

@@ -1,0 +1,97 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1080px;overflow:hidden;background:#000;font-family:Inter,"Apple Color Emoji",sans-serif}
+#stage{position:absolute;inset:0;overflow:hidden;background:#050505}
+#glow{position:absolute;inset:-20%;background:radial-gradient(circle at 50% 58%,var(--g,#333) 0%,transparent 55%)}
+#vign{position:absolute;inset:0;background:radial-gradient(circle,transparent 45%,rgba(0,0,0,.8) 100%);z-index:50}
+#grain{position:absolute;inset:0;z-index:51;opacity:.07;background-image:repeating-radial-gradient(circle at 17% 32%,#fff 0 1px,transparent 1px 4px);mix-blend-mode:overlay}
+.pt{position:absolute;font-size:32px}
+#sub{position:absolute;top:56px;left:0;right:0;text-align:center;font-weight:600;font-size:50px;color:#fff;z-index:40;text-shadow:0 4px 24px rgba(0,0,0,.7);padding:0 50px;line-height:1.12;}
+#sub span{display:inline-block;margin:0 10px}
+.card{position:absolute;left:50%;top:57%;width:600px;height:690px;margin-left:-300px;margin-top:-345px;border-radius:52px;overflow:hidden;opacity:0;box-shadow:0 40px 120px rgba(0,0,0,.8),0 0 0 1.5px rgba(255,255,255,.08) inset;background:#111214;color:#fff}
+.hdr{font-size:22px;font-weight:600;color:rgba(255,255,255,.55);padding:34px 40px 0}
+.ttl{font-size:46px;font-weight:800;padding:6px 40px 0;letter-spacing:-1px}
+.c{position:absolute;left:0;right:0;text-align:center}
+.mono{font-family:'JetBrains Mono'}
+.box{background:#2c2c2e;border-radius:24px;padding:20px 24px}
+.bub{display:inline-block;padding:14px 22px;border-radius:28px;font-size:27px;font-weight:500}
+.row{display:flex;align-items:center;gap:18px;background:#1c1c1e;border-radius:22px;padding:16px 22px;margin-bottom:12px;font-size:26px;font-weight:700}
+.tg{width:84px;height:50px;border-radius:25px;background:#3a3a3c;position:relative;flex:none;margin-left:auto}.tg b{position:absolute;top:4px;left:4px;width:42px;height:42px;border-radius:50%;background:#fff}
+#fade{position:absolute;inset:0;background:#000;opacity:0;z-index:70}
+#stage{filter:grayscale(.85)}
+</style></head><body><div id="stage"><div id="glow"></div><div id="pts"></div>
+
+<div class="card" id="c1" style="background:#1c1c1e">
+ <div class="hdr" style="color:#0a84ff">‹ Настройки · Фото</div><div class="ttl">Воспоминания</div>
+ <div id="mem" style="position:absolute;left:30px;right:30px;top:170px;height:260px;border-radius:26px;background:linear-gradient(135deg,#5a4a3a,#2a3a4a);overflow:hidden;display:flex;align-items:flex-end;padding:22px">
+  <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:130px">🌅</div>
+  <div style="position:relative;font-size:30px;font-weight:900">Прошлое · 2023</div></div>
+ <div style="position:absolute;left:30px;right:30px;top:460px">
+  <div class="row" style="background:#2c2c2e">🕰 <span>Показывать прошлое</span><div class="tg" id="tg1"><b></b></div></div>
+  <div class="row" style="background:#2c2c2e">💭 <span>Думать о нём</span><div class="tg" id="tg2"><b></b></div></div></div>
+</div>
+<div class="card" id="c2" style="background:#000">
+ <div class="hdr">Здоровье · Состояние</div><div class="ttl">Настроение</div>
+ <svg width="600" height="380" style="position:absolute;top:150px;left:0"><g id="flr" stroke="#2c2c2e" stroke-width="2"></g><path id="stair" fill="none" stroke="#e5e5ea" stroke-width="7" stroke-linejoin="round"/><circle id="dot2" r="12" fill="#fff"/></svg>
+ <div class="c" style="bottom:40px"><div id="fl2" class="mono" style="font-size:52px;font-weight:800">25 эт.</div><div id="fl2b" style="font-size:22px;color:#8e8e93;font-weight:600">падаю</div></div>
+</div>
+<div class="card" id="c3" style="background:linear-gradient(180deg,#3a3f48,#1a1d22)">
+ <div style="text-align:center;padding-top:30px"><div style="font-size:30px;font-weight:600">Мой город</div><div style="font-size:120px;font-weight:200;line-height:1">4°</div><div style="font-size:26px;font-weight:600;opacity:.8">Туман</div></div>
+ <div style="position:absolute;left:24px;right:24px;top:260px;background:rgba(0,0,0,.2);border-radius:26px;padding:10px 24px">
+  <div style="font-size:19px;font-weight:700;opacity:.6;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.12)">🗓 ПРОГНОЗ НА 10 ДНЕЙ</div>
+  <div id="fc"></div></div>
+</div>
+<div class="card" id="c4" style="background:#1c1c1e">
+ <div class="hdr" style="color:#0a84ff">‹ Основные</div><div class="ttl">AirDrop</div>
+ <div style="padding:30px 30px 0"><div style="font-size:20px;color:#8e8e93;font-weight:700;margin:0 6px 10px">ПРИНИМАТЬ ОТ</div>
+  <div style="background:#2c2c2e;border-radius:24px;padding:0 24px" id="opts"></div></div>
+ <div id="t4" class="c" style="bottom:70px;font-size:30px;font-weight:700;opacity:0">ты не про всех.</div>
+ <div id="t4b" class="c" style="bottom:30px;font-size:24px;font-weight:600;color:#8e8e93;opacity:0">как и я тоже 🤍</div>
+</div>
+<div id="sub"></div><div id="vign"></div><div id="grain"></div><div id="fade"></div></div>
+<script>
+const $=id=>document.getElementById(id);
+const cl=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const seg=(t,a,b)=>cl((t-a)/(b-a));
+const eo=x=>1-Math.pow(1-x,3);
+const eb=x=>{const c=1.7;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)};
+const lerp=(a,b,x)=>a+(b-a)*x;
+const rnd=i=>{const x=Math.sin(i*127.1+311.7)*43758.5453;return x-Math.floor(x)};
+const pop=(t,s,k=8)=>t>=s?Math.exp(-(t-s)*k):0;
+const fmt=n=>Math.round(n).toLocaleString('ru-RU');
+const tog=(id,on)=>{const e=$(id);e.style.background=on?'#30d158':'#3a3a3c';e.firstElementChild.style.left=on?'38px':'4px'};
+const LINES=[[["я", 0.15], ["не", 0.5], ["хочу", 0.75], ["больше", 1.25], ["думать", 1.75], ["о", 2.15], ["прошлом", 2.25]], [["падаю", 4.25], ["так", 5.0], ["многоэтажно", 5.75]], [["кажется,", 7.5], ["у", 8.6], ["меня", 8.75], ["не", 9.1], ["будет", 9.3], ["завтра", 10.0]], [["ты", 12.75], ["не", 13.0], ["про", 13.25], ["всех,", 13.75], ["как", 14.0], ["и", 14.25], ["я", 14.5], ["тоже", 14.75]]];const SC=[[-0.3, 3.95], [3.95, 7.25], [7.25, 12.5], [12.5, 99]];const GLOW=["#2a2a2a", "#2a2a3a", "#1a2a3a", "#2a2a2a"];const PEMO=["🖤", "⬇️", "🌫️", "🤍"];const END=[16.6, 18.1];const SUBFROM=-9;
+(function(){let f='';for(let i=0;i<=5;i++)f+=`<line x1="40" x2="560" y1="${40+i*60}" y2="${40+i*60}"/>`;$('flr').innerHTML=f;
+ const D=[['Сегодня','☁️','4° / 1°'],['Завтра','—','нет данных'],['Чт','',''],['Пт','',''],['Сб','',''],['Вс','','']];
+ $('fc').innerHTML=D.map(([d,e,v],i)=>`<div id="fc${i}" style="display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:26px;font-weight:700;opacity:0"><span style="width:140px">${d}</span><span>${e}</span><span id="fv${i}" style="width:170px;text-align:right">${v}</span></div>`).join('');
+ const O=['Никого','Только контакты','Все (10 мин)','Только ты'];
+ $('opts').innerHTML=O.map((o,i)=>`<div style="display:flex;justify-content:space-between;padding:22px 0;${i<3?'border-bottom:1px solid #3a3a3c;':''}font-size:28px;font-weight:600" id="o${i}"><span>${o}</span><span id="ck${i}" style="color:#0a84ff;font-weight:900"></span></div>`).join('');})();
+(function(){let p='';for(let i=0;i<20;i++)p+=`<div class="pt" id="p${i}"></div>`;$('pts').innerHTML=p;})();
+function sceneIdx(t){for(let i=SC.length-1;i>=0;i--)if(t>=SC[i][0])return i;return 0}
+function showCard(i,t){const [a,b]=SC[i];const el=$('c'+(i+1));
+ const inP=eo(seg(t,a,a+.25)),outP=i<SC.length-1?seg(t,b-.1,b):0;const s=lerp(.86,1,eb(seg(t,a,a+.3)))*(1+outP*.06);
+ el.style.opacity=inP*(1-outP);el.style.transform=`scale(${s}) translateY(${(1-inP)*40}px)`;el.style.filter=`blur(${(1-inP)*14+outP*10}px)`;}
+const shake=(id,t,s,amp=10)=>{if(t>=s)$(id).style.transform+=` translateX(${Math.sin(t*90)*amp*pop(t,s,6)}px)`};
+function render(t){
+ for(let i=1;i<=SC.length;i++)$('c'+i).style.opacity=0;
+ const si=sceneIdx(t);showCard(si,t);
+ $('glow').style.setProperty('--g',GLOW[si]);
+ let lastW=-9;LINES.flat().forEach(([w,s])=>{if(s<=t)lastW=s});const pulse=Math.exp(-(t-lastW)*7);
+ $('glow').style.opacity=.5+.4*pulse;$('glow').style.transform=`scale(${1+.04*pulse})`;
+ for(let i=0;i<20;i++){const e=$('p'+i);const y=1-((t*(.05+rnd(i)*.07)+rnd(i+50))%1);e.textContent=PEMO[si];
+  e.style.left=(rnd(i+9)*1040)+'px';e.style.top=(y*1180-80)+'px';e.style.opacity=.12+rnd(i+3)*.25;
+  e.style.transform=`rotate(${Math.sin(t+i)*25}deg) scale(${.6+rnd(i+7)*.7})`;e.style.filter=`blur(${rnd(i+5)>.6?3:0}px)`;}
+
+ {tog('tg1',t<1.75);tog('tg2',t<2.25);$('mem').style.filter=`grayscale(${seg(t,1.25,2.4)}) blur(${seg(t,2.25,2.9)*14}px)`;$('mem').style.opacity=1-seg(t,2.5,3.4)*.8;}
+ {const p=seg(t,4.25,6.4);const steps=5;let d='M40 40';let cx=40,cy=40;for(let k=0;k<steps;k++){const sp=cl(p*steps-k);if(sp<=0)break;const nx=40+(k+1)*104;const hx=lerp(cx,nx,cl(sp*2));d+=` L${hx} ${cy}`;cx=hx;if(sp>.5){const ny=lerp(cy,cy+60,cl((sp-.5)*2));d+=` L${cx} ${ny}`;cy=ny}}
+  $('stair').setAttribute('d',d);$('dot2').setAttribute('cx',cx);$('dot2').setAttribute('cy',cy);const fl=Math.round(lerp(25,1,eo(p)));$('fl2').textContent=fl+' эт.';$('fl2b').textContent=t>=5.75?'многоэтажно':'падаю';if(si==1)shake('c2',t,5.75,6);}
+ {for(let i=0;i<6;i++){const ti=7.5+i*.25;const e=$('fc'+i);let o=seg(t,ti,ti+.15);if(i>=2)o*=(1-seg(t,10.0,10.6))*.5;e.style.opacity=o;}
+  const z=t>=10.0;$('fv1').style.color=z?'#ff453a':'#fff';$('fc1').style.transform=`scale(${1+.08*pop(t,10.0,5)})`;$('fc1').style.filter=z?`blur(${seg(t,10.6,12.0)*3}px)`:'none';}
+ {const sel=t<13.75?2:3;for(let i=0;i<4;i++){$('ck'+i).textContent=i==sel?'✓':'';}$('o2').style.opacity=t>=13.75?.35:1;$('t4').style.opacity=seg(t,13.75,13.95);$('t4b').style.opacity=seg(t,14.75,14.95);}
+
+ $('fade').style.opacity=seg(t,END[0],END[1]);
+ let li=-1;LINES.forEach((L,i)=>{if(t>=L[0][1]-.15)li=i});
+ $('sub').innerHTML=(li<0||t<SUBFROM)?'':LINES[li].map(([w,s])=>{const on=t>=s;const pp=on?Math.exp(-(t-s)*9):0;return `<span style="opacity:${on?1:.3};color:${on&&w.includes('@@@')?'#ff453a':'#fff'};transform:scale(${1+.14*pp}) translateY(${-6*pp}px)">${w}</span>`}).join('');
+}
+window.render=render;render(0);
+</script></body></html>

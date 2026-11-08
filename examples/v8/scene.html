@@ -1,0 +1,179 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1080px;overflow:hidden;background:#000;font-family:Inter,"Apple Color Emoji",sans-serif}
+#stage{position:absolute;inset:0;overflow:hidden;background:linear-gradient(180deg,#140c18,#0a0608)}
+#glow{position:absolute;inset:-20%;background:radial-gradient(circle at 50% 60%,var(--g,#7a3a1a) 0%,transparent 55%)}
+#vign{position:absolute;inset:0;background:radial-gradient(circle,transparent 45%,rgba(0,0,0,.8) 100%);z-index:50}
+#grain{position:absolute;inset:0;z-index:51;opacity:.07;background-image:repeating-radial-gradient(circle at 17% 32%,#fff 0 1px,transparent 1px 4px);mix-blend-mode:overlay}
+.pt{position:absolute;font-size:32px}
+#sub{position:absolute;top:56px;left:0;right:0;text-align:center;font-weight:800;font-size:50px;color:#fff;z-index:40;text-shadow:0 4px 24px rgba(0,0,0,.7);padding:0 50px;line-height:1.15}
+#sub span{display:inline-block;margin:0 10px}
+.card{position:absolute;left:50%;top:57%;width:600px;height:690px;margin-left:-300px;margin-top:-345px;border-radius:52px;overflow:hidden;opacity:0;box-shadow:0 40px 120px rgba(0,0,0,.8),0 0 0 1.5px rgba(255,255,255,.08) inset;background:#111214;color:#fff}
+.hdr{font-size:22px;font-weight:600;color:rgba(255,255,255,.55);padding:34px 40px 0}
+.ttl{font-size:46px;font-weight:800;padding:6px 40px 0;letter-spacing:-1px}
+.c{position:absolute;left:0;right:0;text-align:center}
+.mono{font-family:'JetBrains Mono'}
+.bub{display:inline-block;padding:14px 22px;border-radius:28px;font-size:27px;font-weight:500}
+#fade{position:absolute;inset:0;background:#000;opacity:0;z-index:70}
+</style></head><body>
+<div id="stage">
+ <div id="glow"></div><div id="pts"></div>
+
+ <!-- 1 screen time -->
+ <div class="card" id="c1" style="background:#1c1c1e">
+  <div class="hdr">Экранное время</div><div class="ttl">Скучаю</div>
+  <div id="tot" class="mono" style="padding:6px 40px 0;font-size:40px;font-weight:800">0 ч 0 мин</div>
+  <div style="padding:0 40px;font-size:22px;color:#8e8e93;font-weight:600">в среднем в день · по тебе</div>
+  <div id="bars" style="position:absolute;left:40px;right:40px;bottom:90px;height:300px;display:flex;align-items:flex-end;gap:14px"></div>
+  <div style="position:absolute;left:40px;right:40px;bottom:46px;display:flex;justify-content:space-between;font-size:20px;color:#8e8e93;font-weight:700"><span>пн</span><span>вт</span><span>ср</span><span>чт</span><span>пт</span><span>сб</span><span>вс</span></div>
+ </div>
+
+ <!-- 2 message to angel -->
+ <div class="card" id="c2" style="background:#000">
+  <div style="padding:30px 40px 20px;display:flex;align-items:center;gap:16px;border-bottom:1px solid #222"><div style="width:62px;height:62px;border-radius:50%;background:linear-gradient(135deg,#ffd6a5,#ff9f0a);display:flex;align-items:center;justify-content:center;font-size:34px">😇</div><div style="font-size:28px;font-weight:800">Ангел</div></div>
+  <div style="padding:26px 34px 0"><div class="bub" style="background:#262628">ок. как хочешь</div><div style="font-size:18px;color:#636366;margin:6px 6px 0;font-weight:600">3 месяца назад</div></div>
+  <div id="m2" style="position:absolute;right:34px;top:300px;opacity:0;text-align:right"><div class="bub" style="background:#0a84ff">ангел, мне жаль, что так вышло 🥺</div><div id="nd2" style="font-size:20px;font-weight:700;color:#ff453a;margin-top:8px;opacity:0">⚠️ Не доставлено</div></div>
+  <div style="position:absolute;left:24px;right:24px;bottom:24px;height:76px;border-radius:38px;border:2px solid #3a3a3c;display:flex;align-items:center;padding:0 26px;font-size:26px;color:#fff;font-weight:500"><span id="in2"></span><span id="cur2" style="width:3px;height:30px;background:#0a84ff;margin-left:2px"></span></div>
+ </div>
+
+ <!-- 3 airdrop heart -->
+ <div class="card" id="c3" style="background:linear-gradient(180deg,#1e2a3a,#0b0f16)">
+  <div id="rip" style="position:absolute;inset:0"></div>
+  <div class="c" style="top:60px;font-size:28px;font-weight:700">AirDrop</div>
+  <div id="hrt3" class="c" style="top:150px;font-size:200px">❤️</div>
+  <div class="c" style="top:400px"><div style="font-size:32px;font-weight:800">«Ангел» отправляет</div><div style="font-size:24px;color:#aeaeb2;font-weight:600;margin-top:6px">Сердце · 1 шт. · бесценно</div></div>
+  <div style="position:absolute;left:30px;right:30px;bottom:34px;display:flex;gap:14px">
+   <div style="flex:1;height:80px;border-radius:24px;background:#2c2c2e;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:800;color:#aeaeb2">Отклонить</div>
+   <div id="acc3" style="flex:1;height:80px;border-radius:24px;background:#2c2c2e;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:800;color:#0a84ff">Принять</div></div>
+ </div>
+
+ <!-- 4 find my stolen -->
+ <div class="card" id="c4" style="background:#1c1c1e">
+  <div style="position:absolute;left:0;right:0;top:0;height:380px;background:#2a2f36;overflow:hidden">
+   <div style="position:absolute;left:-20px;right:-20px;top:130px;height:40px;background:#3b434c;transform:rotate(-10deg)"></div>
+   <div style="position:absolute;left:-20px;right:-20px;top:270px;height:34px;background:#3b434c;transform:rotate(6deg)"></div>
+   <div style="position:absolute;left:260px;top:-20px;width:40px;height:440px;background:#3b434c;transform:rotate(8deg)"></div>
+   <svg width="600" height="380" style="position:absolute;inset:0"><path id="tr4" fill="none" stroke="#ff453a" stroke-width="7" stroke-dasharray="2 14" stroke-linecap="round"/></svg>
+   <div id="me4" style="position:absolute;left:150px;top:260px;width:44px;height:44px;margin:-22px;border-radius:50%;background:#0a84ff;border:5px solid #fff"></div>
+   <div id="h4" style="position:absolute;width:80px;height:80px;margin:-40px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-size:46px;box-shadow:0 8px 24px rgba(0,0,0,.5)">❤️</div>
+  </div>
+  <div style="position:absolute;left:0;right:0;top:400px;padding:0 34px">
+   <div style="font-size:34px;font-weight:800">Моё сердце</div>
+   <div id="t4" style="font-size:24px;color:#aeaeb2;font-weight:600;margin-top:6px">рядом с вами</div>
+   <div id="s4" style="margin-top:22px;background:#3a0d12;border-radius:20px;padding:18px 22px;font-size:26px;font-weight:800;color:#ff453a;opacity:0">🚨 Отмечено как украденное · у: «Он»</div>
+  </div>
+ </div>
+
+ <!-- 5 voicemail -->
+ <div class="card" id="c5" style="background:#1c1c1e">
+  <div class="hdr" style="color:#0a84ff">Телефон</div><div class="ttl">Автоответчик</div>
+  <div style="margin:24px 30px 0;background:#2c2c2e;border-radius:26px;padding:24px">
+   <div style="display:flex;justify-content:space-between;font-size:26px;font-weight:800"><span>Ангел 😇</span><span style="color:#8e8e93;font-size:20px">прошлым летом</span></div>
+   <div id="wave" style="display:flex;align-items:center;gap:5px;height:90px;margin-top:16px"></div>
+   <div style="font-size:19px;color:#8e8e93;font-weight:700;margin-top:6px">Расшифровка</div>
+   <div style="font-size:30px;font-weight:600;margin-top:8px;line-height:1.35">«<span id="vt"></span>»</div>
+  </div>
+  <div id="rx" style="position:absolute;inset:0;pointer-events:none"></div>
+ </div>
+
+ <!-- 6 rating -->
+ <div class="card" id="c6" style="background:#1c1c1e">
+  <div style="position:absolute;left:50px;right:50px;top:120px;background:rgba(44,44,46,.98);border-radius:34px;text-align:center;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.6)">
+   <div style="padding:34px 30px 24px"><div style="width:110px;height:110px;margin:0 auto;border-radius:26px;background:linear-gradient(135deg,#ffd6a5,#ff9f0a);display:flex;align-items:center;justify-content:center;font-size:64px">😇</div>
+    <div style="font-size:32px;font-weight:900;margin-top:16px">Оценить «Его»?</div><div style="font-size:22px;color:#aeaeb2;font-weight:500;margin-top:8px">Нажмите на звезду, чтобы оценить.</div>
+    <div id="stars" style="display:flex;justify-content:center;gap:14px;margin-top:22px;font-size:54px;color:#0a84ff"></div></div>
+   <div id="ns6" style="border-top:1px solid #48484a;padding:24px;font-size:28px;font-weight:700;color:#0a84ff">Не сейчас</div>
+  </div>
+  <div id="t6" class="c" style="bottom:70px;font-size:28px;font-weight:800;color:#ff9f0a;opacity:0">оценка: не ценила ☆☆☆☆☆</div>
+ </div>
+
+ <!-- 7 lock screen waiting -->
+ <div class="card" id="c7" style="background:linear-gradient(180deg,#3a1d2a 0%,#1a0f22 50%,#05040a 100%)">
+  <div id="dim" style="position:absolute;inset:0;background:#000;opacity:0"></div>
+  <div class="c" style="top:110px;font-size:26px;font-weight:600;color:rgba(255,255,255,.75)">воскресенье, 14 июля</div>
+  <div id="clk" class="c" style="top:140px;font-size:150px;font-weight:700;letter-spacing:-4px">21:47</div>
+  <div class="c" style="top:390px"><div id="nn" style="font-size:30px;font-weight:700;color:rgba(255,255,255,.65)">Нет новых уведомлений</div></div>
+  <div id="chk" class="c mono" style="bottom:60px;font-size:24px;font-weight:700;color:#ff9f0a">проверено: 0 раз</div>
+  <div id="tap" style="position:absolute;left:300px;top:560px;width:90px;height:90px;margin:-45px;border-radius:50%;border:4px solid rgba(255,255,255,.8);opacity:0"></div>
+ </div>
+
+ <div id="sub"></div><div id="vign"></div><div id="grain"></div><div id="fade"></div>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+const cl=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const seg=(t,a,b)=>cl((t-a)/(b-a));
+const eo=x=>1-Math.pow(1-x,3);
+const eb=x=>{const c=1.7;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)};
+const lerp=(a,b,x)=>a+(b-a)*x;
+const rnd=i=>{const x=Math.sin(i*127.1+311.7)*43758.5453;return x-Math.floor(x)};
+const pop=(t,s,k=8)=>t>=s?Math.exp(-(t-s)*k):0;
+
+const LINES=[
+ [["А",0.0],["я",.2],["скучаю",.4],["так",1.3],["сильно",1.5]],
+ [["ангел,",2.0],["мне",2.7],["жаль,",2.8],["что",3.3],["так",3.4],["вышло",3.6]],
+ [["я",4.1],["забрала",4.4],["твоё",5.1],["сердце,",5.6]],
+ [["ведь",6.3],["он",6.5],["украл",6.8],["моё",7.6]],
+ [["ты",8.4],["говорил:",8.6],["я",9.1],["красивая",9.7]],
+ [["я",10.6],["не",11.0],["ценила",11.3],["даже",11.9]],
+ [["но,",12.6],["проверяя",12.8],["свой",13.8],["гаджет,",14.1],["ждала",14.7]],
+];
+const SC=[[-0.3,1.95],[1.95,4.0],[4.0,6.2],[6.2,8.3],[8.3,10.45],[10.45,12.5],[12.5,99]];
+const GLOW=['#7a3a1a','#1d3a7a','#1d4a7a','#7a1a1a','#7a4a1a','#6a5a10','#5a1d4a'];
+const PEMO=['🥀','😇','❤️','💔','✨','⭐','📱'];
+
+(function(){
+ let b='';for(let i=0;i<7;i++)b+=`<div id="br${i}" style="flex:1;border-radius:10px 10px 4px 4px;background:#5e5ce6;height:0"></div>`;$('bars').innerHTML=b;
+ let w='';for(let i=0;i<46;i++)w+=`<div id="wv${i}" style="width:6px;border-radius:3px;background:#636366;height:10px"></div>`;$('wave').innerHTML=w;
+ $('stars').innerHTML=[0,1,2,3,4].map(i=>`<span id="st${i}">☆</span>`).join('');
+ let r='';for(let i=0;i<8;i++)r+=`<div id="rx${i}" style="position:absolute;left:${60+rnd(i)*460}px;top:520px;font-size:56px;opacity:0">${['💗','😍','✨','💗','🥹','💗','✨','😍'][i]}</div>`;$('rx').innerHTML=r;
+ let p='';for(let i=0;i<20;i++)p+=`<div class="pt" id="p${i}"></div>`;$('pts').innerHTML=p;
+})();
+function sceneIdx(t){for(let i=SC.length-1;i>=0;i--)if(t>=SC[i][0])return i;return 0}
+function showCard(i,t){const [a,b]=SC[i];const el=$('c'+(i+1));
+ const inP=eo(seg(t,a,a+.28)),outP=i<SC.length-1?seg(t,b-.1,b):0;const s=lerp(.86,1,eb(seg(t,a,a+.32)))*(1+outP*.06);
+ el.style.opacity=inP*(1-outP);el.style.transform=`scale(${s}) translateY(${(1-inP)*40}px)`;el.style.filter=`blur(${(1-inP)*14+outP*10}px)`;}
+const shake=(id,t,s,amp=10)=>{if(t>=s)$(id).style.transform+=` translateX(${Math.sin(t*90)*amp*pop(t,s,6)}px)`};
+
+function render(t){
+ for(let i=1;i<=7;i++)$('c'+i).style.opacity=0;
+ const si=sceneIdx(t);showCard(si,t);
+ $('glow').style.setProperty('--g',GLOW[si]);
+ let lastW=-9;LINES.flat().forEach(([w,s])=>{if(s<=t)lastW=s});const pulse=Math.exp(-(t-lastW)*7);
+ $('glow').style.opacity=.5+.4*pulse;$('glow').style.transform=`scale(${1+.04*pulse})`;
+ for(let i=0;i<20;i++){const e=$('p'+i);const y=1-((t*(.05+rnd(i)*.07)+rnd(i+50))%1);e.textContent=PEMO[si];
+  e.style.left=(rnd(i+9)*1040)+'px';e.style.top=(y*1180-80)+'px';e.style.opacity=.12+rnd(i+3)*.25;
+  e.style.transform=`rotate(${Math.sin(t+i)*25}deg) scale(${.6+rnd(i+7)*.7})`;e.style.filter=`blur(${rnd(i+5)>.6?3:0}px)`;}
+ // 1
+ {const H=[.35,.45,.4,.55,.5,.6,1.0];for(let i=0;i<7;i++){const s=i<6?eo(seg(t,.3+i*.1,.8+i*.1)):eb(seg(t,1.5,1.8));const e=$('br'+i);e.style.height=(H[i]*290*s)+'px';e.style.background=i==6&&t>=1.5?'#ff453a':'#5e5ce6';}
+  const m=Math.round(lerp(0,1439,eo(seg(t,.4,1.8))));$('tot').textContent=Math.floor(m/60)+' ч '+(m%60)+' мин';$('tot').style.color=t>=1.5?'#ff453a':'#fff';}
+ // 2
+ {const q='ангел, мне жаль, что так вышло 🥺';const typing=t<3.6;const n=Math.floor(cl((t-2.0)/1.5)*q.length);$('in2').textContent=typing?[...q].slice(0,n).join(''):'';$('cur2').style.opacity=Math.floor(t*4)%2?1:.2;
+  const s=seg(t,3.6,3.75);$('m2').style.opacity=s;$('m2').style.transform=`translateY(${(1-eo(s))*60}px)`;$('nd2').style.opacity=seg(t,3.8,3.9);}
+ // 3
+ {let h='';for(let k=0;k<3;k++){const ph=((t*.9)+k/3)%1;h+=`<div style="position:absolute;left:50%;top:250px;width:${200+ph*700}px;height:${200+ph*700}px;margin-left:-${(200+ph*700)/2}px;margin-top:-${(200+ph*700)/2}px;border-radius:50%;border:3px solid rgba(100,210,255,${(1-ph)*.5})"></div>`}$('rip').innerHTML=h;
+  $('hrt3').style.transform=`scale(${1+.06*Math.sin(t*8)+.35*pop(t,5.6,5)})`;const a=t>=5.6;$('acc3').style.background=a?'#0a84ff':'#2c2c2e';$('acc3').style.color=a?'#fff':'#0a84ff';$('acc3').textContent=a?'Забрала ✓':'Принять';}
+ // 4
+ {const p=eo(seg(t,6.8,7.7));const sx=180,sy=200,ex=500,ey=90;const hx=lerp(sx,ex,p),hy=lerp(sy,ey,p);$('h4').style.left=hx+'px';$('h4').style.top=hy+'px';
+  $('h4').textContent=t>=7.6?'💔':'❤️';$('h4').style.transform=`scale(${1+.3*pop(t,7.6,5)})`;$('tr4').setAttribute('d',p>0?`M${sx} ${sy} L${hx} ${hy}`:'');
+  $('t4').textContent=t>=6.8?'удаляется от вас · '+(p*3.4).toFixed(1).replace('.',',')+' км':'рядом с вами';$('t4').style.color=t>=6.8?'#ff9f0a':'#aeaeb2';$('s4').style.opacity=seg(t,7.6,7.75);if(si==3)shake('c4',t,7.6,8);}
+ // 5
+ {const q='ты красивая.';const n=t<9.7?Math.floor(cl((t-8.6)/1.0)*7):q.length;$('vt').textContent=q.slice(0,n);
+  for(let i=0;i<46;i++){const e=$('wv'+i);const pl=i/46<seg(t,8.4,10.4);e.style.background=pl?'#0a84ff':'#636366';e.style.height=(10+Math.abs(Math.sin(i*1.7)*Math.cos(i*.6))*70)+'px';}
+  for(let i=0;i<8;i++){const st=9.7+i*.06;const ph=seg(t,st,st+.7);$('rx'+i).style.opacity=ph>0&&ph<1?1-ph:0;$('rx'+i).style.transform=`translateY(${-ph*260}px) scale(${.6+ph*.6})`;}}
+ // 6
+ {for(let i=0;i<5;i++){$('st'+i).textContent='☆';$('st'+i).style.opacity=t>=11.0?.35:1;}
+  const ns=t>=11.3;$('ns6').style.background=ns?'#0a84ff':'transparent';$('ns6').style.color=ns?'#fff':'#0a84ff';$('t6').style.opacity=seg(t,11.9,12.05);$('t6').style.transform=`scale(${1+.2*pop(t,11.9,6)})`;}
+ // 7
+ {const taps=[12.8,13.3,13.8,14.1,14.4,14.7,15.0];let c=0,last=-9;taps.forEach(x=>{if(t>=x){c++;last=x}});
+  const n=c===0?0:Math.round(lerp(1,47,(c-1)/6));$('chk').textContent='проверено: '+n+' раз';$('dim').style.opacity=t>=12.6?(.55*(1-pop(t,last,4))):0;
+  $('tap').style.opacity=pop(t,last,6);$('tap').style.transform=`scale(${1+.6*(1-pop(t,last,6))})`;$('nn').style.transform=`translateX(${t>=14.7?Math.sin(t*80)*6*pop(t,14.7,5):0}px)`;
+  $('clk').textContent='21:'+String(47+Math.floor(seg(t,12.6,15.2)*12)).padStart(2,'0');$('nn').textContent=t>=14.7?'…ждала. ничего.':'Нет новых уведомлений';}
+ $('fade').style.opacity=seg(t,15.1,15.43);
+ let li=0;LINES.forEach((L,i)=>{if(t>=L[0][1]-.15)li=i});
+ $('sub').innerHTML=LINES[li].map(([w,s])=>{const on=t>=s;const pp=on?Math.exp(-(t-s)*9):0;return `<span style="opacity:${on?1:.3};transform:scale(${1+.14*pp}) translateY(${-6*pp}px)">${w}</span>`}).join('');
+}
+window.render=render;render(0);
+</script></body></html>

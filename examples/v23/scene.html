@@ -1,0 +1,142 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1080px;overflow:hidden;background:#000;font-family:Inter,"Apple Color Emoji",sans-serif}
+#stage{position:absolute;inset:0;overflow:hidden;background:linear-gradient(180deg,#120a14,#050306)}
+#glow{position:absolute;inset:-20%;background:radial-gradient(circle at 50% 58%,var(--g,#333) 0%,transparent 55%)}
+#vign{position:absolute;inset:0;background:radial-gradient(circle,transparent 45%,rgba(0,0,0,.8) 100%);z-index:50}
+#grain{position:absolute;inset:0;z-index:51;opacity:.07;background-image:repeating-radial-gradient(circle at 17% 32%,#fff 0 1px,transparent 1px 4px);mix-blend-mode:overlay}
+.pt{position:absolute;font-size:32px}
+#sub{position:absolute;top:56px;left:0;right:0;text-align:center;font-weight:900;font-size:50px;color:#fff;z-index:40;text-shadow:0 4px 24px rgba(0,0,0,.7);padding:0 50px;line-height:1.12;text-transform:uppercase}
+#sub span{display:inline-block;margin:0 10px}
+.card{position:absolute;left:50%;top:57%;width:600px;height:690px;margin-left:-300px;margin-top:-345px;border-radius:52px;overflow:hidden;opacity:0;box-shadow:0 40px 120px rgba(0,0,0,.8),0 0 0 1.5px rgba(255,255,255,.08) inset;background:#111214;color:#fff}
+.hdr{font-size:22px;font-weight:600;color:rgba(255,255,255,.55);padding:34px 40px 0}
+.ttl{font-size:46px;font-weight:800;padding:6px 40px 0;letter-spacing:-1px}
+.c{position:absolute;left:0;right:0;text-align:center}
+.mono{font-family:'JetBrains Mono'}
+.box{background:#2c2c2e;border-radius:24px;padding:20px 24px}
+.bub{display:inline-block;padding:14px 22px;border-radius:28px;font-size:27px;font-weight:500}
+.row{display:flex;align-items:center;gap:18px;background:#1c1c1e;border-radius:22px;padding:16px 22px;margin-bottom:12px;font-size:26px;font-weight:700}
+.tg{width:84px;height:50px;border-radius:25px;background:#3a3a3c;position:relative;flex:none;margin-left:auto}.tg b{position:absolute;top:4px;left:4px;width:42px;height:42px;border-radius:50%;background:#fff}
+#fade{position:absolute;inset:0;background:#000;opacity:0;z-index:70}
+.ch{position:absolute;width:200px;height:300px;transform-origin:100px 290px;z-index:5}
+</style></head><body><div id="stage"><div id="glow"></div><div id="pts"></div>
+
+<div class="card" id="c1" style="background:#1c1c1e">
+ <div class="hdr">Такси</div><div class="ttl">Бизнес</div>
+ <div id="car1" style="position:absolute;left:150px;top:150px;font-size:230px;line-height:1">🚘</div>
+ <div class="ch" data-p="a"></div><div class="ch" data-p="b"></div>
+ <div style="position:absolute;left:30px;right:30px;bottom:30px;background:#2c2c2e;border-radius:22px;padding:16px 22px;display:flex;justify-content:space-between;font-size:26px;font-weight:800"><span>💺 места</span><span id="st1" class="mono">0/2</span></div>
+</div>
+<div class="card" id="c2" style="background:#e9e4dc;color:#111">
+ <svg width="600" height="690" style="position:absolute;inset:0"><path id="rt2" d="M60 600 C 160 520 120 420 260 400 S 420 300 500 180" fill="none" stroke="#0a84ff" stroke-width="12" stroke-linecap="round" stroke-dasharray="900" stroke-dashoffset="900"/></svg>
+ <div style="position:absolute;left:450px;top:90px;font-size:100px">🏬</div>
+ <div style="position:absolute;left:24px;right:24px;top:24px;background:#fff;border-radius:24px;padding:16px 22px;box-shadow:0 6px 20px rgba(0,0,0,.1)"><div style="font-size:26px;font-weight:900">Модный бутик</div><div id="r2" style="font-size:24px;font-weight:800;color:#ff9f0a;margin-top:4px"></div></div>
+ <div class="ch" data-p="c"></div><div class="ch" data-p="d"></div>
+</div>
+<div class="card" id="c3" style="background:#000">
+ <div class="hdr">Wallet</div>
+ <div id="tk3" style="position:absolute;left:50px;right:50px;top:90px;height:250px;border-radius:30px;background:linear-gradient(135deg,#e8e0d0,#b8a888);color:#111;padding:26px;box-shadow:0 20px 50px rgba(0,0,0,.6)">
+  <div style="font-size:20px;font-weight:800;opacity:.6">ПРОХОДКА</div><div style="font-size:60px;font-weight:900;letter-spacing:-2px">«ТКАНИ»</div><div style="font-size:22px;font-weight:700;margin-top:6px">VIP · +1 · для неё</div>
+  <div style="position:absolute;right:26px;bottom:20px;width:90px;height:90px;background:repeating-linear-gradient(90deg,#111 0 6px,transparent 6px 10px),repeating-linear-gradient(0deg,#111 0 6px,transparent 6px 10px);opacity:.8"></div></div>
+ <div class="ch" data-p="e"></div>
+</div>
+<div class="card" id="c4" style="background:#f2f2f2;color:#111">
+ <div class="hdr" style="color:rgba(0,0,0,.45)">Магазин</div>
+ <div style="position:absolute;left:40px;top:80px;width:200px;height:230px;border-radius:20px;background:#fff;display:flex;align-items:center;justify-content:center;font-size:120px;box-shadow:0 6px 20px rgba(0,0,0,.08)">🖤</div>
+ <div style="position:absolute;left:270px;top:100px"><div style="font-size:34px;font-weight:900">Топик Wet</div><div style="font-size:22px;color:#8e8e93;font-weight:700">от Канье</div><div class="mono" style="font-size:30px;font-weight:800;margin-top:10px">$ ∞</div>
+  <div id="by4" style="margin-top:16px;padding:12px 30px;border-radius:20px;background:#111;color:#fff;font-size:24px;font-weight:900;display:inline-block">Купить</div></div>
+ <div class="ch" data-p="f"></div>
+</div>
+<div class="card" id="c5" style="background:radial-gradient(circle at 50% 50%,#3a0a14,#0a0204)">
+ <div id="fl5" style="position:absolute;inset:0"></div>
+ <div style="position:absolute;left:24px;right:24px;top:24px;font-size:22px;font-weight:800;color:#aeaeb2">Фото · Портрет · на тебе</div>
+ <div class="ch" data-p="g"></div><div class="ch" data-p="h"></div>
+ <div id="tg5" style="position:absolute;left:300px;top:220px;background:#fff;color:#111;border-radius:16px;padding:10px 18px;font-size:24px;font-weight:900;opacity:0">🏷 дизайнер: M2RT 💀</div>
+</div>
+<div class="card" id="c6" style="background:#f5f0e8;color:#111">
+ <div class="hdr" style="color:#ff9f0a">Дом · Дизайн интерьера</div>
+ <div style="position:absolute;left:30px;right:30px;top:90px;display:flex;gap:16px">
+  <div id="k6" style="flex:1;height:200px;border-radius:24px;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:90px;opacity:.3;box-shadow:0 6px 20px rgba(0,0,0,.08)">🍳<div style="font-size:24px;font-weight:900">Кухня</div></div>
+  <div id="b6" style="flex:1;height:200px;border-radius:24px;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:90px;opacity:.3;box-shadow:0 6px 20px rgba(0,0,0,.08)">🛏️<div style="font-size:24px;font-weight:900">Спальня</div></div></div>
+ <div class="ch" data-p="i"></div><div class="ch" data-p="j"></div>
+</div>
+<div id="sub"></div><div id="vign"></div><div id="grain"></div><div id="fade"></div></div>
+<script>
+const $=id=>document.getElementById(id);
+const cl=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const seg=(t,a,b)=>cl((t-a)/(b-a));
+const eo=x=>1-Math.pow(1-x,3);
+const eb=x=>{const c=1.7;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)};
+const lerp=(a,b,x)=>a+(b-a)*x;
+const rnd=i=>{const x=Math.sin(i*127.1+311.7)*43758.5453;return x-Math.floor(x)};
+const pop=(t,s,k=8)=>t>=s?Math.exp(-(t-s)*k):0;
+const fmt=n=>Math.round(n).toLocaleString('ru-RU');
+const tog=(id,on)=>{const e=$(id);e.style.background=on?'#30d158':'#3a3a3c';e.firstElementChild.style.left=on?'38px':'4px'};
+const LINES=[[["бизнес-такси,", 0.0], ["место", 1.1], ["только", 1.5], ["для", 2.1], ["нас", 2.4], ["двоих", 2.8]], [["и", 3.4], ["я", 3.5], ["свожу", 3.8], ["тебя", 4.4], ["в", 4.8], ["самый-", 5.1], ["самый-", 5.5], ["самый", 6.2], ["модный", 6.7], ["бутик", 7.3]], [["хочешь", 7.9], ["проходку", 8.4], ["на", 9.2], ["«Ткани»?", 9.4]], [["хочешь", 10.0], ["топик", 10.6], ["Wet", 11.2], ["от", 11.3], ["Канье?", 11.6]], [["на", 12.3], ["тебе", 12.5], ["M2RTвый", 12.9], ["дизайнер", 13.5]], [["хочешь", 14.3], ["на", 15.1], ["кухне", 15.3], ["и", 16.0], ["в", 16.1], ["спальне?", 16.2]]];const SC=[[-0.3, 3.3], [3.3, 7.8], [7.8, 9.95], [9.95, 12.2], [12.2, 14.2], [14.2, 99]];const GLOW=["#3a3a3a", "#5a1d4a", "#4a1d6a", "#2a2a2a", "#5a0a1a", "#5a3a1a"];const PEMO=["🚘", "🛍️", "🎟️", "🖤", "💀", "🏠"];const END=[16.75, 17.1];const SUBFROM=-9;
+const CH=(p,hat,j1,j2)=>`<svg viewBox="0 0 200 300" width="200" height="300" style="overflow:visible">
+<defs><linearGradient id="${p}_jg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${j1}" id="${p}_s1"/><stop offset=".5" stop-color="${j2}" id="${p}_s2"/><stop offset="1" stop-color="${j2}" id="${p}_s3"/></linearGradient></defs>
+<g id="${p}_all">
+<g id="${p}_legL"><rect x="77" y="205" width="21" height="70" rx="10" fill="#26262e"/><ellipse cx="84" cy="280" rx="19" ry="10" fill="#fff"/></g>
+<g id="${p}_legR"><rect x="102" y="205" width="21" height="70" rx="10" fill="#26262e"/><ellipse cx="116" cy="280" rx="19" ry="10" fill="#fff"/></g>
+<g id="${p}_armL"><rect x="40" y="128" width="21" height="72" rx="10" fill="url(#${p}_jg)"/><circle cx="50" cy="202" r="10" fill="#f2c6a0"/></g>
+<rect x="54" y="116" width="92" height="104" rx="32" fill="url(#${p}_jg)"/>
+<path d="M58 150 H142 M58 182 H142" stroke="rgba(0,0,0,.16)" stroke-width="4"/>
+<path d="M78 120 Q100 152 122 120" fill="none" stroke="#ffd60a" stroke-width="5"/><circle cx="100" cy="146" r="7" fill="#ffd60a"/>
+<g id="${p}_armR"><rect x="139" y="128" width="21" height="72" rx="10" fill="url(#${p}_jg)"/><circle cx="150" cy="202" r="10" fill="#f2c6a0"/></g>
+<g id="${p}_head"><circle cx="100" cy="80" r="42" fill="#f2c6a0"/>
+<path d="M56 66 Q58 26 100 26 Q142 26 144 66 L162 72 Q100 54 38 72 Z" fill="${hat}"/>
+<rect x="64" y="74" width="32" height="19" rx="9" fill="#111"/><rect x="104" y="74" width="32" height="19" rx="9" fill="#111"/><rect x="94" y="78" width="12" height="4" fill="#111"/>
+<rect x="70" y="77" width="8" height="4" rx="2" fill="rgba(255,255,255,.5)"/><rect x="110" y="77" width="8" height="4" rx="2" fill="rgba(255,255,255,.5)"/>
+<path id="${p}_mouth" d="M88 104 Q100 112 112 104" fill="none" stroke="#7a3a2a" stroke-width="4" stroke-linecap="round"/></g>
+</g></svg>`;
+function pose(p,o){const R=(id,a,x,y)=>$(p+'_'+id).setAttribute('transform',`rotate(${a||0} ${x} ${y})`);
+ R('armL',o.aL,50,135);R('armR',o.aR,150,135);R('legL',o.lL,88,210);R('legR',o.lR,112,210);R('head',o.hd,100,110);
+ $(p+'_all').setAttribute('transform',`translate(0 ${o.bob||0})`);
+ $(p+'_mouth').setAttribute('d',o.open?'M86 102 Q100 122 114 102 Z':'M88 104 Q100 112 112 104');$(p+'_mouth').setAttribute('fill',o.open?'#7a2a2a':'none');}
+function place(p,x,y,s,flip,rot){const e=$('ch_'+p);e.style.left=(x-100)+'px';e.style.top=(y-290)+'px';e.style.transform=`scale(${s*(flip?-1:1)},${s}) rotate(${rot||0}deg)`;}
+const run=(t,f)=>{const q=Math.sin(t*f);return {lL:q*38,lR:-q*38,aL:-q*45,aR:-q*45,bob:-Math.abs(Math.cos(t*f))*8}};
+const walk=(t,f)=>{const q=Math.sin(t*f);return {lL:q*22,lR:-q*22,aL:-q*20,aR:-q*20,bob:-Math.abs(Math.cos(t*f))*4}};
+
+const GIRL=['#ff9ac1','#f3e8ff','#b38cff'];
+(function(){const G={b:1,d:1,e:1,f:1,g:1,j:1};document.querySelectorAll('.ch').forEach(e=>{const p=e.dataset.p;e.id='ch_'+p;e.innerHTML=CH(p,...(G[p]?GIRL:['#64d2ff','#ff8ac4','#ff2d78']));});
+ let f='';for(let i=0;i<14;i++)f+=`<div id="f5_${i}" style="position:absolute;width:30px;height:30px;border-radius:50%;background:#fff;opacity:0"></div>`;$('fl5').innerHTML=f;})();
+function girlColor(p,c1,c2){$(p+'_s1').setAttribute('stop-color',c1);$(p+'_s2').setAttribute('stop-color',c2);$(p+'_s3').setAttribute('stop-color',c2);}
+
+(function(){let p='';for(let i=0;i<20;i++)p+=`<div class="pt" id="p${i}"></div>`;$('pts').innerHTML=p;})();
+function sceneIdx(t){for(let i=SC.length-1;i>=0;i--)if(t>=SC[i][0])return i;return 0}
+function showCard(i,t){const [a,b]=SC[i];const el=$('c'+(i+1));
+ const inP=eo(seg(t,a,a+.25)),outP=i<SC.length-1?seg(t,b-.1,b):0;const s=lerp(.86,1,eb(seg(t,a,a+.3)))*(1+outP*.06);
+ el.style.opacity=inP*(1-outP);el.style.transform=`scale(${s}) translateY(${(1-inP)*40}px)`;el.style.filter=`blur(${(1-inP)*14+outP*10}px)`;}
+const shake=(id,t,s,amp=10)=>{if(t>=s)$(id).style.transform+=` translateX(${Math.sin(t*90)*amp*pop(t,s,6)}px)`};
+function render(t){
+ for(let i=1;i<=SC.length;i++)$('c'+i).style.opacity=0;
+ const si=sceneIdx(t);showCard(si,t);
+ $('glow').style.setProperty('--g',GLOW[si]);
+ let lastW=-9;LINES.flat().forEach(([w,s])=>{if(s<=t)lastW=s});const pulse=Math.exp(-(t-lastW)*7);
+ $('glow').style.opacity=.5+.4*pulse;$('glow').style.transform=`scale(${1+.04*pulse})`;
+ for(let i=0;i<20;i++){const e=$('p'+i);const y=1-((t*(.05+rnd(i)*.07)+rnd(i+50))%1);e.textContent=PEMO[si];
+  e.style.left=(rnd(i+9)*1040)+'px';e.style.top=(y*1180-80)+'px';e.style.opacity=.12+rnd(i+3)*.25;
+  e.style.transform=`rotate(${Math.sin(t+i)*25}deg) scale(${.6+rnd(i+7)*.7})`;e.style.filter=`blur(${rnd(i+5)>.6?3:0}px)`;}
+
+ {const g=eo(seg(t,1.5,2.8));const n=t<2.4?(t<2.1?0:1):2;$('st1').textContent=n+'/2'+(n==2?' ✓':'');
+  place('a',lerp(140,250,g),620,.9,false);place('b',lerp(470,340,g),620,.85,true);const o=g>0&&g<1?walk(t,14):{aL:8,aR:-8};pose('a',t>=2.8?{aL:8,aR:-150+Math.sin(t*12)*20}:o);pose('b',o);
+  ['a','b'].forEach(p=>$('ch_'+p).style.opacity=1-seg(t,2.85,3.2));$('car1').style.transform=`translateX(${seg(t,2.9,3.3)*300}px)`;}
+ {$('rt2').setAttribute('stroke-dashoffset',900*(1-eo(seg(t,3.8,7.3))));const L=$('rt2');const p=eo(seg(t,3.8,7.3));const pt=L.getPointAtLength(L.getTotalLength()*p);
+  place('c',pt.x-25,pt.y+40,.55,false);place('d',pt.x+25,pt.y+40,.52,false);const o=p>0&&p<1?walk(t,14):{aL:150,aR:-150,open:1};pose('c',o);pose('d',o);
+  let n=0;[5.1,5.5,6.2].forEach(s=>{if(t>=s)n++});$('r2').textContent='⭐'.repeat(n)+(n?' самый'.repeat(n):'')+(t>=6.7?' · модный':'');}
+ {$('tk3').style.transform=`rotate(${Math.sin(t*2)*3}deg) scale(${1+.08*pop(t,9.4,5)})`;const j=pop(t,9.4,5);place('e',300,660,1.05,true);pose('e',t>=9.4?{aL:150,aR:-150,open:1,bob:-j*70}:{aL:8,aR:-60,hd:-6});}
+ {const b=t>=11.6;$('by4').textContent=b?'Куплено ✓':'Купить';$('by4').style.background=b?'#30d158':'#111';place('f',300,680,1.15,true);
+  if(b)girlColor('f','#3a3a3a','#0a0a0a');pose('f',b?{aL:55,aR:-55,hd:-8,rot:-5,bob:-pop(t,11.6,5)*40}:{aL:8,aR:-95});}
+ {const f=t>=12.9;place('g',230,660,1.25,false);place('h',440,660,.9,true);
+  pose('g',f?{aL:20,aR:-135,hd:-8,rot:-6}:{aL:8,aR:-8});if(f)girlColor('g','#111','#000');$('ch_g').style.filter=f?'drop-shadow(0 0 20px #ff2d55)':'none';
+  pose('h',{aL:-40+Math.sin(t*20)*20*(f?1:0),aR:40-Math.sin(t*20)*20*(f?1:0),open:f});$('tg5').style.opacity=seg(t,13.5,13.6);$('tg5').style.transform=`scale(${1+.2*pop(t,13.5,6)})`;
+  for(let i=0;i<14;i++){const e=$('f5_'+i);const on=f&&Math.sin(t*11+i*3)>.85;e.style.opacity=on?.9:0;e.style.left=(rnd(i)*560)+'px';e.style.top=(rnd(i+9)*620)+'px';}}
+ {$('k6').style.opacity=t>=15.3?1:.3;$('b6').style.opacity=t>=16.2?1:.3;$('k6').style.transform=`scale(${1+.1*pop(t,15.3,6)})`;$('b6').style.transform=`scale(${1+.1*pop(t,16.2,6)})`;
+  place('i',200,660,1.05,false);place('j',420,660,1.0,true);pose('i',t<15.3?{aL:8,aR:-120}:{aL:8,aR:-150,open:1});pose('j',t>=16.2?{aL:-58,aR:58,hd:8}:{aL:8,aR:-8});}
+
+ $('fade').style.opacity=seg(t,END[0],END[1]);
+ let li=-1;LINES.forEach((L,i)=>{if(t>=L[0][1]-.15)li=i});
+ $('sub').innerHTML=(li<0||t<SUBFROM)?'':LINES[li].map(([w,s])=>{const on=t>=s;const pp=on?Math.exp(-(t-s)*9):0;return `<span style="opacity:${on?1:.3};color:${on&&w.includes('@@@')?'#ff453a':'#fff'};transform:scale(${1+.14*pp}) translateY(${-6*pp}px)">${w}</span>`}).join('');
+}
+window.render=render;render(0);
+</script></body></html>

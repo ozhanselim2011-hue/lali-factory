@@ -1,0 +1,54 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+*{margin:0;padding:0;box-sizing:border-box}html,body{width:1080px;height:1080px;overflow:hidden;font-family:Inter,"Apple Color Emoji",sans-serif}
+.v{position:absolute;inset:0;display:none;overflow:hidden}body[data-v="4"] #v4,body[data-v="5"] #v5,body[data-v="6"] #v6,body[data-v="7"] #v7{display:block}
+.ch{position:absolute;width:200px;height:300px;transform-origin:100px 290px}
+.grain{position:absolute;inset:0;opacity:.1;mix-blend-mode:overlay;background-image:repeating-radial-gradient(circle at 13% 27%,#fff 0 1px,transparent 1px 3px)}
+</style></head><body data-v="4">
+<div class="v" id="v4" style="background:radial-gradient(circle at 50% 40%,#fff27a,#ffcc00 50%,#e09a00)">
+ <div style="position:absolute;left:600px;top:150px;background:#fff;border-radius:60px;padding:30px 44px;font-size:110px;font-weight:900;color:#ff2d78;box-shadow:0 20px 40px rgba(0,0,0,.2);transform:rotate(8deg)">♪♪</div>
+ <div class="ch" data-p="a"></div><div id="ph4" style="position:absolute;font-size:200px">📱</div><div class="grain"></div></div>
+<div class="v" id="v5" style="background:radial-gradient(circle at 50% 50%,#00e5ff,#0a5ad8 55%,#04122e)">
+ <div class="ch" data-p="b"></div>
+ <div style="position:absolute;left:300px;top:540px;width:200px;height:112px;border-radius:50px;overflow:hidden;opacity:.85"><div style="margin:30px 16px;height:50px;border-radius:14px;background:rgba(255,45,120,.85);display:flex;align-items:center;gap:8px;padding:0 10px;color:#fff;font-weight:900;font-size:24px">♪ строчка</div></div>
+ <div style="position:absolute;left:580px;top:540px;width:200px;height:112px;border-radius:50px;overflow:hidden;opacity:.85"><div style="margin:30px 16px;height:50px;border-radius:14px;background:rgba(255,45,120,.85);display:flex;align-items:center;gap:8px;padding:0 10px;color:#fff;font-weight:900;font-size:24px">♪ строчка</div></div>
+ <div class="grain"></div></div>
+<div class="v" id="v6" style="background:radial-gradient(circle at 50% 50%,#2a2a34,#050507 70%)">
+ <div style="position:absolute;left:160px;top:160px;width:760px;height:760px;border-radius:180px;overflow:hidden;background:linear-gradient(155deg,#ff4d8d,#7a2cff);box-shadow:0 40px 100px rgba(0,0,0,.7),inset 0 6px 0 rgba(255,255,255,.35)"><div class="ch" data-p="c"></div></div>
+ <div style="position:absolute;right:110px;top:110px;width:230px;height:230px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ff7a6e,#ff1f1f 45%,#b0000a);color:#fff;font-weight:900;font-size:150px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 16px #050507,0 0 80px rgba(255,40,40,.9)">1</div>
+ <div class="grain"></div></div>
+<div class="v" id="v7" style="background:linear-gradient(160deg,#7a2cff,#ff2d78)">
+ <div id="nt7" style="position:absolute;inset:0"></div>
+ <div class="ch" data-p="d" style="filter:drop-shadow(0 0 0 #fff) drop-shadow(6px 0 0 #fff) drop-shadow(-6px 0 0 #fff) drop-shadow(0 6px 0 #fff) drop-shadow(0 -6px 0 #fff) drop-shadow(0 30px 40px rgba(0,0,0,.4))"></div>
+ <div class="grain"></div></div>
+<script>const $=id=>document.getElementById(id);const rnd=i=>{const x=Math.sin(i*127.1+311.7)*43758.5453;return x-Math.floor(x)};
+const CH=(p,hat,j1,j2)=>`<svg viewBox="0 0 200 300" width="200" height="300" style="overflow:visible">
+<defs><linearGradient id="${p}_jg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${j1}" id="${p}_s1"/><stop offset=".5" stop-color="${j2}" id="${p}_s2"/><stop offset="1" stop-color="${j2}" id="${p}_s3"/></linearGradient></defs>
+<g id="${p}_all">
+<g id="${p}_legL"><rect x="77" y="205" width="21" height="70" rx="10" fill="#26262e"/><ellipse cx="84" cy="280" rx="19" ry="10" fill="#fff"/></g>
+<g id="${p}_legR"><rect x="102" y="205" width="21" height="70" rx="10" fill="#26262e"/><ellipse cx="116" cy="280" rx="19" ry="10" fill="#fff"/></g>
+<g id="${p}_armL"><rect x="40" y="128" width="21" height="72" rx="10" fill="url(#${p}_jg)"/><circle cx="50" cy="202" r="10" fill="#f2c6a0"/></g>
+<rect x="54" y="116" width="92" height="104" rx="32" fill="url(#${p}_jg)"/>
+<path d="M58 150 H142 M58 182 H142" stroke="rgba(0,0,0,.16)" stroke-width="4"/>
+<path d="M78 120 Q100 152 122 120" fill="none" stroke="#ffd60a" stroke-width="5"/><circle cx="100" cy="146" r="7" fill="#ffd60a"/>
+<g id="${p}_armR"><rect x="139" y="128" width="21" height="72" rx="10" fill="url(#${p}_jg)"/><circle cx="150" cy="202" r="10" fill="#f2c6a0"/></g>
+<g id="${p}_head"><circle cx="100" cy="80" r="42" fill="#f2c6a0"/>
+<path d="M56 66 Q58 26 100 26 Q142 26 144 66 L162 72 Q100 54 38 72 Z" fill="${hat}"/>
+<rect x="64" y="74" width="32" height="19" rx="9" fill="#111"/><rect x="104" y="74" width="32" height="19" rx="9" fill="#111"/><rect x="94" y="78" width="12" height="4" fill="#111"/>
+<rect x="70" y="77" width="8" height="4" rx="2" fill="rgba(255,255,255,.5)"/><rect x="110" y="77" width="8" height="4" rx="2" fill="rgba(255,255,255,.5)"/>
+<path id="${p}_mouth" d="M88 104 Q100 112 112 104" fill="none" stroke="#7a3a2a" stroke-width="4" stroke-linecap="round"/></g>
+</g></svg>`;
+function pose(p,o){const R=(id,a,x,y)=>$(p+'_'+id).setAttribute('transform',`rotate(${a||0} ${x} ${y})`);
+ R('armL',o.aL,50,135);R('armR',o.aR,150,135);R('legL',o.lL,88,210);R('legR',o.lR,112,210);R('head',o.hd,100,110);
+ $(p+'_all').setAttribute('transform',`translate(0 ${o.bob||0})`);
+ $(p+'_mouth').setAttribute('d',o.open?'M86 102 Q100 122 114 102 Z':'M88 104 Q100 112 112 104');$(p+'_mouth').setAttribute('fill',o.open?'#7a2a2a':'none');}
+function place(p,x,y,s,flip,rot){const e=$('ch_'+p);e.style.left=(x-100)+'px';e.style.top=(y-290)+'px';e.style.transform=`scale(${s*(flip?-1:1)},${s}) rotate(${rot||0}deg)`;}
+const run=(t,f)=>{const q=Math.sin(t*f);return {lL:q*38,lR:-q*38,aL:-q*45,aR:-q*45,bob:-Math.abs(Math.cos(t*f))*8}};
+const walk=(t,f)=>{const q=Math.sin(t*f);return {lL:q*22,lR:-q*22,aL:-q*20,aR:-q*20,bob:-Math.abs(Math.cos(t*f))*4}};
+
+document.querySelectorAll('.ch').forEach(e=>{const p=e.dataset.p;e.id='ch_'+p;e.innerHTML=CH(p,'#64d2ff','#ff8ac4','#ff2d78');});
+place('a',470,1180,3.3,false);pose('a',{aL:8,aR:166,hd:-8,open:1});$('ph4').style.left='560px';$('ph4').style.top='300px';
+place('b',540,560+210*7,7,false);pose('b',{});
+$('ch_c').style.left=(380-100)+'px';$('ch_c').style.top=(1020-290)+'px';$('ch_c').style.transform='scale(3.4)';pose('c',{aL:8,aR:-150,open:1,hd:-6});
+place('d',540,1040,3.2,false);pose('d',{aL:150,aR:-150,open:1,lL:-12,lR:12,hd:-6});
+let n='';for(let i=0;i<30;i++)n+=`<div style="position:absolute;left:${rnd(i)*1040}px;top:${rnd(i+5)*1040}px;font-size:${40+rnd(i+2)*60}px;color:rgba(255,255,255,${.25+rnd(i+9)*.4});transform:rotate(${(rnd(i)-.5)*60}deg);font-weight:900">${['♪','♫','♬'][i%3]}</div>`;$('nt7').innerHTML=n;
+</script></body></html>
