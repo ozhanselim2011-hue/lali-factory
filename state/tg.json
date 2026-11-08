@@ -3,9 +3,10 @@
  "pending": [],
  "jobs": {
   "20261108_3": {
-   "status": "new",
+   "status": "sent",
    "title": "7684878511915420936",
-   "duration": 60.0
+   "duration": 60.0,
+   "msg_id": 5
   }
  },
  "notes": []
