@@ -15,7 +15,9 @@
 
 - `factory/tg.py` — бот: `pull` (новые звуки/идеи/отзывы), `fetch` (скачать звуки в `jobs/<id>/in.mp4`),
   `jobs`, `text`, `video`, `status`, `clear-notes`.
-- `factory/tiktok.py` — TikTok через tikwm.com: `trends BY` (тренды), `get <ссылка>` (звук → задание).
+- `factory/tiktok.py` — TikTok через tikwm.com: `chart RU` (самые известные: чарт Shazam → звук в TikTok + хештеги),
+  `trends BY` (самые новые: быстрее всего растущие за 1–3 дня), `get <ссылка>` (звук → задание).
+- `jobs/<id>/hashtags.txt` — хештеги под видео; `tg.py video … <id>` присылает их владельцу отдельным сообщением.
   Ссылки на TikTok, присланные боту (владельцем или гостем), скачиваются автоматически в `tg.py fetch`.
 - `factory/shazam.py` — название трека. `factory/transcribe.py` — текст с таймкодами слов (Whisper large-v3).
 - `factory/gen.py` — шаблон сцены (spec.py → scene.html). `factory/build.py` — + Лали, плашка трека, VPN.

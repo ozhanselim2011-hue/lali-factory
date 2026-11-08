@@ -155,6 +155,17 @@ def who(p):
     return (f"@{f['username']}" if f.get("username") else f"id{f['id']}") + (f" ({f['name']})" if f.get("name") else "")
 
 
+def send_hashtags(jid):
+    """Хештеги из jobs/<id>/hashtags.txt — отдельным сообщением, копируются одним нажатием."""
+    import html
+    f = ROOT / "jobs" / jid / "hashtags.txt"
+    if not f.exists():
+        print("WARN: нет hashtags.txt для", jid); return
+    tags = " ".join(f.read_text().split())
+    call("sendMessage", chat_id=OWNER, parse_mode="HTML",
+         text=f"#️⃣ Хештеги под видео (нажми, чтобы скопировать):\n<code>{html.escape(tags)}</code>")
+
+
 def send_source(jid):
     """Отправить владельцу исходный звук задания (по file_id) с подписью автора."""
     meta = json.loads((ROOT / "jobs" / jid / "meta.json").read_text())
@@ -243,6 +254,7 @@ def main():
                 send_source(a[2])  # следом — исходный звук
             except Exception as e:
                 print("source not sent:", e)
+            send_hashtags(a[2])
         print("ok" if r.get("ok") else r)
     elif cmd == "status":
         s = load()
