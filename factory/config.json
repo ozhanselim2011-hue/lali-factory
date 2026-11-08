@@ -1,1 +1,5 @@
-{"owner_chat_id": 5729962571, "owner_username": "selyamchik"}
+{
+ "owner_chat_id": 5729962571,
+ "owner_username": "selyamchik",
+ "guest_daily_limit": 5
+}
