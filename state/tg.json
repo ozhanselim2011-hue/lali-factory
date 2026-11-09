@@ -1,5 +1,5 @@
 {
- "offset": 980255794,
+ "offset": 980255795,
  "pending": [],
  "jobs": {
   "20261108_3": {
@@ -119,6 +119,20 @@
    "duration": 60.0,
    "by": "TikTok-тренд",
    "msg_id": 67
+  },
+  "20261109_70": {
+   "status": "sent",
+   "title": "7696413228758289678",
+   "duration": 17.16,
+   "by": "ты",
+   "msg_id": 72
+  },
+  "20261109_tt7703111487400824084": {
+   "status": "sent",
+   "title": "SLAVA MARLOW — Ты горишь как огонь 2",
+   "duration": 55.66,
+   "by": "TikTok-тренд",
+   "msg_id": 75
   }
  },
  "notes": [],
