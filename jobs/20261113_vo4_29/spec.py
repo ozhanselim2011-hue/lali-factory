@@ -25,3 +25,7 @@ RENDER='''
  $('lv').textContent=t<3.5?1:(t<7.75?2:(t<11?3:4));$('xp').textContent=Math.round(t*68);$('hp').textContent=t>=10.5&&t<11?'❤❤❤🖤':'❤❤❤❤';
  $('lc').style.opacity=seg(t,13.75,13.9);$('lc').style.transform=`scale(${1+.3*pop(t,13.75,6)})`;
 '''
+
+CSS=CSS+EMO_CSS
+BUILD=BUILD+EMO_BUILD
+RENDER=RENDER+EMO_RENDER

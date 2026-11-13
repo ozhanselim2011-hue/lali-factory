@@ -21,3 +21,7 @@ RENDER='''
  $('mc').style.opacity=t>=7.75&&t<11?1:0;$('mc').style.left=lerp(30,200,seg(t,7.75,9.5))+'px';
  if(t>=10.5&&t<11)$('mc').style.left=lerp(200,-200,seg(t,10.5,11))+'px';
 '''
+
+CSS=CSS+EMO_CSS
+BUILD=BUILD+EMO_BUILD
+RENDER=RENDER+EMO_RENDER

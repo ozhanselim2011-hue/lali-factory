@@ -426,66 +426,66 @@
    "msg_id": 138
   },
   "20261113_vo4_15": {
-   "msg_id": 147,
+   "msg_id": 180,
    "status": "sent"
   },
   "20261113_vo4_03": {
-   "msg_id": 149,
+   "msg_id": 182,
    "status": "sent"
   },
   "20261113_vo4_09": {
-   "msg_id": 151,
+   "msg_id": 184,
    "status": "sent"
   },
   "20261113_vo4_13": {
-   "msg_id": 153,
+   "msg_id": 186,
    "status": "sent"
   },
   "20261113_vo4_29": {
-   "msg_id": 155,
+   "msg_id": 188,
    "status": "sent"
   },
   "20261113_vo4_04": {
-   "msg_id": 157,
+   "msg_id": 190,
    "status": "sent"
   },
   "20261113_vo4_05": {
-   "msg_id": 159,
+   "msg_id": 192,
    "status": "sent"
   },
   "20261113_vo4_06": {
-   "msg_id": 161,
+   "msg_id": 194,
    "status": "sent"
   },
   "20261113_vo4_07": {
-   "msg_id": 163,
+   "msg_id": 196,
    "status": "sent"
   },
   "20261113_vo4_08": {
-   "msg_id": 165,
-   "status": "fix",
+   "msg_id": 178,
+   "status": "sent",
    "feedback": [
     "переделывай все, надо сделать более эмоциональные такие"
    ]
   },
   "20261113_vo4_10": {
-   "msg_id": 168,
+   "msg_id": 198,
    "status": "sent"
   },
   "20261113_vo4_11": {
-   "msg_id": 170,
+   "msg_id": 200,
    "status": "sent"
   },
   "20261113_vo4_12": {
-   "msg_id": 172,
+   "msg_id": 202,
    "status": "sent"
   },
   "20261113_vo4_14": {
-   "msg_id": 174,
+   "msg_id": 204,
    "status": "sent"
   },
   "20261113_vo4_16": {
-   "msg_id": 176,
+   "msg_id": 206,
    "status": "sent"
   }
  },

@@ -12,3 +12,7 @@ RENDER='''
   if(w=='C4')h+=`<div style="position:absolute;inset:0;background:radial-gradient(circle,#fff,#ff9f0a 30%,transparent 70%);opacity:${1-seg(t,7.0,7.5)}"></div>`;}
  $('ty').innerHTML=h;$('c1').style.background=i>=0&&W[i][0]=='C4'?'#2a0a00':'#000';
 '''
+
+CSS=CSS+EMO_CSS
+BUILD=BUILD+EMO_BUILD
+RENDER=RENDER+EMO_RENDER

@@ -34,3 +34,7 @@ RENDER='''
   $('rv').innerHTML=R.filter(r=>t>=r[0]).map(r=>`<div style="background:#f6f4f9;border-radius:18px;padding:14px;opacity:${seg(t,r[0],r[0]+.15)}"><div style="font-size:20px;font-weight:900">${r[0]>=12?'👩':'👤'} ${r[1]} <span style="color:#f5a623">${r[2]}</span></div><div style="font-size:23px;font-weight:600;margin-top:4px">${r[3]}</div></div>`).join('');}
  {const n=t>=13.75?4:0;$('st4').innerHTML='<span style="color:#f5a623">'+'★'.repeat(n)+'</span><span style="color:#ddd">'+'★'.repeat(5-n)+'</span>';$('st4').style.transform=`scale(${1+.2*pop(t,13.75,6)})`;$('cm4').style.opacity=seg(t,13.75,13.9);}
 '''
+
+CSS=CSS+EMO_CSS
+BUILD=BUILD+EMO_BUILD
+RENDER=RENDER+EMO_RENDER

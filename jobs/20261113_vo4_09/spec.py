@@ -17,3 +17,7 @@ RENDER='''
  let c=H[0];for(const h of H)if(t>=h[0])c=h;$('pic').textContent=c[1];$('hl').textContent=c[2];$('pic').style.transform=`scale(${1+.12*pop(t,c[0],6)})`;
  $('tk').style.transform=`translateX(${-((t*120)%900)}px)`;$('cl').textContent='LIVE 00:'+String(Math.floor(t)).padStart(2,'0');
 '''
+
+CSS=CSS+EMO_CSS
+BUILD=BUILD+EMO_BUILD
+RENDER=RENDER+EMO_RENDER

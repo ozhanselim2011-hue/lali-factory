@@ -17,3 +17,7 @@ RENDER='''
  for(let i=0;i<6;i++){const q=Q[i][0];const s=ST[i];const e=s+DT[i];const k=seg(t,s,e);$('q'+(i+1)).textContent=q.slice(0,Math.round(q.length*k));$('cu'+(i+1)).style.opacity=Math.sin(t*12)>0?1:0;
   $('sg'+(i+1)).innerHTML=k>=1?Q[i][1].map((x,j)=>`<div style="opacity:${seg(t,e+j*.12,e+.08+j*.12)}">🔍 <b>${x}</b></div>`).join(''):'';}
 '''
+
+CSS=CSS+EMO_CSS
+BUILD=BUILD+EMO_BUILD
+RENDER=RENDER+EMO_RENDER

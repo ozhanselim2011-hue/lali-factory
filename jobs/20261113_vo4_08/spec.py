@@ -16,3 +16,7 @@ RENDER='''
  $('al').textContent=c[4];$('al').style.opacity=c[4]?1:0;
  $('c1').style.background=t>=11&&t<13.25?'linear-gradient(180deg,#ffb347,#ff7e5f)':(t>=7&&t<11?'linear-gradient(180deg,#3a3a4a,#111)':'linear-gradient(180deg,#4a90d9,#1d4a8a)');
 '''
+
+CSS=CSS+EMO_CSS
+BUILD=BUILD+EMO_BUILD
+RENDER=RENDER+EMO_RENDER

@@ -16,3 +16,7 @@ RENDER='''
  let c='';for(const s of S)if(t>=s[0])c=s[1];$('st').textContent=c;
  $('pot').textContent=t>=7&&t<7.75?'💥':(t>=4.5&&t<7?'🌀':(t>=11?'😋':'🍲'));$('pot').style.transform=`rotate(${t>=4.5&&t<7?t*600:0}deg) scale(${1+.3*pop(t,7,6)})`;
 '''
+
+CSS=CSS+EMO_CSS
+BUILD=BUILD+EMO_BUILD
+RENDER=RENDER+EMO_RENDER

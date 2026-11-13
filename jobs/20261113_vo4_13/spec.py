@@ -16,3 +16,7 @@ RENDER='''
  for(let i=0;i<6;i++){const on=t>=T[i];const e=$('s'+i);const flip=t>=T[i]&&t<T[i]+.35;e.textContent=flip?'▓▓▓▓▓▓':(on?S[i][0]:'ПО ПЛАНУ');e.style.color=on?S[i][1]:'#8e8e93';
   const cur=on&&(i==5||t<T[i+1]);$('r'+i).style.background=cur?'rgba(255,214,10,.15)':'transparent';}
 '''
+
+CSS=CSS+EMO_CSS
+BUILD=BUILD+EMO_BUILD
+RENDER=RENDER+EMO_RENDER

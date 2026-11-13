@@ -18,3 +18,7 @@ RENDER='''
  $('ball').style.left=bx+'px';$('ball').style.top=by+'px';$('pl').style.left=(t<2.2?lerp(60,340,seg(t,0.9,2.0)):150)+'px';
  const B=t>=7&&t<7.75?'ГОООЛ!':t>=10.25&&t<11?'ВАР 🖥':t>=12.25&&t<13.2?'😌':t>=13.75?'4':'';$('big').textContent=B;$('big').style.opacity=B?1:0;$('big').style.transform=`scale(${1+.3*pop(t,t>=13.75?13.75:t>=12.25?12.25:t>=10.25?10.25:7,6)})`;
 '''
+
+CSS=CSS+EMO_CSS
+BUILD=BUILD+EMO_BUILD
+RENDER=RENDER+EMO_RENDER

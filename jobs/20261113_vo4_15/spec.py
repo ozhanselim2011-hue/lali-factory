@@ -45,3 +45,7 @@ RENDER='''
   $('mo5').textContent=t<12.25?'норм':'ХОРОШО 😌';$('mo5').style.transform=`scale(${1+.3*pop(t,12.25,6)})`;}
  {$('gr6').style.opacity=seg(t,13.75,13.85);$('gr6').style.transform=`rotate(-12deg) scale(${1+.6*pop(t,13.75,8)})`;}
 '''
+
+CSS=CSS+EMO_CSS
+BUILD=BUILD+EMO_BUILD
+RENDER=RENDER+EMO_RENDER

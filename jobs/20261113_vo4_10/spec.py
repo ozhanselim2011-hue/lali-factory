@@ -18,3 +18,7 @@ RENDER='''
  $('rv').style.left=(t<7.75?-200:t<10.5?lerp(-200,40,seg(t,7.75,8.6)):lerp(40,-250,seg(t,10.5,11)))+'px';$('rv').style.transform=`rotate(${Math.sin(t*12)*8}deg)`;
  $('c1').style.filter=t>=6.9&&t<7.3?'brightness(2.5)':'none';
 '''
+
+CSS=CSS+EMO_CSS
+BUILD=BUILD+EMO_BUILD
+RENDER=RENDER+EMO_RENDER

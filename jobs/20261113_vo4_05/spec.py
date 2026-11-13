@@ -17,3 +17,7 @@ RENDER='''
  $('ch').innerHTML=v.map((x,i)=>`<rect x="${i*92+10}" y="${180-x*9*eo(seg(t,R[i][0],R[i][0]+.4))}" width="70" height="${x*9*eo(seg(t,R[i][0],R[i][0]+.4))}" fill="${R[i][3]}"/>`).join('')+'<line x1="0" y1="180" x2="560" y2="180" stroke="#999"/>';
  $('fx').textContent=t<4.5?'=СЧЁТ(во_мне)':t<7.75?'=ВЗРЫВ(C4)':t<11?'=ПОИСКПОЗ("мои строчки";МС)':t<13.25?'=ХОРОШО()':'=ОЦЕНКА()';
 '''
+
+CSS=CSS+EMO_CSS
+BUILD=BUILD+EMO_BUILD
+RENDER=RENDER+EMO_RENDER

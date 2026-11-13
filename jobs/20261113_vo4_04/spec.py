@@ -11,3 +11,7 @@ RENDER='''
  const vis=M.filter(m=>t>=m[0]).slice(-5);
  $('ms').innerHTML=vis.map(m=>`<div style="display:flex;gap:12px;transform:translateY(${(1-eb(seg(t,m[0],m[0]+.25)))*30}px);opacity:${seg(t,m[0],m[0]+.15)}"><div style="width:52px;height:52px;border-radius:10px;background:#2c2d30;display:flex;align-items:center;justify-content:center;font-size:30px;flex:none">${m[1]}</div><div><div style="font-size:19px;font-weight:900;color:${m[2]=='Я'?'#36c5f0':'#fff'}">${m[2]} <span style="font-weight:600;color:#888;font-size:15px">10:4${Math.floor(m[0])%10}</span></div><div style="font-size:24px;font-weight:600;line-height:1.25">${m[3]}</div></div></div>`).join('');
 '''
+
+CSS=CSS+EMO_CSS
+BUILD=BUILD+EMO_BUILD
+RENDER=RENDER+EMO_RENDER

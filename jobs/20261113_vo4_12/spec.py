@@ -12,3 +12,7 @@ RENDER='''
  const S=[[0,1,()=>[1,2,3,4].filter((x,i)=>t>=[0.9,1.25,1.6,2.0][i]).map(box).join(''),'4× детали'],[2.75,2,()=>'<div style="font-size:150px">🧍</div><div style="font-size:60px">+ 4×</div>','вставить все 4 внутрь'],[4.5,3,()=>`<div style="font-size:130px;transform:rotate(${t*400}deg)">🔧</div>`,'закрутить (ключ в зубах)'],[7.0,4,()=>'<div style="font-size:180px">💥</div>','⚠️ не перекручивать'],[7.75,5,()=>'<div style="font-size:120px">🧍</div><div style="font-size:60px">≠</div><div style="font-size:120px">🕵️</div>','строчки — только ваши'],[10.0,6,()=>'<div style="font-size:150px">🚫</div>','✕ не тырить'],[11.0,7,()=>'<div style="font-size:150px">😌</div>','готово. хорошо.'],[13.25,8,()=>'<div style="font-size:180px;font-weight:900">4</div>','собрано на 4/5']];
  let c=S[0];for(const s of S)if(t>=s[0])c=s;$('sn').textContent=c[1];$('pic').innerHTML=c[2]();$('cp').textContent=c[3];$('pic').style.transform=`scale(${1+.1*pop(t,c[0],6)})`;
 '''
+
+CSS=CSS+EMO_CSS
+BUILD=BUILD+EMO_BUILD
+RENDER=RENDER+EMO_RENDER
