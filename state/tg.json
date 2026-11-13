@@ -1,5 +1,5 @@
 {
- "offset": 980255797,
+ "offset": 980255798,
  "pending": [
   {
    "file_id": "CQACAgIAAxkBAAOQavbMzgEKqZo3AAHUjzF8Saj5g_wRAALTrgAC23PoShes6u8dUZF3PQQ",
@@ -463,6 +463,29 @@
   },
   "20261113_vo4_08": {
    "msg_id": 165,
+   "status": "fix",
+   "feedback": [
+    "переделывай все, надо сделать более эмоциональные такие"
+   ]
+  },
+  "20261113_vo4_10": {
+   "msg_id": 168,
+   "status": "sent"
+  },
+  "20261113_vo4_11": {
+   "msg_id": 170,
+   "status": "sent"
+  },
+  "20261113_vo4_12": {
+   "msg_id": 172,
+   "status": "sent"
+  },
+  "20261113_vo4_14": {
+   "msg_id": 174,
+   "status": "sent"
+  },
+  "20261113_vo4_16": {
+   "msg_id": 176,
    "status": "sent"
   }
  },
