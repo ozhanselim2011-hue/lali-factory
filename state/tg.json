@@ -570,6 +570,38 @@
   "20261113_vo4n_05": {
    "msg_id": 248,
    "status": "sent"
+  },
+  "20261113_rx_01_dance": {
+   "msg_id": 250,
+   "status": "sent"
+  },
+  "20261113_rx_02_kar": {
+   "msg_id": 252,
+   "status": "sent"
+  },
+  "20261113_rx_03_concert": {
+   "msg_id": 254,
+   "status": "sent"
+  },
+  "20261113_rx_04_neon": {
+   "msg_id": 256,
+   "status": "sent"
+  },
+  "20261113_rx_05_cut": {
+   "msg_id": 258,
+   "status": "sent"
+  },
+  "20261113_rx_06_vhs": {
+   "msg_id": 260,
+   "status": "sent"
+  },
+  "20261113_rx_07_dance": {
+   "msg_id": 262,
+   "status": "sent"
+  },
+  "20261113_rx_08_neon": {
+   "msg_id": 264,
+   "status": "sent"
   }
  },
  "notes": [],
