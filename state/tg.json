@@ -1,5 +1,5 @@
 {
- "offset": 980255798,
+ "offset": 980255800,
  "pending": [
   {
    "file_id": "CQACAgIAAxkBAAOQavbMzgEKqZo3AAHUjzF8Saj5g_wRAALTrgAC23PoShes6u8dUZF3PQQ",
@@ -506,10 +506,38 @@
   },
   "20261113_vo4_19": {
    "msg_id": 216,
+   "status": "fix",
+   "feedback": [
+    "во первых убери эти эмодзи справа, во вторых прям полностью надо формат поменять"
+   ]
+  },
+  "20261113_vo4_20": {
+   "msg_id": 220,
+   "status": "sent"
+  },
+  "20261113_vo4_21": {
+   "msg_id": 222,
+   "status": "sent"
+  },
+  "20261113_vo4_22": {
+   "msg_id": 224,
+   "status": "sent"
+  },
+  "20261113_vo4_23": {
+   "msg_id": 226,
+   "status": "sent"
+  },
+  "20261113_vo4_24": {
+   "msg_id": 228,
    "status": "sent"
   }
  },
- "notes": [],
+ "notes": [
+  {
+   "date": 1794560707,
+   "text": "и выбери какие то 10 самых лучших и скинь мне"
+  }
+ ],
  "guest_quota": {
   "day": "20261113"
  }
