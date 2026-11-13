@@ -530,14 +530,49 @@
   "20261113_vo4_24": {
    "msg_id": 228,
    "status": "sent"
+  },
+  "20261113_vo4n_02": {
+   "msg_id": 230,
+   "status": "sent"
+  },
+  "20261113_vo4n_04": {
+   "msg_id": 232,
+   "status": "sent"
+  },
+  "20261113_vo4n_07": {
+   "msg_id": 234,
+   "status": "sent"
+  },
+  "20261113_vo4n_01": {
+   "msg_id": 236,
+   "status": "sent"
+  },
+  "20261113_vo4n_06": {
+   "msg_id": 238,
+   "status": "sent"
+  },
+  "20261113_vo4n_08": {
+   "msg_id": 240,
+   "status": "sent"
+  },
+  "20261113_vo4n_09": {
+   "msg_id": 242,
+   "status": "sent"
+  },
+  "20261113_vo4n_03": {
+   "msg_id": 244,
+   "status": "sent"
+  },
+  "20261113_vo4n_10": {
+   "msg_id": 246,
+   "status": "sent"
+  },
+  "20261113_vo4n_05": {
+   "msg_id": 248,
+   "status": "sent"
   }
  },
- "notes": [
-  {
-   "date": 1794560707,
-   "text": "и выбери какие то 10 самых лучших и скинь мне"
-  }
- ],
+ "notes": [],
  "guest_quota": {
   "day": "20261113"
  }
