@@ -1,6 +1,23 @@
 {
- "offset": 980255795,
- "pending": [],
+ "offset": 980255797,
+ "pending": [
+  {
+   "file_id": "CQACAgIAAxkBAAOQavbMzgEKqZo3AAHUjzF8Saj5g_wRAALTrgAC23PoShes6u8dUZF3PQQ",
+   "kind": "audio",
+   "title": "7677863519739530528",
+   "caption": "​​📥 @ttdlvbot",
+   "msg_id": 144,
+   "date": 1794559182
+  },
+  {
+   "file_id": "CQACAgIAAxkBAAORavbMzgrOSWi1sZoqP6brEdNRcHMAArikAALY7bhLJwHkz1hmfUI9BA",
+   "kind": "audio",
+   "title": "7663159581404712212",
+   "caption": "​​📥 @ttdlvbot",
+   "msg_id": 145,
+   "date": 1794559182
+  }
+ ],
  "jobs": {
   "20261108_3": {
    "status": "sent",
@@ -407,6 +424,26 @@
    "duration": 19.2,
    "by": "TikTok-тренд",
    "msg_id": 138
+  },
+  "20261113_vo4_15": {
+   "msg_id": 147,
+   "status": "sent"
+  },
+  "20261113_vo4_03": {
+   "msg_id": 149,
+   "status": "sent"
+  },
+  "20261113_vo4_09": {
+   "msg_id": 151,
+   "status": "sent"
+  },
+  "20261113_vo4_13": {
+   "msg_id": 153,
+   "status": "sent"
+  },
+  "20261113_vo4_29": {
+   "msg_id": 155,
+   "status": "sent"
   }
  },
  "notes": [],
