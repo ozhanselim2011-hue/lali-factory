@@ -1,23 +1,6 @@
 {
  "offset": 980255800,
- "pending": [
-  {
-   "file_id": "CQACAgIAAxkBAAOQavbMzgEKqZo3AAHUjzF8Saj5g_wRAALTrgAC23PoShes6u8dUZF3PQQ",
-   "kind": "audio",
-   "title": "7677863519739530528",
-   "caption": "​​📥 @ttdlvbot",
-   "msg_id": 144,
-   "date": 1794559182
-  },
-  {
-   "file_id": "CQACAgIAAxkBAAORavbMzgrOSWi1sZoqP6brEdNRcHMAArikAALY7bhLJwHkz1hmfUI9BA",
-   "kind": "audio",
-   "title": "7663159581404712212",
-   "caption": "​​📥 @ttdlvbot",
-   "msg_id": 145,
-   "date": 1794559182
-  }
- ],
+ "pending": [],
  "jobs": {
   "20261108_3": {
    "status": "sent",
@@ -214,7 +197,7 @@
    "title": "Ai.RTIK & Ai.STI — Лампочки Speed Down",
    "duration": 210.26,
    "by": "TikTok-тренд",
-   "msg_id": 90
+   "msg_id": 280
   },
   "20261110_tt7641619181879725333": {
    "status": "sent",
@@ -339,7 +322,7 @@
    "title": "NILETTO — original sound - niletto",
    "duration": 58.96,
    "by": "TikTok-тренд",
-   "msg_id": 123
+   "msg_id": 283
   },
   "20261112_tt7706823986121952530": {
    "status": "skipped",
@@ -506,7 +489,7 @@
   },
   "20261113_vo4_19": {
    "msg_id": 216,
-   "status": "fix",
+   "status": "done",
    "feedback": [
     "во первых убери эти эмодзи справа, во вторых прям полностью надо формат поменять"
    ]
@@ -626,6 +609,19 @@
   "20261114_aa_06_vhs": {
    "msg_id": 276,
    "status": "sent"
+  },
+  "20261113_144": {
+   "status": "waiting_text",
+   "title": "7677863519739530528",
+   "duration": 30.0,
+   "by": "ты"
+  },
+  "20261113_145": {
+   "status": "sent",
+   "title": "7663159581404712212",
+   "duration": 15.17,
+   "by": "ты",
+   "msg_id": 278
   }
  },
  "notes": [],
