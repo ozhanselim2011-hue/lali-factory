@@ -10,7 +10,7 @@ LINES=[
  [["улыбнусь,",3.8],["как",4.26],["Энди",4.6],["Уорхол",4.9]],
  [["с",5.8],["фотоаппаратом",5.96]],
  [["ты",7.56],["выглядишь",7.96],["пиз*ато",8.76]],
- [["на",9.5],["больших",10.1],["показах",10.7]],
+ [["на",9.5],["больших",10.1],["плакатах",10.7]],
  [["Prada,",11.44],["Prada,",12.24],["Prada,",12.86]],
  [["Дьявол",13.38],["носит",14.2],["Prada",14.78]],
  [["хочу",15.24],["быть",15.92],["твоим",16.06],["фанатом",16.54]],
@@ -53,10 +53,9 @@ HTML='''
  <div id="sc4" style="position:absolute;left:30px;top:110px;font-size:100px;font-weight:900;color:#30d158">0/10</div>
  <div id="sb4" style="position:absolute;left:30px;top:240px;width:260px;font-size:24px;font-weight:800;color:#aeaeb2;line-height:1.5">кепка ✓<br>очки ✓<br>цепь ✓<br>вайб ✓</div>
 </div>
-<div class="card" id="c5" style="background:#0a0a0a">
- <div style="position:absolute;left:200px;top:0;width:200px;height:690px;background:linear-gradient(90deg,#222,#3a3a3c 50%,#222);transform:perspective(500px) rotateX(40deg);transform-origin:50% 100%"></div>
- <div id="fl5" style="position:absolute;inset:0"></div>
- <div class="hdr" style="color:#fff">FASHION WEEK · ПОКАЗ</div>
+<div class="card" id="c5" style="background:linear-gradient(180deg,#1a2a4a,#0a0e18 70%,#2a2a2e 70%)">
+ <div class="hdr" style="color:#fff">Москва · Садовое кольцо</div>
+ <div id="bb5" style="position:absolute;inset:0"></div>
  <div class="ch" data-p="e"></div>
 </div>
 <div class="card" id="c6" style="background:#f2f2f2;color:#111">
@@ -89,7 +88,8 @@ RENDER='''
  {place('c',300,640,1.4,false);pose('c',t>=6.12?{aL:90,aR:-90,open:1}:{aL:8,aR:-8});$('fl3').style.opacity=pop(t,6.12,9);$('pl3').style.opacity=seg(t,6.4,6.5);$('pl3').style.transform=`rotate(-6deg) translateY(${(1-eb(seg(t,6.4,6.7)))*300}px)`;
   place('c2',116,290,.8,false);pose('c2',{aL:90,aR:-90,open:1});}
  {place('d',445,600,1.2,true);pose('d',t>=8.84?{aL:150,aR:-150,open:1}:{aL:8,aR:-60,hd:-8});const v=t<8.84?Math.round(10*seg(t,7.68,8.6)):10;$('sc4').textContent=(t>=8.84?'11':v)+'/10';$('sc4').style.transform=`scale(${1+.3*pop(t,8.84,7)})`;}
- {const k=seg(t,9.6,11.4);place('e',300,lerp(450,700,k),lerp(.7,1.25,k),false);pose('e',walk(t,7));let f='';for(let i=0;i<10;i++){const s=9.6+i*.17;if(t>=s&&t<s+.12)f+=`<div style="position:absolute;left:${rnd(i)>.5?20+rnd(i+1)*120:440+rnd(i+2)*120}px;top:${200+rnd(i+3)*400}px;width:70px;height:70px;border-radius:50%;background:radial-gradient(circle,#fff,rgba(255,255,255,0) 70%)"></div>`}$('fl5').innerHTML=f;}
+ {const B=[[9.5,40,80,330,240],[10.1,250,300,320,190],[10.7,60,330,190,150]];let h='';B.forEach(([s,x,y,w,hh],i)=>{if(t>=s){const k=eb(seg(t,s,s+.3));h+=`<div style="position:absolute;left:${x}px;top:${y}px;width:${w}px;height:${hh}px;transform:scale(${k});background:linear-gradient(135deg,#ff8ac4,#5e2cff);border:8px solid #111;box-shadow:0 0 40px rgba(255,138,196,.5);overflow:hidden"><div style="position:absolute;right:10px;bottom:6px;width:45%;text-align:right;font:900 ${hh/7}px Inter;color:#fff;line-height:1">ЛАЛИ<br>PRADA</div><div style="position:absolute;left:${w*.05}px;top:${hh*.12}px;width:${hh*.7}px;height:${hh*.7}px;border-radius:50%;background:#f2c6a0;display:flex;align-items:center;justify-content:center"><div style="width:70%;height:22%;background:#111;border-radius:10px"></div></div></div><div style="position:absolute;left:${x+w/2-6}px;top:${y+hh}px;width:12px;height:${Math.max(0,500-y-hh)}px;background:#333;transform:scaleY(${k});transform-origin:top"></div>`}});$('bb5').innerHTML=h;
+  place('e',300,690,.9,false);pose('e',t>=10.7?{aL:150,aR:-150,open:1}:{aL:8,aR:-8,hd:-12});}
  {const T=[11.62,12.32,12.94];$('bg6').innerHTML=T.filter(s=>t>=s).map((s,i)=>`<div style="width:160px;height:200px;background:#111;border-radius:12px;color:#fff;font:900 30px Inter;display:flex;align-items:center;justify-content:center;transform:translateY(${(1-eb(seg(t,s,s+.25)))*-200}px) rotate(${(i-1)*6}deg)">PRADA</div>`).join('');
   const n=T.filter(s=>t>=s).length;$('tt6').textContent='итого: '+fmt(n*389000)+' ₽';place('f',470,690,.8,true);pose('f',n?{aL:150,aR:-150,open:1}:{aL:8,aR:-8});}
  {place('g',300,640,1.45,false);pose('g',{aL:8,aR:t>=14.84?-90:-8,hd:t>=14.34?-8:0});const hx=300-100*1.45+60,hy=640-290*1.45+30;$('hn7').style.left=(300-62)+'px';$('hn7').style.top=(640-290*1.45+28)+'px';$('hn7').style.opacity=seg(t,14.34,14.45);$('bg7').style.opacity=seg(t,14.84,14.95);
