@@ -253,10 +253,11 @@
    "msg_id": 105
   },
   "20261111_tt7685392924061797665": {
-   "status": "skipped",
+   "status": "sent",
    "title": "Kai Angel — andy warhol",
    "duration": 60.0,
-   "by": "TikTok-тренд"
+   "by": "TikTok-тренд",
+   "msg_id": 293
   },
   "20261111_tt7685820126515465493": {
    "status": "skipped",
@@ -345,10 +346,11 @@
    "msg_id": 126
   },
   "20261112_tt7643496242693147912": {
-   "status": "skipped",
+   "status": "sent",
    "title": "MIA BOYKA — ЭКСПОНАТ",
    "duration": 13.68,
-   "by": "TikTok-тренд"
+   "by": "TikTok-тренд",
+   "msg_id": 296
   },
   "20261112_tt7672177960933133575": {
    "status": "sent",
