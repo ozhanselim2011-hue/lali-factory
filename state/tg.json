@@ -1,5 +1,5 @@
 {
- "offset": 980255800,
+ "offset": 980255801,
  "pending": [],
  "jobs": {
   "20261108_3": {
@@ -644,6 +644,13 @@
    "duration": 60.0,
    "by": "TikTok",
    "msg_id": 287
+  },
+  "20261115_302": {
+   "status": "sent",
+   "title": "v26044gc0000dajvvlnog65sm39jkh40.mp4",
+   "duration": 30.56,
+   "by": "ты",
+   "msg_id": 304
   }
  },
  "notes": [],
