@@ -16,7 +16,7 @@ document.head.appendChild(css);
 const song=window.SONG||'';
 if(song){const [a,t]=song.split(' — ');const np=document.createElement('div');np.id='np';
  np.innerHTML=`<div class="a" id="npa">♫</div><div class="eq">${[0,1,2,3,4].map(i=>`<i id="nq${i}"></i>`).join('')}</div><div class="w" id="npw"><div class="s" id="nps">${t?`${a} <span>— ${t}</span>`:a}</div></div><div class="pr" id="npr"></div>`;st.appendChild(np);}
-const vp=document.createElement('div');vp.id='vp';vp.innerHTML=`<div class="i" id="vpi">🔒</div><div class="t">VPN в тг: <b id="vpb">@PluggerVpnBot</b> <span>· лучший впн в тг</span></div><div class="sh" id="vps"></div>`;st.appendChild(vp);
+const vp=document.createElement('div');vp.id='vp';vp.innerHTML=`<div class="i" id="vpi">🔒</div><div class="t">VPN в тг: <b id="vpb">@MosKingVpnBot</b> <span>· лучший впн в тг</span></div><div class="sh" id="vps"></div>`;st.appendChild(vp);
 const DUR=window.DUR||15;
 window.barsRender=function(t){
  if(song){for(let i=0;i<5;i++)Q('nq'+i).style.height=(5+Math.abs(Math.sin(t*(7+i*1.7)+i*1.3))*19)+'px';
